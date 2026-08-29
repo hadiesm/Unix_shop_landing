@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>محصولات | یونیکس شاپ</title>
+
+<meta name="description"
+      content="مشاهده محصولات دیجیتال یونیکس شاپ">
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet">
+
+<link rel="stylesheet"
+      href="css/style.css">
+
+<link rel="stylesheet"
+      href="css/products.css">
+
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     HEADER
+====================================================== -->
+
+<header class="site-header">
+
+<div class="header-container">
+
+
+    <a href="index.html"
+       class="site-logo">
+
+        <img src="images/logo.png"
+             alt="یونیکس شاپ">
+
+    </a>
+
+
+    <nav class="main-nav"
+         aria-label="منوی اصلی">
+
+        <a href="index.html"
+           class="nav-link">
+
+            خانه
+
+        </a>
+
+        <a href="products.html"
+           class="nav-link active">
+
+            محصولات
+
+        </a>
+
+        <a href="index.html#about"
+           class="nav-link">
+
+            درباره ما
+
+        </a>
+
+        <a href="index.html#contact"
+           class="nav-link">
+
+            تماس با ما
+
+        </a>
+
+    </nav>
+
+
+    <div class="header-actions">
+
+        <a href="index.html#contact"
+           class="header-contact">
+
+            تماس با ما
+
+            <span>
+                ←
+            </span>
+
+        </a>
+
+
+        <button
+            class="mobile-menu-button"
+            type="button"
+            aria-label="باز کردن منوی سایت"
+            aria-expanded="false">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </div>
+
+
+</div>
+
+</header>
+
+<!-- =====================================================
+     PRODUCTS PAGE
+====================================================== -->
+
+<main class="products-page">
+
+<!-- =================================================
+     PAGE HERO
+================================================== -->
+
+<section class="products-hero">
+
+    <div class="products-hero-glow"></div>
+
+    <div class="section-container">
+
+        <div class="products-hero-content">
+
+            <span class="section-eyebrow">
+                محصولات یونیکس شاپ
+            </span>
+
+            <h1>
+                محصولات
+                <span>
+                    دیجیتال
+                </span>
+            </h1>
+
+            <p>
+                مجموعه‌ای از محصولات دیجیتال،
+                لپ‌تاپ، تجهیزات جانبی و کالاهای کاربردی
+                را مشاهده و بررسی کنید.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================================
+     CATALOG
+================================================== -->
+
+<section class="catalog-section">
+
+    <div class="section-container">
+
+
+        <!-- Toolbar -->
+
+        <div class="catalog-toolbar">
+
+
+            <div class="catalog-result">
+
+                <strong id="productCount">
+                    ۰
+                </strong>
+
+                <span>
+                    محصول
+                </span>
+
+            </div>
+
+
+            <div class="catalog-controls">
+
+
+                <div class="search-box">
+
+                    <span class="search-icon">
+                        ⌕
+                    </span>
+
+                    <input
+                        id="productSearch"
+                        type="search"
+                        placeholder="جستجوی محصول..."
+                        autocomplete="off">
+
+                </div>
+
+
+                <select id="sortProducts"
+                        class="sort-select">
+
+                    <option value="default">
+                        مرتب‌سازی
+                    </option>
+
+                    <option value="price-low">
+                        ارزان‌ترین
+                    </option>
+
+                    <option value="price-high">
+                        گران‌ترین
+                    </option>
+
+                    <option value="name">
+                        نام محصول
+                    </option>
+
+                </select>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Catalog layout -->
+
+        <div class="catalog-layout">
+
+
+            <!-- Sidebar -->
+
+            <aside class="category-sidebar">
+
+
+                <div class="sidebar-header">
+
+                    <span>
+                        دسته‌بندی
+                    </span>
+
+                    <button id="clearCategory"
+                            type="button">
+
+                        پاک کردن
+
+                    </button>
+
+                </div>
+
+
+                <div id="categoryTree"
+                     class="category-tree">
+
+                    <div class="category-loading">
+
+                        در حال بارگذاری...
+
+                    </div>
+
+                </div>
+
+
+            </aside>
+
+
+
+            <!-- Products -->
+
+            <div class="products-area">
+
+
+                <div id="activeFilters"
+                     class="active-filters">
+
+                </div>
+
+
+                <div id="productsGrid"
+                     class="products-grid">
+
+                    <div class="products-loading">
+
+                        <div class="loading-spinner"></div>
+
+                        <span>
+                            در حال بارگذاری محصولات...
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div id="emptyProducts"
+                     class="empty-products"
+                     hidden>
+
+                    <div class="empty-icon">
+                        ×
+                    </div>
+
+                    <h3>
+                        محصولی پیدا نشد
+                    </h3>
+
+                    <p>
+                        عبارت جستجو یا دسته‌بندی دیگری را امتحان کنید.
+                    </p>
+
+                    <button id="resetFilters"
+                            type="button"
+                            class="reset-button">
+
+                        نمایش همه محصولات
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer class="site-footer">
+
+<div class="section-container">
+
+    <div class="footer-main">
+
+
+        <div class="footer-brand">
+
+            <a href="index.html"
+               class="footer-logo">
+
+                <img src="images/logo.png"
+                     alt="یونیکس شاپ">
+
+            </a>
+
+            <p>
+                یونیکس شاپ؛ انتخابی مطمئن
+                برای دنیای تکنولوژی.
+            </p>
+
+            <span class="footer-location">
+                ارومیه، آذربایجان غربی
+            </span>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h3>
+                دسترسی سریع
+            </h3>
+
+            <a href="index.html">
+                خانه
+            </a>
+
+            <a href="products.html">
+                محصولات
+            </a>
+
+            <a href="index.html#about">
+                درباره ما
+            </a>
+
+            <a href="index.html#contact">
+                تماس با ما
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h3>
+                محصولات
+            </h3>
+
+            <a href="products.html?category=1">
+                لپ تاپ
+            </a>
+
+            <a href="products.html?category=2">
+                لوازم جانبی
+            </a>
+
+            <a href="products.html?category=20">
+                مانیتور
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-column footer-contact">
+
+            <h3>
+                ارتباط با ما
+            </h3>
+
+            <a href="tel:+984412345678">
+                ۰۴۴-۱۲۳۴۵۶۷۸
+            </a>
+
+            <a href="mailto:info@unix-shop.ir">
+                info@unix-shop.ir
+            </a>
+
+            <span>
+                ارومیه، آذربایجان غربی
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © ۱۴۰۵ یونیکس شاپ —
+            تمامی حقوق محفوظ است.
+        </span>
+
+        <div class="footer-social">
+
+            <a href="#"
+               aria-label="Instagram">
+                IG
+            </a>
+
+            <a href="#"
+               aria-label="Telegram">
+                TG
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</footer>
+
+<button
+ id="backToTop"
+ class="back-to-top"
+ type="button"
+ aria-label="بازگشت به بالا">
+
+
+↑
+
+
+</button>
+
+<script src="js/main.js"></script>
+
+<script src="js/products.js"></script>
+
+</body>
+
+</html>

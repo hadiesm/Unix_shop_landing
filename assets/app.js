@@ -1,0 +1,1 @@
+document.querySelectorAll('[data-filter]').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;document.querySelectorAll('.product[data-category]').forEach(p=>p.style.display=(f==='all'||p.dataset.category===f)?'block':'none')}));

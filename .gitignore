@@ -1,0 +1,80 @@
+# =====================================================
+# Unix Shop - Git Ignore
+# =====================================================
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.bak
+*.old
+*.orig
+
+# Local development
+.env
+.env.*
+!.env.example
+
+# Node.js (if used later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Build / cache
+.cache/
+dist/
+build/
+coverage/
+
+# Python (if any tools/scripts are added later)
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+ENV/
+.pytest_cache/
+
+# Local database / development data
+*.sqlite
+*.sqlite3
+*.db
+
+# Backup archives
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# Server / hosting files
+.cpanel.yml
+.htaccess.local
+
+# Secrets / credentials
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# Local configuration
+config.local.*
+settings.local.*
+
+# Upload / temporary folders
+uploads/
+tmp/
+temp/
