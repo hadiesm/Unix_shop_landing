@@ -140,117 +140,117 @@ Random products from data/products.json
 
 async function loadFeaturedProducts() {
 
-const container =
-    document.getElementById("featuredProducts");
-
-
-/*
- * Only run on pages that contain
- * the featured products section.
- */
-
-if (!container) {
-    return;
-}
-
-
-try {
-
-    const response =
-        await fetch(
-            "data/products.json",
-            {
-                cache: "no-store"
-            }
-        );
-
-
-    if (!response.ok) {
-
-        throw new Error(
-            `products.json: HTTP ${response.status}`
-        );
-
-    }
-
-
-    const data =
-        await response.json();
-
-
-    if (!Array.isArray(data)) {
-
-        throw new Error(
-            "products.json باید یک آرایه باشد."
-        );
-
-    }
+    const container =
+        document.getElementById("featuredProducts");
 
 
     /*
-     * Only active products
+     * Only run on pages that contain
+     * the featured products section.
      */
 
-    const activeProducts =
-        data.filter(
-            product =>
-                Number(product.is_active) === 1
-        );
-
-
-    /*
-     * Pick random products
-     *
-     * Change this number if you want
-     * more or fewer cards.
-     */
-
-    const selectedProducts =
-        getRandomProducts(
-            activeProducts,
-            4
-        );
-
-
-    if (!selectedProducts.length) {
-
-        container.innerHTML = `
-            <div class="products-loading">
-                محصولی برای نمایش وجود ندارد.
-            </div>
-        `;
-
+    if (!container) {
         return;
     }
 
 
-    /*
-     * Render cards
-     */
+    try {
 
-    container.innerHTML =
-        selectedProducts
-            .map(product =>
-                createFeaturedProductCard(product)
-            )
-            .join("");
-
-
-} catch (error) {
-
-    console.error(
-        "Featured products error:",
-        error
-    );
+        const response =
+            await fetch(
+                "data/availability.json",
+                {
+                    cache: "no-store"
+                }
+            );
 
 
-    container.innerHTML = `
-        <div class="products-loading">
-            دریافت محصولات با خطا مواجه شد.
-        </div>
-    `;
+        if (!response.ok) {
 
-}
+            throw new Error(
+                `availability.json: HTTP ${response.status}`
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if (!Array.isArray(data)) {
+
+            throw new Error(
+                "availability.json باید یک آرایه باشد."
+            );
+
+        }
+
+
+        /*
+         * Only active products.
+         *
+         * qty is used only to determine
+         * availability. It is NEVER displayed.
+         */
+
+        const activeProducts =
+            data.filter(
+                product =>
+                    Number(product.is_active) === 1
+            );
+
+
+        /*
+         * Pick random products.
+         */
+
+        const selectedProducts =
+            getRandomProducts(
+                activeProducts,
+                4
+            );
+
+
+        if (!selectedProducts.length) {
+
+            container.innerHTML = `
+                <div class="products-loading">
+                    محصولی برای نمایش وجود ندارد.
+                </div>
+            `;
+
+            return;
+        }
+
+
+        /*
+         * Render cards.
+         */
+
+        container.innerHTML =
+            selectedProducts
+                .map(product =>
+                    createFeaturedProductCard(product)
+                )
+                .join("");
+
+
+    } catch (error) {
+
+        console.error(
+            "Featured products error:",
+            error
+        );
+
+
+        container.innerHTML = `
+            <div class="products-loading">
+                دریافت محصولات با خطا مواجه شد.
+            </div>
+        `;
+
+    }
 
 }
 
@@ -314,7 +314,7 @@ function createFeaturedProductCard(product) {
 
 const stock =
     Number(
-        product.opening_stock || 0
+        product.qty || 0
     );
 
 

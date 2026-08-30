@@ -736,3 +736,13 @@ RESPONSIVE
 }
 
 }
+
+.stock-available {
+    color: #16a34a;
+    font-weight: 600;
+}
+
+.stock-unavailable {
+    color: #dc2626;
+    font-weight: 600;
+}
