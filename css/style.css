@@ -6578,3 +6578,294 @@ body.about-page .contact-section {
 
     clear: both !important;
 }
+
+/* =====================================================
+   MOBILE VISUAL FIX — INDEX + ABOUT
+   Keep desktop design unchanged
+===================================================== */
+
+@media (max-width: 600px) {
+
+    /* -------------------------------------------------
+       ABOUT PAGE — HERO
+    ------------------------------------------------- */
+
+    body.about-page .about-hero {
+        min-height: auto !important;
+        padding: 125px 20px 70px !important;
+        display: block !important;
+        overflow: hidden !important;
+    }
+
+    body.about-page .about-hero .section-container {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    body.about-page .about-hero-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        text-align: right !important;
+    }
+
+    /* Eyebrow */
+
+    body.about-page .about-hero-content .section-eyebrow {
+        margin-bottom: 16px !important;
+    }
+
+    /* -------------------------------------------------
+       ABOUT HERO TITLE
+    ------------------------------------------------- */
+
+    body.about-page .about-hero-content .about-hero-title {
+        display: block !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin: 0 0 24px !important;
+        padding: 0 !important;
+
+        font-size: clamp(30px, 8.5vw, 42px) !important;
+        line-height: 1.7 !important;
+
+        text-align: right !important;
+
+        white-space: normal !important;
+        overflow: visible !important;
+    }
+
+    body.about-page .about-hero-content .about-hero-line,
+    body.about-page .about-hero-content .about-hero-highlight {
+        display: block !important;
+
+        width: 100% !important;
+        height: auto !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        font-size: inherit !important;
+        line-height: 1.7 !important;
+
+        white-space: normal !important;
+        word-break: normal !important;
+        overflow-wrap: normal !important;
+    }
+
+    body.about-page .about-hero-content .about-hero-highlight {
+        margin-top: 2px !important;
+    }
+
+    /* -------------------------------------------------
+       ABOUT HERO DESCRIPTION
+    ------------------------------------------------- */
+
+    body.about-page .about-hero-content > p {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin: 0 0 28px !important;
+        padding: 0 !important;
+
+        font-size: 14px !important;
+        line-height: 2.15 !important;
+
+        white-space: normal !important;
+        overflow-wrap: break-word !important;
+    }
+
+    /* -------------------------------------------------
+       ABOUT HERO BUTTONS
+    ------------------------------------------------- */
+
+    body.about-page .about-hero-actions {
+        display: flex !important;
+
+        width: 100% !important;
+
+        flex-direction: column !important;
+        align-items: stretch !important;
+
+        gap: 12px !important;
+    }
+
+    body.about-page .about-primary,
+    body.about-page .about-secondary {
+        width: 100% !important;
+        box-sizing: border-box !important;
+
+        text-align: center !important;
+    }
+
+    /* -------------------------------------------------
+       ABOUT HERO VISUAL
+    ------------------------------------------------- */
+
+    body.about-page .about-hero-visual {
+        width: 100% !important;
+        min-height: 230px !important;
+
+        margin-top: 35px !important;
+
+        overflow: hidden !important;
+    }
+
+    /* -------------------------------------------------
+       ABOUT INTRO
+    ------------------------------------------------- */
+
+    body.about-page .about-intro {
+        padding: 70px 20px !important;
+    }
+
+    body.about-page .about-intro-grid {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    body.about-page .about-intro-heading {
+        width: 100% !important;
+        margin-bottom: 30px !important;
+    }
+
+    body.about-page .about-intro-heading h2 {
+        font-size: clamp(28px, 7vw, 36px) !important;
+        line-height: 1.7 !important;
+    }
+
+    body.about-page .about-intro-text {
+        width: 100% !important;
+    }
+
+    body.about-page .about-intro-text p {
+        font-size: 14px !important;
+        line-height: 2.2 !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* -------------------------------------------------
+       VALUES
+    ------------------------------------------------- */
+
+    body.about-page .about-values {
+        padding: 70px 20px !important;
+    }
+
+    body.about-page .about-values-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+        margin-top: 35px !important;
+    }
+
+    body.about-page .about-value-card {
+        min-height: auto !important;
+        padding: 25px !important;
+    }
+
+    body.about-page .about-value-card h3 {
+        font-size: 18px !important;
+        line-height: 1.7 !important;
+    }
+
+    body.about-page .about-value-card p {
+        font-size: 13px !important;
+        line-height: 2.1 !important;
+    }
+
+    /* -------------------------------------------------
+       OFFER
+    ------------------------------------------------- */
+
+    body.about-page .about-offer {
+        padding: 70px 20px !important;
+    }
+
+    body.about-page .about-offer-card {
+        display: block !important;
+        padding: 30px 24px !important;
+    }
+
+    body.about-page .about-offer-content h2 {
+        font-size: clamp(28px, 7vw, 36px) !important;
+        line-height: 1.7 !important;
+    }
+
+    body.about-page .about-offer-content p {
+        font-size: 14px !important;
+        line-height: 2.15 !important;
+    }
+
+    body.about-page .about-offer-categories {
+        margin-top: 30px !important;
+    }
+
+    /* -------------------------------------------------
+       LOCATION
+    ------------------------------------------------- */
+
+    body.about-page .about-location {
+        padding: 70px 20px !important;
+    }
+
+    body.about-page .about-location-grid {
+        display: block !important;
+    }
+
+    body.about-page .about-location-content h2 {
+        font-size: clamp(28px, 7vw, 36px) !important;
+        line-height: 1.7 !important;
+    }
+
+    body.about-page .about-location-content p {
+        font-size: 14px !important;
+        line-height: 2.15 !important;
+    }
+
+    body.about-page .about-location-visual {
+        min-height: 240px !important;
+        margin-top: 35px !important;
+    }
+
+    /* -------------------------------------------------
+       CONTACT
+    ------------------------------------------------- */
+
+    body.about-page .contact-section {
+        padding: 70px 20px !important;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media (max-width: 380px) {
+
+    body.about-page .about-hero {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    body.about-page .about-hero-content .about-hero-title {
+        font-size: 29px !important;
+    }
+
+    body.about-page .about-hero-content > p {
+        font-size: 13px !important;
+    }
+
+    body.about-page .about-intro,
+    body.about-page .about-values,
+    body.about-page .about-offer,
+    body.about-page .about-location {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+}
