@@ -194,10 +194,11 @@ async function loadFeaturedProducts() {
          * availability. It is NEVER displayed.
          */
 
-        const activeProducts =
+        const availableProducts =
             data.filter(
                 product =>
-                    Number(product.is_active) === 1
+                    Number(product.is_active) === 1 &&
+                    Number(product.qty) > 0
             );
 
 
@@ -207,7 +208,7 @@ async function loadFeaturedProducts() {
 
         const selectedProducts =
             getRandomProducts(
-                activeProducts,
+                availableProducts,
                 4
             );
 
@@ -307,135 +308,242 @@ return shuffled.slice(
 }
 
 /* =====================================================
-FEATURED PRODUCT CARD
+   FEATURED PRODUCT CARD
+   WebP → JPG → JPEG → PNG
 ===================================================== */
 
 function createFeaturedProductCard(product) {
 
-const stock =
-    Number(
-        product.qty || 0
-    );
+    const stock =
+        Number(product.qty || 0);
 
 
-const hasStock =
-    stock > 0;
+    const hasStock =
+        stock > 0;
 
 
-const price =
-    Number(
-        product.sale_price || 0
-    );
+    const price =
+        Number(product.sale_price || 0);
 
 
-const categoryName =
-    getFeaturedCategoryName(
-        product.category_id
-    );
+    const categoryName =
+        getFeaturedCategoryName(
+            product.category_id
+        );
 
 
-const description =
-    product.technical_specs ||
-    product.notes ||
-    "محصول با کیفیت از مجموعه یونیکس شاپ";
+    const description =
+        product.technical_specs ||
+        product.notes ||
+        "محصول با کیفیت از مجموعه یونیکس شاپ";
 
 
-const visual =
-    getFeaturedProductVisual(
-        categoryName
-    );
+    const productCode =
+        String(
+            product.code || ""
+        ).trim();
 
 
-return `
-    <article
-        class="product-card"
-        data-product-id="${escapeFeaturedHtml(product.id)}"
-    >
+    const imageBasePath =
+        productCode
+            ? `images/products/${encodeURIComponent(productCode)}`
+            : "";
 
-        <div class="product-image">
 
-            <span class="product-tag">
+    return `
+        <article
+            class="product-card"
+            data-product-id="${escapeFeaturedHtml(product.id)}"
+        >
+
+            <div class="product-image">
+
+                <span class="product-tag">
+                    ${
+                        hasStock
+                            ? "موجود"
+                            : "ناموجود"
+                    }
+                </span>
+
+
                 ${
-                    hasStock
-                        ? "موجود"
-                        : "ناموجود"
+                    imageBasePath
+                        ? `
+                            <img
+                                src="${imageBasePath}.webp"
+                                alt="${escapeFeaturedHtml(
+                                    product.name ||
+                                    "محصول"
+                                )}"
+                                class="featured-product-real-image"
+                                loading="lazy"
+                                decoding="async"
+                                data-image-base="${imageBasePath}"
+                                data-image-step="webp"
+                                onerror="switchFeaturedProductImage(this);"
+                            >
+
+                            <div
+                                class="featured-product-fallback"
+                                style="display:none;"
+                            >
+                                ${getFeaturedProductVisual(
+                                    categoryName
+                                )}
+                            </div>
+                        `
+                        : `
+                            ${getFeaturedProductVisual(
+                                categoryName
+                            )}
+                        `
                 }
-            </span>
-
-
-            ${visual}
-
-        </div>
-
-
-        <div class="product-info">
-
-            <span class="product-category">
-
-                ${escapeFeaturedHtml(
-                    categoryName ||
-                    "محصول"
-                )}
-
-            </span>
-
-
-            <h3>
-
-                ${escapeFeaturedHtml(
-                    product.name ||
-                    "محصول بدون نام"
-                )}
-
-            </h3>
-
-
-            <p>
-
-                ${escapeFeaturedHtml(
-                    description
-                )}
-
-            </p>
-
-
-            <div class="product-bottom">
-
-                <div class="product-price">
-
-                    <span>
-                        قیمت
-                    </span>
-
-
-                    <strong>
-                        ${formatFeaturedMoney(price)}
-                    </strong>
-
-
-                    <small>
-                        تومان
-                    </small>
-
-                </div>
-
-
-                <a
-                    href="products.html"
-                    class="product-button"
-                    aria-label="مشاهده محصول"
-                >
-                    ←
-                </a>
 
             </div>
 
-        </div>
 
-    </article>
-`;
+            <div class="product-info">
+
+                <span class="product-category">
+
+                    ${escapeFeaturedHtml(
+                        categoryName ||
+                        "محصول"
+                    )}
+
+                </span>
+
+
+                <h3>
+
+                    ${escapeFeaturedHtml(
+                        product.name ||
+                        "محصول بدون نام"
+                    )}
+
+                </h3>
+
+
+                <p>
+
+                    ${escapeFeaturedHtml(
+                        description
+                    )}
+
+                </p>
+
+
+                <div class="product-bottom">
+
+                    <div class="product-price">
+
+                        <span>
+                            قیمت
+                        </span>
+
+
+                        <strong>
+                            ${formatFeaturedMoney(price)}
+                        </strong>
+
+
+                        <small>
+                            ریال
+                        </small>
+
+                    </div>
+
+
+                    <a
+                        href="products.html"
+                        class="product-button"
+                        aria-label="مشاهده محصول"
+                    >
+                        ←
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+    `;
+}
+
+
+/* =====================================================
+   FEATURED IMAGE FALLBACK
+   WebP → JPG → JPEG → PNG
+===================================================== */
+
+function switchFeaturedProductImage(image) {
+
+    const base =
+        image.dataset.imageBase;
+
+
+    const step =
+        image.dataset.imageStep;
+
+
+    if (step === "webp") {
+
+        image.dataset.imageStep = "jpg";
+
+        image.src =
+            `${base}.jpg`;
+
+        return;
+
+    }
+
+
+    if (step === "jpg") {
+
+        image.dataset.imageStep = "jpeg";
+
+        image.src =
+            `${base}.jpeg`;
+
+        return;
+
+    }
+
+
+    if (step === "jpeg") {
+
+        image.dataset.imageStep = "png";
+
+        image.src =
+            `${base}.png`;
+
+        return;
+
+    }
+
+
+    /*
+     * No real image found.
+     * Show the existing CSS visual.
+     */
+
+    image.style.display = "none";
+
+
+    const fallback =
+        image.nextElementSibling;
+
+
+    if (fallback) {
+
+        fallback.style.display =
+            "flex";
+
+    }
 
 }
+
 
 /* =====================================================
 FEATURED CATEGORY

@@ -652,8 +652,40 @@ function getFilteredProducts() {
         default:
 
             /*
-             * Keep JSON order.
+             * AVAILABLE PRODUCTS FIRST
+             *
+             * Products with qty > 0 appear first.
+             * Products with qty <= 0 appear after them.
+             *
+             * Original JSON order is preserved
+             * inside each group.
              */
+
+            result.sort(
+                (a, b) => {
+
+                    const aAvailable =
+                        getNumber(a.qty) > 0;
+
+                    const bAvailable =
+                        getNumber(b.qty) > 0;
+
+
+                    if (
+                        aAvailable === bAvailable
+                    ) {
+
+                        return 0;
+
+                    }
+
+
+                    return aAvailable
+                        ? -1
+                        : 1;
+
+                }
+            );
 
             break;
 
@@ -740,7 +772,9 @@ function renderProducts() {
             )
             .join("");
 
+
 }
+
 
 
 /* =====================================================
@@ -756,11 +790,7 @@ function createProductCard(product) {
 
 
     /*
-     * PUBLIC AVAILABILITY
-     *
-     * IMPORTANT:
-     * qty comes from product_costs.qty
-     * through availability.json.
+     * STOCK
      */
 
     const stock =
@@ -773,33 +803,15 @@ function createProductCard(product) {
         stock > 0;
 
 
-    const visual =
-        getProductVisual(
-            product.category_id
-        );
-
-
-    /*
-     * We no longer expose:
-     *
-     * technical_specs
-     * notes
-     * barcode
-     * unit
-     *
-     * because these are not necessary
-     * for the public availability feed.
-     */
-
-    const description =
-        "محصول با کیفیت از مجموعه یونیکس شاپ";
-
-
     const stockText =
         hasStock
             ? "موجود"
             : "ناموجود";
 
+
+    /*
+     * PRODUCT NAME
+     */
 
     const productName =
         escapeHtml(
@@ -808,10 +820,41 @@ function createProductCard(product) {
         );
 
 
+    /*
+     * PRICE
+     */
+
     const price =
         formatMoney(
             product.sale_price
         );
+
+
+    /*
+     * PRODUCT CODE
+     *
+     * Example:
+     *
+     * PRD-00001
+     */
+
+    const productCode =
+        String(
+            product.code || ""
+        ).trim();
+
+
+    /*
+     * PRODUCT IMAGE
+     *
+     * The image belongs directly
+     * to this product card.
+     */
+
+    const imageBase =
+        productCode
+            ? `images/products/${encodeURIComponent(productCode)}`
+            : "";
 
 
     return `
@@ -836,7 +879,28 @@ function createProductCard(product) {
 
                 </span>
 
-                ${visual}
+
+                <div class="product-image-wrapper">
+
+                    ${
+                        imageBase
+                            ? `
+                                <img
+                                    class="product-real-image"
+                                    src="${imageBase}.webp"
+                                    alt="${productName}"
+                                    loading="lazy"
+                                    data-image-base="${imageBase}"
+                                >
+                            `
+                            : `
+                                ${getProductVisual(
+                                    product.category_id
+                                )}
+                            `
+                    }
+
+                </div>
 
             </div>
 
@@ -860,7 +924,7 @@ function createProductCard(product) {
 
                 <p class="product-description">
 
-                    ${description}
+                    محصول با کیفیت از مجموعه یونیکس شاپ
 
                 </p>
 
@@ -869,19 +933,27 @@ function createProductCard(product) {
 
                     <div class="product-price">
 
-                        <span class="product-price-label">
-                            قیمت
-                        </span>
+                        ${
+                            hasStock
+                                ? `
+                                    <span class="product-price-label">
+                                        قیمت
+                                    </span>
 
+                                    <strong>
+                                        ${price}
+                                    </strong>
 
-                        <strong>
-                            ${price}
-                        </strong>
-
-
-                        <small>
-                            تومان
-                        </small>
+                                    <small>
+                                        ریال
+                                    </small>
+                                `
+                                : `
+                                    <span class="product-unavailable-price">
+                                        فعلاً موجود نیست
+                                    </span>
+                                `
+                        }
 
 
                         <span
@@ -1253,6 +1325,144 @@ function escapeHtml(value) {
         .replace(/'/g, "&#039;");
 
 }
+
+/* =====================================================
+PRODUCT IMAGE FORMAT FALLBACK
+===================================================== */
+
+document.addEventListener(
+    "error",
+    function (event) {
+
+        const image =
+            event.target;
+
+
+        /*
+         * Only handle our product images.
+         */
+
+        if (
+            !image ||
+            !image.classList ||
+            !image.classList.contains(
+                "product-real-image"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        const base =
+            image.dataset.imageBase;
+
+
+        if (!base) {
+            return;
+        }
+
+
+        /*
+         * Keep track of which formats
+         * have already been tried.
+         */
+
+        const tried =
+            image.dataset.tried
+                ? image.dataset.tried.split(",")
+                : [];
+
+
+        const formats = [
+            "webp",
+            "jpg",
+            "jpeg",
+            "png"
+        ];
+
+
+        const next =
+            formats.find(
+                format =>
+                    !tried.includes(format)
+            );
+
+
+        /*
+         * No image found.
+         *
+         * Replace ONLY this image
+         * with the fallback visual.
+         */
+
+        if (!next) {
+
+            const wrapper =
+                image.parentElement;
+
+
+            if (wrapper) {
+
+                const productCard =
+                    wrapper.closest(
+                        ".product-card"
+                    );
+
+
+                if (productCard) {
+
+                    /*
+                     * Get the category from
+                     * the product currently
+                     * represented by this card.
+                     */
+
+                    const productId =
+                        productCard.dataset.productId;
+
+
+                    const product =
+                        products.find(
+                            item =>
+                                String(item.id) ===
+                                String(productId)
+                        );
+
+
+                    if (product) {
+
+                        wrapper.innerHTML =
+                            getProductVisual(
+                                product.category_id
+                            );
+
+                    }
+
+                }
+
+            }
+
+
+            return;
+
+        }
+
+
+        tried.push(next);
+
+
+        image.dataset.tried =
+            tried.join(",");
+
+
+        image.src =
+            `${base}.${next}`;
+
+    },
+    true
+);
 
 
 /* =====================================================

@@ -7013,3 +7013,27 @@ body.about-page .contact-section {
     }
 
 }
+
+/* =====================================================
+   FEATURED PRODUCT REAL IMAGES
+===================================================== */
+
+.featured-product-real-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.featured-product-fallback {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
