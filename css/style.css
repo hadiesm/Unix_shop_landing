@@ -7037,3 +7037,115 @@ body.about-page .contact-section {
     align-items: center;
     justify-content: center;
 }
+
+/* =====================================================
+   INDEX — MOBILE PRODUCT IMAGE SIZE FIX
+   Keep desktop unchanged
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .featured-product-real-image {
+        width: auto !important;
+        height: auto !important;
+
+        max-width: 78% !important;
+        max-height: 72% !important;
+
+        padding: 8px !important;
+
+        object-fit: contain !important;
+        object-position: center !important;
+    }
+
+}
+
+/* =====================================================
+   INDEX — DARK MODE STABILITY
+   Prevent browser/OS dark-mode transformations
+===================================================== */
+
+html {
+    color-scheme: dark;
+}
+
+body {
+    background-color: #07111f;
+    color: #ffffff;
+}
+
+/* Keep index sections explicitly dark */
+
+.hero-section,
+.categories-section,
+.featured-products-section,
+.why-section,
+.about-section,
+.contact-section {
+    color-scheme: dark;
+}
+
+/* Explicit text colors */
+
+.hero-section,
+.categories-section,
+.featured-products-section,
+.why-section,
+.about-section {
+    color: #ffffff;
+}
+
+/* Product cards */
+
+.featured-products-section .product-card {
+    background-color: #0b1724;
+    color: #ffffff;
+}
+
+.featured-products-section .product-info h3 {
+    color: #ffffff;
+}
+
+.featured-products-section .product-info p {
+    color: rgba(255,255,255,0.38);
+}
+
+/* Category cards */
+
+.categories-section .category-card {
+    color: #ffffff;
+}
+
+.categories-section .category-content h3 {
+    color: #ffffff;
+}
+
+/* Why section */
+
+.why-section .why-intro h2,
+.why-section .benefit-item h3 {
+    color: #ffffff;
+}
+
+/* About section */
+
+.about-section .about-content h2,
+.about-section .about-stat strong {
+    color: #ffffff;
+}
+
+/* Header */
+
+.site-header .header-container {
+    background: rgba(255,255,255,0.94);
+    color: #0f172a;
+}
+
+.site-header .nav-link {
+    color: #475569;
+}
+
+.site-header .nav-link:hover,
+.site-header .nav-link.active {
+    color: #0f172a;
+}
