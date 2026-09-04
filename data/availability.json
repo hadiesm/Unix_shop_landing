@@ -13,7 +13,7 @@
         "name": "Asus A1502V i5 13420H/16/512",
         "code": "PRD-00002",
         "category_id": 4,
-        "sale_price": 1518425000.0,
+        "sale_price": 1568900000.0,
         "qty": 1.0,
         "is_active": 1
     },
@@ -40,7 +40,7 @@
         "name": "HP 255R G10 R5 7535U/16(D5)/512",
         "code": "PRD-00005",
         "category_id": 5,
-        "sale_price": 1496735000.0,
+        "sale_price": 1540000000.0,
         "qty": 1.0,
         "is_active": 1
     },
@@ -76,7 +76,7 @@
         "name": "Lenovo ip1 i5 1335U/16(D4)/512/Touch",
         "code": "PRD-00009",
         "category_id": 3,
-        "sale_price": 1634115000.0,
+        "sale_price": 1598500000.0,
         "qty": 1.0,
         "is_active": 1
     },
@@ -85,7 +85,7 @@
         "name": "Lenovo ips3 Athlon 7120U/8(D4)/512",
         "code": "PRD-00010",
         "category_id": 3,
-        "sale_price": 1084590000.0,
+        "sale_price": 1045600000.0,
         "qty": 1.0,
         "is_active": 1
     },
@@ -94,7 +94,7 @@
         "name": "Lenovo ip1 N4500/8/512",
         "code": "PRD-00011",
         "category_id": 3,
-        "sale_price": 912865000.0,
+        "sale_price": 775000000.0,
         "qty": 1.0,
         "is_active": 1
     },
@@ -103,7 +103,7 @@
         "name": "Lenovo ips3 R5 7520U/8(D5)/512/Finger/IPS",
         "code": "PRD-00012",
         "category_id": 3,
-        "sale_price": 1356945000.0,
+        "sale_price": 1326945000.0,
         "qty": 1.0,
         "is_active": 1
     },
@@ -112,8 +112,8 @@
         "name": "Lenovo ips3 R5 7520U/16(D5)512",
         "code": "PRD-00013",
         "category_id": 3,
-        "sale_price": 1566185000.0,
-        "qty": 1.0,
+        "sale_price": 1398000000.0,
+        "qty": 0.0,
         "is_active": 1
     },
     {
@@ -121,7 +121,7 @@
         "name": "HP FC0171NIA Athlon 7120U/8(D5)/256",
         "code": "PRD-00014",
         "category_id": 5,
-        "sale_price": 1042410000.0,
+        "sale_price": 964000000.0,
         "qty": 1.0,
         "is_active": 1
     },
@@ -130,7 +130,7 @@
         "name": "HP 0050 i5/1135G7/16(D4)/256/IPS/BACKLIGHT | Stock",
         "code": "PRD-00015",
         "category_id": 7,
-        "sale_price": 1024335000.0,
+        "sale_price": 950000000.0,
         "qty": 1.0,
         "is_active": 1
     },
@@ -139,7 +139,7 @@
         "name": "HP FC0029 R3 7320U/8(D5)/512",
         "code": "PRD-00016",
         "category_id": 5,
-        "sale_price": 1321240000.0,
+        "sale_price": 1227000000.0,
         "qty": 1.0,
         "is_active": 1
     },
@@ -149,7 +149,7 @@
         "code": "PRD-00017",
         "category_id": 11,
         "sale_price": 22270000.0,
-        "qty": 15.0,
+        "qty": 14.0,
         "is_active": 1
     },
     {
@@ -185,7 +185,7 @@
         "code": "PRD-00021",
         "category_id": 11,
         "sale_price": 14100000.0,
-        "qty": 1.0,
+        "qty": 0.0,
         "is_active": 1
     },
     {
@@ -311,7 +311,7 @@
         "code": "PRD-00035",
         "category_id": 19,
         "sale_price": 17820000.0,
-        "qty": 1.0,
+        "qty": 0.0,
         "is_active": 1
     },
     {
@@ -346,7 +346,7 @@
         "name": "Lenovo ips3 R3 30/8(D5)/256",
         "code": "PRD-00039",
         "category_id": 3,
-        "sale_price": 1165330000.0,
+        "sale_price": 1256000000.0,
         "qty": 1.0,
         "is_active": 1
     },
@@ -355,7 +355,7 @@
         "name": "Lenovo ip1 N4500/8(D4)/256",
         "code": "PRD-00040",
         "category_id": 3,
-        "sale_price": 684450000.0,
+        "sale_price": 715000000.0,
         "qty": 1.0,
         "is_active": 1
     },
@@ -364,7 +364,7 @@
         "name": "Monitor Innovers 24\"/FHD/IPS/100Hz",
         "code": "PRD-00041",
         "category_id": 21,
-        "sale_price": 226560000.0,
+        "sale_price": 198600000.0,
         "qty": 4.0,
         "is_active": 1
     },
@@ -375,6 +375,15 @@
         "category_id": 22,
         "sale_price": 550000000.0,
         "qty": 0.0,
+        "is_active": 1
+    },
+    {
+        "id": 43,
+        "name": "Monitor Twisted Minds 24\"/FHD/IPS/100Hz",
+        "code": "PRD-00043",
+        "category_id": 23,
+        "sale_price": 226500000.0,
+        "qty": 4.0,
         "is_active": 1
     }
 ]

@@ -3485,3 +3485,22 @@ body.about-page .about-location {
     }
 
 }
+
+/* =====================================================
+   STICKY HEADER
+===================================================== */
+
+/*.site-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-container {
+    transition:
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}*/

@@ -130,5 +130,11 @@
         "name": "اینوورس",
         "parent_id": 20,
         "is_active": 1
+    },
+    {
+        "id": 23,
+        "name": "Twisted Minds",
+        "parent_id": 20,
+        "is_active": 1
     }
 ]
