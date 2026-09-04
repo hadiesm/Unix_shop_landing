@@ -861,6 +861,9 @@ function createProductCard(product) {
         <article
             class="product-card"
             data-product-id="${escapeHtml(product.id)}"
+            tabindex="0"
+            role="button"
+            aria-label="مشاهده مشخصات ${productName}"
         >
 
             <div class="product-image">
@@ -969,14 +972,14 @@ function createProductCard(product) {
                     </div>
 
 
-                    <a
-                        href="#"
+                    <button
+                        type="button"
                         class="product-button"
-                        aria-label="مشاهده ${productName}"
+                        aria-label="مشاهده مشخصات ${productName}"
                         data-product-id="${escapeHtml(product.id)}"
                     >
                         ←
-                    </a>
+                    </button>
 
                 </div>
 
@@ -987,6 +990,735 @@ function createProductCard(product) {
 
 }
 
+/* =====================================================
+PRODUCT DETAILS MODAL
+===================================================== */
+
+function ensureProductModal() {
+
+    if (document.getElementById("productDetailsModal")) {
+        return;
+    }
+
+    const modal = document.createElement("div");
+
+    modal.id = "productDetailsModal";
+    modal.className = "product-details-modal";
+    modal.hidden = true;
+
+    modal.innerHTML = `
+        <div
+            class="product-details-overlay"
+            data-modal-close
+        ></div>
+
+        <div
+            class="product-details-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="productDetailsTitle"
+        >
+
+            <button
+                type="button"
+                class="product-details-close"
+                aria-label="بستن"
+                data-modal-close
+            >
+                ×
+            </button>
+
+
+            <div class="product-details-content">
+
+                <div class="product-details-image">
+
+                    <img
+                        id="productDetailsImage"
+                        src=""
+                        alt=""
+                    >
+
+                    <div
+                        id="productDetailsVisual"
+                        class="product-details-visual"
+                        hidden
+                    ></div>
+
+                </div>
+
+
+                <div class="product-details-info">
+
+                    <span
+                        id="productDetailsCategory"
+                        class="product-details-category"
+                    ></span>
+
+
+                    <h2
+                        id="productDetailsTitle"
+                    ></h2>
+
+
+                    <div class="product-details-code">
+
+                        <span>
+                            کد محصول
+                        </span>
+
+                        <strong
+                            id="productDetailsCode"
+                        ></strong>
+
+                    </div>
+
+
+                    <div class="product-details-summary">
+
+                        <div class="product-details-price">
+
+                            <span>
+                                قیمت
+                            </span>
+
+                            <strong
+                                id="productDetailsPrice"
+                            ></strong>
+
+                            <small>
+                                ریال
+                            </small>
+
+                        </div>
+
+
+                        <div class="product-details-stock">
+
+                            <span>
+                                وضعیت
+                            </span>
+
+                            <strong
+                                id="productDetailsStock"
+                            ></strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="productDetailsNotes"
+                        class="product-details-section"
+                        hidden
+                    >
+
+                        <h3>
+                            توضیحات
+                        </h3>
+
+                        <p
+                            id="productDetailsNotesText"
+                        ></p>
+
+                    </div>
+
+
+                    <div
+                        id="productDetailsSpecs"
+                        class="product-details-section"
+                        hidden
+                    >
+
+                        <h3>
+                            مشخصات فنی
+                        </h3>
+
+                        <div
+                            id="productDetailsSpecsText"
+                            class="product-details-specs"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+}
+
+
+/* =====================================================
+PARSE TECHNICAL SPECS
+===================================================== */
+
+function formatTechnicalSpecs(value) {
+
+    const text =
+        String(value ?? "").trim();
+
+    if (!text) {
+        return "";
+    }
+
+    /*
+     * Current database data uses
+     * slash-separated specifications.
+     *
+     * Example:
+     *
+     * FHD/IPS/100Hz/HDMI/VGA
+     */
+
+    const parts =
+        text
+            .split("/")
+            .map(item => item.trim())
+            .filter(Boolean);
+
+    if (!parts.length) {
+        return "";
+    }
+
+    return parts
+        .map(
+            item => `
+                <span class="product-spec-chip">
+                    ${escapeHtml(item)}
+                </span>
+            `
+        )
+        .join("");
+}
+
+
+/* =====================================================
+OPEN PRODUCT DETAILS
+===================================================== */
+
+function openProductDetails(productId) {
+
+    ensureProductModal();
+
+    const product =
+        products.find(
+            item =>
+                String(item.id) ===
+                String(productId)
+        );
+
+    if (!product) {
+        return;
+    }
+
+    const modal =
+        document.getElementById(
+            "productDetailsModal"
+        );
+
+    if (!modal) {
+        return;
+    }
+
+
+    const category =
+        getCategoryPath(
+            product.category_id
+        );
+
+
+    const stock =
+        getNumber(product.qty);
+
+
+    const hasStock =
+        stock > 0;
+
+
+    const title =
+        document.getElementById(
+            "productDetailsTitle"
+        );
+
+    const categoryElement =
+        document.getElementById(
+            "productDetailsCategory"
+        );
+
+    const code =
+        document.getElementById(
+            "productDetailsCode"
+        );
+
+    const price =
+        document.getElementById(
+            "productDetailsPrice"
+        );
+
+    const stockElement =
+        document.getElementById(
+            "productDetailsStock"
+        );
+
+    const notesSection =
+        document.getElementById(
+            "productDetailsNotes"
+        );
+
+    const notesText =
+        document.getElementById(
+            "productDetailsNotesText"
+        );
+
+    const specsSection =
+        document.getElementById(
+            "productDetailsSpecs"
+        );
+
+    const specsText =
+        document.getElementById(
+            "productDetailsSpecsText"
+        );
+
+    const image =
+        document.getElementById(
+            "productDetailsImage"
+        );
+
+    const visual =
+        document.getElementById(
+            "productDetailsVisual"
+        );
+
+
+    /*
+     * Basic information
+     */
+
+    title.textContent =
+        product.name ||
+        "محصول بدون نام";
+
+
+    categoryElement.textContent =
+        category ||
+        "بدون دسته‌بندی";
+
+
+    code.textContent =
+        product.code ||
+        "—";
+
+
+    price.textContent =
+        formatMoney(
+            product.sale_price
+        );
+
+
+    stockElement.textContent =
+        hasStock
+            ? "موجود"
+            : "ناموجود";
+
+
+    stockElement.className =
+        hasStock
+            ? "product-details-stock-value available"
+            : "product-details-stock-value unavailable";
+
+
+    /*
+     * Notes
+     */
+
+    const notes =
+        String(
+            product.notes ?? ""
+        ).trim();
+
+
+    if (notes) {
+
+        notesText.textContent =
+            notes;
+
+        notesSection.hidden =
+            false;
+
+    } else {
+
+        notesText.textContent =
+            "";
+
+        notesSection.hidden =
+            true;
+
+    }
+
+
+    /*
+     * Technical specifications
+     */
+
+    const specsHtml =
+        formatTechnicalSpecs(
+            product.technical_specs
+        );
+
+
+    if (specsHtml) {
+
+        specsText.innerHTML =
+            specsHtml;
+
+        specsSection.hidden =
+            false;
+
+    } else {
+
+        specsText.innerHTML =
+            "";
+
+        specsSection.hidden =
+            true;
+
+    }
+
+
+    /*
+     * Product image
+     */
+
+    const productCode =
+        String(
+            product.code || ""
+        ).trim();
+
+
+    if (productCode) {
+
+        const imageBase =
+            `images/products/${encodeURIComponent(productCode)}`;
+
+
+        image.hidden = false;
+
+        visual.hidden = true;
+
+
+        image.alt =
+            product.name ||
+            "تصویر محصول";
+
+
+        image.dataset.imageBase =
+            imageBase;
+
+
+        image.dataset.tried =
+            "webp";
+
+
+        image.src =
+            `${imageBase}.webp`;
+
+
+        image.onerror =
+            function () {
+
+                const tried =
+                    this.dataset.tried
+                        ? this.dataset.tried.split(",")
+                        : ["webp"];
+
+
+                const formats = [
+                    "webp",
+                    "jpg",
+                    "jpeg",
+                    "png"
+                ];
+
+
+                const next =
+                    formats.find(
+                        format =>
+                            !tried.includes(format)
+                    );
+
+
+                if (next) {
+
+                    tried.push(next);
+
+                    this.dataset.tried =
+                        tried.join(",");
+
+                    this.src =
+                        `${imageBase}.${next}`;
+
+                    return;
+
+                }
+
+
+                /*
+                 * No real image found.
+                 * Show category visual instead.
+                 */
+
+                image.hidden = true;
+
+                visual.hidden = false;
+
+                visual.innerHTML =
+                    getProductVisual(
+                        product.category_id
+                    );
+
+            };
+
+    } else {
+
+        image.hidden = true;
+
+        visual.hidden = false;
+
+        visual.innerHTML =
+            getProductVisual(
+                product.category_id
+            );
+
+    }
+
+
+    /*
+     * Open
+     */
+
+    modal.hidden = false;
+
+    document.body.classList.add(
+        "product-modal-open"
+    );
+
+
+    /*
+     * Prevent scrolling behind modal.
+     */
+
+    requestAnimationFrame(() => {
+
+        modal.classList.add("open");
+
+    });
+
+
+    /*
+     * Put focus on close button.
+     */
+
+    const closeButton =
+        modal.querySelector(
+            ".product-details-close"
+        );
+
+
+    if (closeButton) {
+
+        closeButton.focus();
+
+    }
+
+}
+
+
+/* =====================================================
+CLOSE PRODUCT DETAILS
+===================================================== */
+
+function closeProductDetails() {
+
+    const modal =
+        document.getElementById(
+            "productDetailsModal"
+        );
+
+
+    if (!modal) {
+        return;
+    }
+
+
+    modal.classList.remove("open");
+
+
+    document.body.classList.remove(
+        "product-modal-open"
+    );
+
+
+    setTimeout(() => {
+
+        modal.hidden = true;
+
+    }, 220);
+
+}
+
+
+/* =====================================================
+PRODUCT CARD CLICK HANDLING
+===================================================== */
+
+if (productsGrid) {
+
+    productsGrid.addEventListener(
+        "click",
+        event => {
+
+            const button =
+                event.target.closest(
+                    ".product-button"
+                );
+
+
+            const card =
+                event.target.closest(
+                    ".product-card"
+                );
+
+
+            if (!card) {
+                return;
+            }
+
+
+            const productId =
+                card.dataset.productId;
+
+
+            if (!productId) {
+                return;
+            }
+
+
+            /*
+             * Arrow button
+             */
+
+            if (button) {
+
+                event.preventDefault();
+
+            }
+
+
+            openProductDetails(
+                productId
+            );
+
+        }
+    );
+
+
+    /*
+     * Keyboard support
+     */
+
+    productsGrid.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key !== "Enter" &&
+                event.key !== " "
+            ) {
+
+                return;
+
+            }
+
+
+            const card =
+                event.target.closest(
+                    ".product-card"
+                );
+
+
+            if (!card) {
+                return;
+            }
+
+
+            event.preventDefault();
+
+
+            openProductDetails(
+                card.dataset.productId
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+MODAL EVENTS
+===================================================== */
+
+document.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target.matches(
+                "[data-modal-close]"
+            )
+        ) {
+
+            closeProductDetails();
+
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (event.key !== "Escape") {
+            return;
+        }
+
+
+        const modal =
+            document.getElementById(
+                "productDetailsModal"
+            );
+
+
+        if (
+            modal &&
+            !modal.hidden
+        ) {
+
+            closeProductDetails();
+
+        }
+
+    }
+);
 
 /* =====================================================
 PRODUCT VISUAL
