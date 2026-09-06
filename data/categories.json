@@ -136,5 +136,11 @@
         "name": "Twisted Minds",
         "parent_id": 20,
         "is_active": 1
+    },
+    {
+        "id": 24,
+        "name": "AOC",
+        "parent_id": 20,
+        "is_active": 1
     }
 ]

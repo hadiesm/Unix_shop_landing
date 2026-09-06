@@ -952,9 +952,9 @@ function createProductCard(product) {
                                     </small>
                                 `
                                 : `
-                                    <span class="product-unavailable-price">
-                                        فعلاً موجود نیست
-                                    </span>
+                                    <strong>
+                                        -
+                                    </strong>
                                 `
                         }
 
@@ -1317,9 +1317,9 @@ function openProductDetails(productId) {
 
 
     price.textContent =
-        formatMoney(
-            product.sale_price
-        );
+        hasStock
+            ? formatMoney(product.sale_price)
+            : "-";
 
 
     stockElement.textContent =
