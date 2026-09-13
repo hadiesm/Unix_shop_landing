@@ -2418,8 +2418,13 @@ function finderRam(product) {
     if (Number.isFinite(direct) && direct > 0) return direct;
 
     const name = finderText(product.name);
-    const matches = [...name.matchAll(/(?:\/|\s)(4|8|12|16|24|32|64)(?:\s*\(d[45]\))?(?=\/)/gi)];
-    return matches.length ? Number(matches[0][1]) : 0;
+    const matches = [...name.matchAll(
+        /(?:\/|\s)(4|8|12|16|24|32|64)(?:\s*\(d[45]\))?(?=\/)/gi
+    )];
+
+    if (!matches.length) return 0;
+
+    return Number(matches[0][1]);
 }
 
 function finderStorage(product) {
@@ -2427,46 +2432,106 @@ function finderStorage(product) {
     const direct = Number(spec.storage?.capacity_gb);
     if (Number.isFinite(direct) && direct > 0) return direct;
 
-    const matches = [...finderText(product.name).matchAll(/(?:\/|\s)(128|256|512|1024|2048)(?:\s|\/|$)/gi)];
-    return matches.length ? Number(matches[matches.length - 1][1]) : 0;
+    const name = finderText(product.name);
+    const matches = [...name.matchAll(
+        /(?:\/|\s)(128|256|512|1024|2048)(?:\s|\/|$)/gi
+    )];
+
+    return matches.length
+        ? Number(matches[matches.length - 1][1])
+        : 0;
 }
 
 function finderCpu(product) {
     const spec = finderSpec(product);
     const text = `${finderText(product.name)} ${finderText(spec.processor?.model)} ${finderText(spec.processor?.family)}`;
-    if (/ryzen\s*7|\bi7\b/.test(text)) return 4;
-    if (/ryzen\s*5|\bi5\b/.test(text)) return 3;
-    if (/ryzen\s*3|\bi3\b/.test(text)) return 2;
-    if (/athlon|n4500|celeron|pentium/.test(text)) return 1;
+
+    // Known processors in the current Unix Shop inventory.
+    if (/i9\b|ryzen\s*9/.test(text)) return 10;
+    if (/i7[-\s]|ryzen\s*7/.test(text)) return 8;
+    if (/i5[-\s]|ryzen\s*5/.test(text)) return 6;
+    if (/i3[-\s]|ryzen\s*3/.test(text)) return 4;
+    if (/athlon/.test(text)) return 2;
+    if (/n4500|celeron|pentium/.test(text)) return 1;
+
     return 0;
 }
 
 function finderGpu(product) {
     const spec = finderSpec(product);
     const text = `${finderText(product.name)} ${finderText(spec.graphics?.model)}`;
-    if (/rtx\s*40|rtx\s*30|3050|3060|3070|3080|4050|4060|4070/.test(text)) return 5;
-    if (/mx\s*|radeon.*(550|560|570|580)|\b2g\b/.test(text)) return 3;
-    return /vega|radeon|iris|uhd|integrated/.test(text) ? 1 : 0;
+
+    // Dedicated gaming GPUs.
+    if (/rtx\s*4080|rtx\s*4090/.test(text)) return 10;
+    if (/rtx\s*4070/.test(text)) return 9;
+    if (/rtx\s*4060/.test(text)) return 8;
+    if (/rtx\s*4050/.test(text)) return 7;
+    if (/rtx\s*30|3050|3060|3070|3080/.test(text)) return 6;
+    if (/mx\s*|radeon.*(550|560|570|580)|\b2g\b|\b4g\b|\b6g\b/.test(text)) return 3;
+
+    // Integrated graphics.
+    if (/vega|radeon|iris|uhd|integrated/.test(text)) return 1;
+
+    return 0;
 }
 
 function finderPerformance(product) {
-    return finderCpu(product) * 3 + finderGpu(product) * 3 + Math.min(finderRam(product), 32) / 4 + (finderStorage(product) >= 512 ? 2 : 0);
+    const cpu = finderCpu(product);
+    const gpu = finderGpu(product);
+    const ram = finderRam(product);
+    const storage = finderStorage(product);
+
+    return (
+        cpu * 5 +
+        gpu * 6 +
+        Math.min(ram, 32) * 0.8 +
+        (storage >= 1024 ? 5 : storage >= 512 ? 3 : storage >= 256 ? 1 : 0)
+    );
+}
+
+function finderPrice(product) {
+    return getNumber(product.sale_price) / 10;
 }
 
 function finderBudget(product, budget) {
-    if (budget === "any") return 0;
-    const price = getNumber(product.sale_price) / 10;
+    if (budget === "any") return 12;
+
+    const price = finderPrice(product);
     const ranges = {
-        under100: [0, 1000000000],
-        "100to130": [1000000000, 1300000000],
-        "130to160": [1300000000, 1600000000],
-        over160: [1600000000, Infinity]
+        under100: [0, 100000000],
+        "100to130": [100000000, 130000000],
+        "130to160": [130000000, 160000000],
+        over160: [160000000, Infinity]
     };
+
     const range = ranges[budget];
     if (!range) return 0;
-    if (price >= range[0] && price < range[1]) return 40;
-    const distance = price < range[0] ? range[0] - price : price - range[1];
-    return Math.max(-20, 12 - distance / 10000000);
+
+    if (price >= range[0] && price < range[1]) {
+        return 55;
+    }
+
+    // Small deviation is acceptable, but staying within budget is strongly preferred.
+    if (price < range[0]) {
+        const ratio = range[0] > 0 ? price / range[0] : 1;
+        return ratio >= 0.88 ? 38 : ratio >= 0.75 ? 24 : 10;
+    }
+
+    if (!Number.isFinite(range[1])) return 30;
+
+    const overRatio = (price - range[1]) / range[1];
+    return overRatio <= 0.08 ? 25 : overRatio <= 0.15 ? 8 : -30;
+}
+
+function finderValueScore(product) {
+    const price = finderPrice(product);
+    const performance = finderPerformance(product);
+
+    if (price <= 0) return 0;
+
+    // Normalize performance by price, with a small bonus for real stock.
+    const efficiency = performance / (price / 100000000);
+    return efficiency * 3 + (getNumber(product.qty) > 0 ? 12 : -4);
 }
 
 function finderUse(product, use) {
@@ -2474,13 +2539,25 @@ function finderUse(product, use) {
     const gpu = finderGpu(product);
     const ram = finderRam(product);
     const storage = finderStorage(product);
-    const price = getNumber(product.sale_price);
+    const price = finderPrice(product);
 
-    if (use === "gaming") return gpu * 9 + cpu * 4 + Math.min(ram, 32) / 2;
-    if (use === "design") return gpu * 6 + cpu * 3 + Math.min(ram, 32) / 2;
-    if (use === "programming") return cpu * 5 + Math.min(ram, 32) / 2 + (storage >= 512 ? 3 : 1);
-    if (use === "student") return Math.max(0, 7 - price / 300000000) + Math.min(ram, 16) / 3 + (storage >= 512 ? 2 : 0);
-    return Math.max(0, 7 - price / 300000000) + Math.min(ram, 16) / 4 + (storage >= 512 ? 2 : 0);
+    switch (use) {
+        case "gaming":
+            return gpu * 8 + cpu * 4 + Math.min(ram, 32) * 0.6 + (storage >= 512 ? 3 : 0);
+
+        case "design":
+            return gpu * 5.5 + cpu * 4.5 + Math.min(ram, 32) * 0.8 + (storage >= 512 ? 3 : 0);
+
+        case "programming":
+            return cpu * 5 + Math.min(ram, 32) * 1.2 + (storage >= 512 ? 4 : storage >= 256 ? 2 : 0) + gpu;
+
+        case "student":
+            return cpu * 2.8 + Math.min(ram, 16) * 1.2 + (storage >= 512 ? 4 : 2) + Math.max(0, 12 - price / 25000000);
+
+        case "daily":
+        default:
+            return cpu * 2.2 + Math.min(ram, 16) * 0.9 + (storage >= 512 ? 4 : 2) + Math.max(0, 14 - price / 22000000);
+    }
 }
 
 function finderPriority(product, priority) {
@@ -2488,10 +2565,23 @@ function finderPriority(product, priority) {
     const gpu = finderGpu(product);
     const ram = finderRam(product);
     const storage = finderStorage(product);
-    if (priority === "value") return finderPerformance(product) * 8 + Math.max(0, 18 - getNumber(product.sale_price) / 100000000);
-    if (priority === "memory") return ram * 2 + Math.min(storage, 1024) / 128;
-    if (priority === "graphics") return gpu * 9 + cpu;
-    return cpu * 4 + gpu * 4 + Math.min(ram, 32) / 2;
+
+    switch (priority) {
+        case "performance":
+            return cpu * 3 + gpu * 3 + Math.min(ram, 32) * 0.7;
+
+        case "value":
+            return finderValueScore(product) + Math.max(0, 12 - finderPrice(product) / 15000000);
+
+        case "memory":
+            return ram * 2.5 + Math.min(storage, 1024) / 100;
+
+        case "graphics":
+            return gpu * 5 + cpu * 1.5;
+
+        default:
+            return 0;
+    }
 }
 
 function finderReason(product, answers) {
@@ -2500,12 +2590,29 @@ function finderReason(product, answers) {
     const gpu = finderGpu(product);
     const ram = finderRam(product);
     const storage = finderStorage(product);
+    const price = finderPrice(product);
 
-    if ((answers.use === "gaming" || answers.use === "design") && gpu >= 5) parts.push("گرافیک مجزا و قدرتمندتر");
-    if ((answers.use === "programming" || answers.priority === "performance") && cpu >= 3) parts.push("پردازنده مناسب");
-    if (answers.priority === "memory" && ram) parts.push(`${formatPersianNumber(ram)} گیگ رم`);
+    if (answers.budget !== "any") {
+        const budgetScore = finderBudget(product, answers.budget);
+        if (budgetScore >= 55) parts.push("کاملاً داخل بودجه");
+        else if (budgetScore >= 24) parts.push("نزدیک به بودجه شما");
+    }
+
+    if (answers.use === "gaming" && gpu >= 6) parts.push("گرافیک مناسب گیمینگ");
+    if (answers.use === "design" && (gpu >= 6 || cpu >= 8)) parts.push("مناسب کارهای گرافیکی");
+    if (answers.use === "programming" && cpu >= 6) parts.push("پردازنده مناسب برنامه‌نویسی");
+    if ((answers.use === "student" || answers.use === "daily") && price <= 130000000) parts.push("انتخاب اقتصادی");
+    if (answers.priority === "performance" && cpu >= 6) parts.push("قدرت پردازشی بالاتر");
+    if (answers.priority === "graphics" && gpu >= 6) parts.push("گرافیک قوی‌تر");
+    if (answers.priority === "memory" && ram >= 16) parts.push(`${formatPersianNumber(ram)} گیگ رم`);
     if (storage >= 512) parts.push("حافظه ۵۱۲ گیگ یا بیشتر");
-    return (parts.length ? parts : ["تناسب مناسب با انتخاب‌های شما"]).slice(0, 2).join(" • ");
+    if (getNumber(product.qty) > 0) parts.push("موجود در فروشگاه");
+
+    if (!parts.length) {
+        parts.push("تناسب مناسب با انتخاب‌های شما");
+    }
+
+    return parts.slice(0, 2).join(" • ");
 }
 
 function bindFinderImageFallbacks() {
@@ -2587,10 +2694,11 @@ function runLaptopFinder() {
         .map(product => ({
             product,
             score:
-                finderUse(product, answers.use) * 5 +
-                finderBudget(product, answers.budget) +
-                finderPriority(product, answers.priority) * 2 +
-                (getNumber(product.qty) > 0 ? 12 : -4)
+                finderUse(product, answers.use) * 4 +
+                finderBudget(product, answers.budget) * 1.6 +
+                finderPriority(product, answers.priority) * 2.5 +
+                finderValueScore(product) * 0.8 +
+                (getNumber(product.qty) > 0 ? 10 : -8)
         }))
         .sort((a, b) => b.score - a.score)
         .slice(0, 3);
