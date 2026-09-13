@@ -25,6 +25,18 @@ const clearCategory =
 const resetFilters =
     document.getElementById("resetFilters");
 
+const laptopFinderButton =
+    document.getElementById("laptopFinderButton");
+
+const laptopFinderModal =
+    document.getElementById("laptopFinderModal");
+
+const laptopFinderForm =
+    document.getElementById("laptopFinderForm");
+
+const laptopFinderResults =
+    document.getElementById("laptopFinderResults");
+
 
 /* =====================================================
 DATA
@@ -32,6 +44,7 @@ DATA
 
 let products = [];
 let categories = [];
+let laptopFinderSpecs = {};
 
 let selectedCategory = null;
 
@@ -88,7 +101,7 @@ function updateCompareUI() {
     });
 }
 
-function getCompareCategoryRoot(productId) {
+function getCompareCategoryKey(productId) {
     const product = products.find(
         item => String(item.id) === String(productId)
     );
@@ -97,42 +110,42 @@ function getCompareCategoryRoot(productId) {
         return null;
     }
 
-    const categoryId = Number(product.category_id);
+    let category = getCategory(product.category_id);
 
-    // لپ تاپ — همه زیرشاخه‌ها قابل مقایسه هستند
-    if ([1, 3, 4, 5, 6, 7, 8].includes(categoryId)) {
-        return "laptop";
+    if (!category) {
+        return null;
     }
 
-    // مانیتور — همه برندها و زیرشاخه‌ها قابل مقایسه هستند
-    if ([20, 21, 23, 24].includes(categoryId)) {
-        return "monitor";
+    const visited = new Set();
+
+    while (category) {
+        const categoryId = Number(category.id);
+
+        if (visited.has(categoryId)) {
+            break;
+        }
+
+        visited.add(categoryId);
+
+        const parentId = category.parent_id;
+
+        // For laptops and monitors, all brand/model subcategories
+        // belong to the same comparison group.
+        if (parentId === null || parentId === undefined) {
+            return categoryId;
+        }
+
+        // Accessories need a more specific comparison group.
+        // Example: wired/wireless mouse can compare with each other,
+        // but mouse pads cannot compare with cooling pads.
+        if (Number(parentId) === 2) {
+            return categoryId;
+        }
+
+        category = getCategory(parentId);
     }
 
-    // ماوس — سیمی و بی‌سیم قابل مقایسه هستند
-    if ([9, 10, 11].includes(categoryId)) {
-        return "mouse";
-    }
-
-    // دسته بازی — سیمی و بی‌سیم قابل مقایسه هستند
-    if ([13, 14, 15].includes(categoryId)) {
-        return "gamepad";
-    }
-
-    // سایر دسته‌ها فقط با همان دسته قابل مقایسه هستند
-    if (categoryId === 12) {
-        return "cooling-pad";
-    }
-
-    if (categoryId === 16) {
-        return "mouse-pad";
-    }
-
-    if (categoryId === 22) {
-        return "steering-wheel";
-    }
-
-    return `category:${categoryId}`;
+    return null;
 }
 
 function toggleCompare(productId) {
@@ -147,17 +160,17 @@ function toggleCompare(productId) {
             return;
         }
 
-        const selectedRoot = getCompareCategoryRoot(id);
+        const selectedKey = getCompareCategoryKey(id);
 
         if (ids.length > 0) {
-            const existingRoot = getCompareCategoryRoot(ids[0]);
+            const existingKey = getCompareCategoryKey(ids[0]);
 
             if (
-                selectedRoot === null ||
-                existingRoot === null ||
-                selectedRoot !== existingRoot
+                selectedKey === null ||
+                existingKey === null ||
+                selectedKey !== existingKey
             ) {
-                alert("محصولات انتخابی باید از یک دسته‌بندی اصلی باشند.");
+                alert("محصولات انتخابی باید از یک دسته‌بندی قابل مقایسه باشند.");
                 return;
             }
         }
@@ -185,7 +198,8 @@ async function loadData() {
 
         const [
             availabilityResponse,
-            categoriesResponse
+            categoriesResponse,
+            specsResponse
         ] = await Promise.all([
 
             fetch("data/availability.json", {
@@ -193,6 +207,10 @@ async function loadData() {
             }),
 
             fetch("data/categories.json", {
+                cache: "no-store"
+            }),
+
+            fetch("data/product-specs.json", {
                 cache: "no-store"
             })
 
@@ -222,6 +240,15 @@ async function loadData() {
 
         const categoriesData =
             await categoriesResponse.json();
+
+        let specsData = { products: {} };
+        if (specsResponse.ok) {
+            try {
+                specsData = await specsResponse.json();
+            } catch (error) {
+                console.warn("product-specs.json قابل خواندن نیست.", error);
+            }
+        }
 
 
         if (!Array.isArray(availabilityData)) {
@@ -261,6 +288,11 @@ async function loadData() {
                 category =>
                     Number(category.is_active) === 1
             );
+
+        laptopFinderSpecs =
+            specsData && typeof specsData.products === "object"
+                ? specsData.products
+                : {};
 
 
         console.log(
@@ -2364,6 +2396,225 @@ document.addEventListener(
 
 
 /* =====================================================
+LAPTOP FINDER
+===================================================== */
+
+function isLaptopProduct(product) {
+    return [1, 3, 4, 5, 6, 7, 8].includes(Number(product?.category_id));
+}
+
+function finderSpec(product) {
+    const value = laptopFinderSpecs[String(product.id)];
+    return value && typeof value === "object" ? value : {};
+}
+
+function finderText(value) {
+    return String(value ?? "").toLowerCase().replace(/ي/g, "ی").replace(/ك/g, "ک");
+}
+
+function finderRam(product) {
+    const spec = finderSpec(product);
+    const direct = Number(spec.memory?.capacity_gb);
+    if (Number.isFinite(direct) && direct > 0) return direct;
+
+    const name = finderText(product.name);
+    const matches = [...name.matchAll(/(?:\/|\s)(4|8|12|16|24|32|64)(?:\s*\(d[45]\))?(?=\/)/gi)];
+    return matches.length ? Number(matches[0][1]) : 0;
+}
+
+function finderStorage(product) {
+    const spec = finderSpec(product);
+    const direct = Number(spec.storage?.capacity_gb);
+    if (Number.isFinite(direct) && direct > 0) return direct;
+
+    const matches = [...finderText(product.name).matchAll(/(?:\/|\s)(128|256|512|1024|2048)(?:\s|\/|$)/gi)];
+    return matches.length ? Number(matches[matches.length - 1][1]) : 0;
+}
+
+function finderCpu(product) {
+    const spec = finderSpec(product);
+    const text = `${finderText(product.name)} ${finderText(spec.processor?.model)} ${finderText(spec.processor?.family)}`;
+    if (/ryzen\s*7|\bi7\b/.test(text)) return 4;
+    if (/ryzen\s*5|\bi5\b/.test(text)) return 3;
+    if (/ryzen\s*3|\bi3\b/.test(text)) return 2;
+    if (/athlon|n4500|celeron|pentium/.test(text)) return 1;
+    return 0;
+}
+
+function finderGpu(product) {
+    const spec = finderSpec(product);
+    const text = `${finderText(product.name)} ${finderText(spec.graphics?.model)}`;
+    if (/rtx\s*40|rtx\s*30|3050|3060|3070|3080|4050|4060|4070/.test(text)) return 5;
+    if (/mx\s*|radeon.*(550|560|570|580)|\b2g\b/.test(text)) return 3;
+    return /vega|radeon|iris|uhd|integrated/.test(text) ? 1 : 0;
+}
+
+function finderPerformance(product) {
+    return finderCpu(product) * 3 + finderGpu(product) * 3 + Math.min(finderRam(product), 32) / 4 + (finderStorage(product) >= 512 ? 2 : 0);
+}
+
+function finderBudget(product, budget) {
+    if (budget === "any") return 0;
+    const price = getNumber(product.sale_price) / 10;
+    const ranges = {
+        under100: [0, 1000000000],
+        "100to130": [1000000000, 1300000000],
+        "130to160": [1300000000, 1600000000],
+        over160: [1600000000, Infinity]
+    };
+    const range = ranges[budget];
+    if (!range) return 0;
+    if (price >= range[0] && price < range[1]) return 40;
+    const distance = price < range[0] ? range[0] - price : price - range[1];
+    return Math.max(-20, 12 - distance / 10000000);
+}
+
+function finderUse(product, use) {
+    const cpu = finderCpu(product);
+    const gpu = finderGpu(product);
+    const ram = finderRam(product);
+    const storage = finderStorage(product);
+    const price = getNumber(product.sale_price);
+
+    if (use === "gaming") return gpu * 9 + cpu * 4 + Math.min(ram, 32) / 2;
+    if (use === "design") return gpu * 6 + cpu * 3 + Math.min(ram, 32) / 2;
+    if (use === "programming") return cpu * 5 + Math.min(ram, 32) / 2 + (storage >= 512 ? 3 : 1);
+    if (use === "student") return Math.max(0, 7 - price / 300000000) + Math.min(ram, 16) / 3 + (storage >= 512 ? 2 : 0);
+    return Math.max(0, 7 - price / 300000000) + Math.min(ram, 16) / 4 + (storage >= 512 ? 2 : 0);
+}
+
+function finderPriority(product, priority) {
+    const cpu = finderCpu(product);
+    const gpu = finderGpu(product);
+    const ram = finderRam(product);
+    const storage = finderStorage(product);
+    if (priority === "value") return finderPerformance(product) * 8 + Math.max(0, 18 - getNumber(product.sale_price) / 100000000);
+    if (priority === "memory") return ram * 2 + Math.min(storage, 1024) / 128;
+    if (priority === "graphics") return gpu * 9 + cpu;
+    return cpu * 4 + gpu * 4 + Math.min(ram, 32) / 2;
+}
+
+function finderReason(product, answers) {
+    const parts = [];
+    const cpu = finderCpu(product);
+    const gpu = finderGpu(product);
+    const ram = finderRam(product);
+    const storage = finderStorage(product);
+
+    if ((answers.use === "gaming" || answers.use === "design") && gpu >= 5) parts.push("گرافیک مجزا و قدرتمندتر");
+    if ((answers.use === "programming" || answers.priority === "performance") && cpu >= 3) parts.push("پردازنده مناسب");
+    if (answers.priority === "memory" && ram) parts.push(`${formatPersianNumber(ram)} گیگ رم`);
+    if (storage >= 512) parts.push("حافظه ۵۱۲ گیگ یا بیشتر");
+    return (parts.length ? parts : ["تناسب مناسب با انتخاب‌های شما"]).slice(0, 2).join(" • ");
+}
+
+function bindFinderImageFallbacks() {
+    document.querySelectorAll(".finder-result-real-image").forEach(image => {
+        if (image.dataset.fallbackBound === "1") return;
+        image.dataset.fallbackBound = "1";
+        image.addEventListener("error", () => {
+            const base = image.dataset.imageBase;
+            const tried = image.dataset.tried ? image.dataset.tried.split(",") : [];
+            const formats = ["webp", "jpg", "jpeg", "png"];
+            const next = formats.find(format => !tried.includes(format));
+            if (next) {
+                tried.push(next);
+                image.dataset.tried = tried.join(",");
+                image.src = `${base}.${next}`;
+                return;
+            }
+            image.style.display = "none";
+        });
+    });
+}
+
+function renderFinderResults(results, answers) {
+    if (!laptopFinderResults) return;
+
+    if (!results.length) {
+        laptopFinderResults.innerHTML = `<div class="finder-empty">در حال حاضر لپ‌تاپی مطابق انتخاب‌های شما پیدا نشد.</div>`;
+        laptopFinderResults.hidden = false;
+        return;
+    }
+
+    laptopFinderResults.innerHTML = `
+        <div class="finder-results-head">
+            <h3>پیشنهادهای مناسب شما</h3>
+            <p>نتایج بر اساس کاربری، بودجه، اولویت و اطلاعات فعلی محصولات رتبه‌بندی شده‌اند.</p>
+        </div>
+        ${results.map((item, index) => {
+            const product = item.product;
+            const code = String(product.code || "").trim();
+            const base = code ? `images/products/${encodeURIComponent(code)}` : "";
+            const ram = finderRam(product);
+            const storage = finderStorage(product);
+            const meta = [];
+            if (ram) meta.push(`${formatPersianNumber(ram)}GB RAM`);
+            if (storage) meta.push(`${formatPersianNumber(storage)}GB SSD`);
+            if (finderGpu(product) >= 5) meta.push("گرافیک مجزا");
+
+            return `
+                <article class="finder-result-card">
+                    <div class="finder-result-image">
+                        ${base ? `<img class="finder-result-real-image" src="${base}.webp" data-image-base="${base}" data-tried="webp" alt="${escapeHtml(product.name || "لپ‌تاپ")}" loading="lazy">` : `<span>U</span>`}
+                    </div>
+                    <div class="finder-result-info">
+                        <h4>${index === 0 ? "⭐ بهترین پیشنهاد — " : ""}${escapeHtml(product.name || "محصول")}</h4>
+                        <div class="finder-result-meta">${meta.map(v => `<span>${escapeHtml(v)}</span>`).join("")}</div>
+                        <div class="finder-result-reason">${escapeHtml(finderReason(product, answers))}</div>
+                        <button type="button" class="finder-result-link" data-finder-product-id="${escapeHtml(product.id)}">مشاهده محصول</button>
+                    </div>
+                    <div class="finder-result-price">${formatPersianNumber(getNumber(product.sale_price) / 10)} تومان</div>
+                </article>
+            `;
+        }).join("")}
+    `;
+    laptopFinderResults.hidden = false;
+    bindFinderImageFallbacks();
+}
+
+function runLaptopFinder() {
+    if (!laptopFinderForm) return;
+    const data = new FormData(laptopFinderForm);
+    const answers = {
+        use: data.get("finder-use"),
+        budget: data.get("finder-budget"),
+        priority: data.get("finder-priority")
+    };
+
+    const results = products
+        .filter(isLaptopProduct)
+        .map(product => ({
+            product,
+            score:
+                finderUse(product, answers.use) * 5 +
+                finderBudget(product, answers.budget) +
+                finderPriority(product, answers.priority) * 2 +
+                (getNumber(product.qty) > 0 ? 12 : -4)
+        }))
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 3);
+
+    renderFinderResults(results, answers);
+}
+
+function openLaptopFinder() {
+    if (!laptopFinderModal) return;
+    laptopFinderModal.hidden = false;
+    document.body.classList.add("modal-open");
+    if (laptopFinderResults) {
+        laptopFinderResults.hidden = true;
+        laptopFinderResults.innerHTML = "";
+    }
+}
+
+function closeLaptopFinder() {
+    if (!laptopFinderModal) return;
+    laptopFinderModal.hidden = true;
+    document.body.classList.remove("modal-open");
+}
+
+/* =====================================================
 EVENTS
 ===================================================== */
 
@@ -2436,6 +2687,42 @@ if (resetFilters) {
 
 }
 
+
+/* =====================================================
+LAPTOP FINDER EVENTS
+===================================================== */
+
+if (laptopFinderButton) {
+    laptopFinderButton.addEventListener("click", openLaptopFinder);
+}
+
+if (laptopFinderForm) {
+    laptopFinderForm.addEventListener("submit", event => {
+        event.preventDefault();
+        runLaptopFinder();
+    });
+}
+
+document.addEventListener("click", event => {
+    if (event.target.closest("[data-finder-close]")) {
+        closeLaptopFinder();
+        return;
+    }
+
+    const finderProductButton = event.target.closest("[data-finder-product-id]");
+
+    if (finderProductButton) {
+        const productId = finderProductButton.dataset.finderProductId;
+        closeLaptopFinder();
+        openProductDetails(productId);
+    }
+});
+
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && laptopFinderModal && !laptopFinderModal.hidden) {
+        closeLaptopFinder();
+    }
+});
 
 /* =====================================================
 START

@@ -195,6 +195,16 @@
             </div>
 
 
+            <button
+                id="laptopFinderButton"
+                type="button"
+                class="laptop-finder-button"
+            >
+                <span class="laptop-finder-icon">✦</span>
+                <span>پیشنهاد لپ‌تاپ مناسب من</span>
+            </button>
+
+
             <div class="catalog-controls">
 
 
@@ -348,6 +358,131 @@
 </section>
 
 </main>
+
+<!-- =====================================================
+     LAPTOP FINDER
+====================================================== -->
+
+<div
+    id="laptopFinderModal"
+    class="laptop-finder-modal"
+    hidden
+>
+    <div class="laptop-finder-overlay" data-finder-close></div>
+
+    <div
+        class="laptop-finder-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="laptopFinderTitle"
+    >
+        <button
+            type="button"
+            class="laptop-finder-close"
+            aria-label="بستن"
+            data-finder-close
+        >
+            ×
+        </button>
+
+        <div class="laptop-finder-header">
+            <span class="laptop-finder-eyebrow">راهنمای خرید یونیکس شاپ</span>
+            <h2 id="laptopFinderTitle">لپ‌تاپ مناسب خودت را پیدا کن</h2>
+            <p>به سه سؤال کوتاه جواب بده تا مناسب‌ترین گزینه‌های موجود را برایت رتبه‌بندی کنیم.</p>
+        </div>
+
+        <form id="laptopFinderForm" class="laptop-finder-form">
+
+            <fieldset class="finder-question">
+                <legend>۱. لپ‌تاپ را بیشتر برای چه کاری می‌خواهی؟</legend>
+
+                <label class="finder-option">
+                    <input type="radio" name="finder-use" value="daily" checked>
+                    <span>روزمره و تماشای فیلم</span>
+                </label>
+
+                <label class="finder-option">
+                    <input type="radio" name="finder-use" value="student">
+                    <span>دانشجویی و اداری</span>
+                </label>
+
+                <label class="finder-option">
+                    <input type="radio" name="finder-use" value="programming">
+                    <span>برنامه‌نویسی</span>
+                </label>
+
+                <label class="finder-option">
+                    <input type="radio" name="finder-use" value="design">
+                    <span>طراحی و کارهای گرافیکی</span>
+                </label>
+
+                <label class="finder-option">
+                    <input type="radio" name="finder-use" value="gaming">
+                    <span>گیمینگ</span>
+                </label>
+            </fieldset>
+
+            <fieldset class="finder-question">
+                <legend>۲. بودجه تقریبی چقدر است؟</legend>
+
+                <label class="finder-option">
+                    <input type="radio" name="finder-budget" value="under100" checked>
+                    <span>زیر ۱۰۰ میلیون تومان</span>
+                </label>
+
+                <label class="finder-option">
+                    <input type="radio" name="finder-budget" value="100to130">
+                    <span>۱۰۰ تا ۱۳۰ میلیون تومان</span>
+                </label>
+
+                <label class="finder-option">
+                    <input type="radio" name="finder-budget" value="130to160">
+                    <span>۱۳۰ تا ۱۶۰ میلیون تومان</span>
+                </label>
+
+                <label class="finder-option">
+                    <input type="radio" name="finder-budget" value="over160">
+                    <span>بیشتر از ۱۶۰ میلیون تومان</span>
+                </label>
+
+                <label class="finder-option">
+                    <input type="radio" name="finder-budget" value="any">
+                    <span>محدودیت خاصی ندارم</span>
+                </label>
+            </fieldset>
+
+            <fieldset class="finder-question">
+                <legend>۳. مهم‌ترین اولویتت چیست؟</legend>
+
+                <label class="finder-option">
+                    <input type="radio" name="finder-priority" value="performance" checked>
+                    <span>قدرت و سرعت</span>
+                </label>
+
+                <label class="finder-option">
+                    <input type="radio" name="finder-priority" value="value">
+                    <span>بهترین ارزش خرید</span>
+                </label>
+
+                <label class="finder-option">
+                    <input type="radio" name="finder-priority" value="memory">
+                    <span>رم و فضای ذخیره‌سازی</span>
+                </label>
+
+                <label class="finder-option">
+                    <input type="radio" name="finder-priority" value="graphics">
+                    <span>گرافیک</span>
+                </label>
+            </fieldset>
+
+            <button type="submit" class="laptop-finder-submit">
+                پیدا کردن لپ‌تاپ مناسب ←
+            </button>
+        </form>
+
+        <div id="laptopFinderResults" class="laptop-finder-results" hidden></div>
+    </div>
+</div>
 
 <!-- =====================================================
      FOOTER
