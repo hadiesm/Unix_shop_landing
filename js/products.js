@@ -37,6 +37,145 @@ let selectedCategory = null;
 
 
 /* =====================================================
+PRODUCT COMPARISON
+===================================================== */
+
+const MAX_COMPARE = 4;
+const COMPARE_STORAGE_KEY = "compareProducts";
+
+function getCompareProducts() {
+    try {
+        const stored = JSON.parse(
+            localStorage.getItem(COMPARE_STORAGE_KEY) || "[]"
+        );
+        return Array.isArray(stored) ? stored.map(String).slice(0, MAX_COMPARE) : [];
+    } catch (error) {
+        return [];
+    }
+}
+
+function saveCompareProducts(ids) {
+    localStorage.setItem(
+        COMPARE_STORAGE_KEY,
+        JSON.stringify(ids.map(String).slice(0, MAX_COMPARE))
+    );
+}
+
+function isCompared(productId) {
+    return getCompareProducts().includes(String(productId));
+}
+
+function updateCompareUI() {
+    const ids = getCompareProducts();
+    const count = ids.length;
+    const bar = document.getElementById("compareBar");
+    const countEl = document.getElementById("compareCount");
+
+    if (countEl) {
+        countEl.textContent = `${formatPersianNumber(count)} محصول انتخاب شده`;
+    }
+
+    if (bar) {
+        bar.classList.toggle("hidden", count === 0);
+    }
+
+    document.querySelectorAll(".product-compare-button").forEach(button => {
+        const selected = ids.includes(String(button.dataset.compareId));
+        button.classList.toggle("selected", selected);
+        button.setAttribute("aria-pressed", selected ? "true" : "false");
+        button.querySelector(".compare-button-icon").textContent = selected ? "✓" : "⚖";
+        button.querySelector(".compare-button-label").textContent = selected ? "در مقایسه" : "مقایسه";
+    });
+}
+
+function getCompareCategoryRoot(productId) {
+    const product = products.find(
+        item => String(item.id) === String(productId)
+    );
+
+    if (!product) {
+        return null;
+    }
+
+    const categoryId = Number(product.category_id);
+
+    // لپ تاپ — همه زیرشاخه‌ها قابل مقایسه هستند
+    if ([1, 3, 4, 5, 6, 7, 8].includes(categoryId)) {
+        return "laptop";
+    }
+
+    // مانیتور — همه برندها و زیرشاخه‌ها قابل مقایسه هستند
+    if ([20, 21, 23, 24].includes(categoryId)) {
+        return "monitor";
+    }
+
+    // ماوس — سیمی و بی‌سیم قابل مقایسه هستند
+    if ([9, 10, 11].includes(categoryId)) {
+        return "mouse";
+    }
+
+    // دسته بازی — سیمی و بی‌سیم قابل مقایسه هستند
+    if ([13, 14, 15].includes(categoryId)) {
+        return "gamepad";
+    }
+
+    // سایر دسته‌ها فقط با همان دسته قابل مقایسه هستند
+    if (categoryId === 12) {
+        return "cooling-pad";
+    }
+
+    if (categoryId === 16) {
+        return "mouse-pad";
+    }
+
+    if (categoryId === 22) {
+        return "steering-wheel";
+    }
+
+    return `category:${categoryId}`;
+}
+
+function toggleCompare(productId) {
+    const id = String(productId);
+    let ids = getCompareProducts();
+
+    if (ids.includes(id)) {
+        ids = ids.filter(item => item !== id);
+    } else {
+        if (ids.length >= MAX_COMPARE) {
+            alert(`حداکثر ${formatPersianNumber(MAX_COMPARE)} محصول را می‌توانید همزمان مقایسه کنید.`);
+            return;
+        }
+
+        const selectedRoot = getCompareCategoryRoot(id);
+
+        if (ids.length > 0) {
+            const existingRoot = getCompareCategoryRoot(ids[0]);
+
+            if (
+                selectedRoot === null ||
+                existingRoot === null ||
+                selectedRoot !== existingRoot
+            ) {
+                alert("محصولات انتخابی باید از یک دسته‌بندی اصلی باشند.");
+                return;
+            }
+        }
+
+        ids.push(id);
+    }
+
+    saveCompareProducts(ids);
+    updateCompareUI();
+}
+
+function clearCompareSelection() {
+    localStorage.removeItem(COMPARE_STORAGE_KEY);
+    updateCompareUI();
+}
+
+
+/* =====================================================
 LOAD JSON DATA
 ===================================================== */
 
@@ -972,14 +1111,29 @@ function createProductCard(product) {
                     </div>
 
 
-                    <button
-                        type="button"
-                        class="product-button"
-                        aria-label="مشاهده مشخصات ${productName}"
-                        data-product-id="${escapeHtml(product.id)}"
-                    >
-                        ←
-                    </button>
+                    <div class="product-actions">
+
+                        <button
+                            type="button"
+                            class="product-compare-button ${isCompared(product.id) ? "selected" : ""}"
+                            data-compare-id="${escapeHtml(product.id)}"
+                            aria-pressed="${isCompared(product.id) ? "true" : "false"}"
+                            aria-label="${isCompared(product.id) ? "حذف از مقایسه" : "افزودن به مقایسه"}"
+                        >
+                            <span class="compare-button-icon">${isCompared(product.id) ? "✓" : "⚖"}</span>
+                            <span class="compare-button-label">${isCompared(product.id) ? "در مقایسه" : "مقایسه"}</span>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="product-button"
+                            aria-label="مشاهده مشخصات ${productName}"
+                            data-product-id="${escapeHtml(product.id)}"
+                        >
+                            ←
+                        </button>
+
+                    </div>
 
                 </div>
 
@@ -1583,6 +1737,18 @@ if (productsGrid) {
     productsGrid.addEventListener(
         "click",
         event => {
+
+            const compareButton =
+                event.target.closest(
+                    ".product-compare-button"
+                );
+
+            if (compareButton) {
+                event.preventDefault();
+                event.stopPropagation();
+                toggleCompare(compareButton.dataset.compareId);
+                return;
+            }
 
             const button =
                 event.target.closest(
@@ -2306,3 +2472,15 @@ async function initializeProductsPage() {
 
 
 initializeProductsPage();
+
+/* =====================================================
+COMPARE BAR
+===================================================== */
+
+const compareClearButton = document.getElementById("clearCompare");
+
+if (compareClearButton) {
+    compareClearButton.addEventListener("click", clearCompareSelection);
+}
+
+updateCompareUI();

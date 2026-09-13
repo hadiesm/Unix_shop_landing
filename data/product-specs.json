@@ -1,0 +1,1902 @@
+{
+  "version": 1,
+  "updated_at": "2026-09-13T13:00:26.301Z",
+  "products": {
+    "1": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": null
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": null
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": null,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": null
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": null,
+        "fingerprint": null,
+        "webcam": null
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "2": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": null
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": null
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": null,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": null
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": null,
+        "fingerprint": null,
+        "webcam": null
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "3": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": null
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": null
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": null,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": null
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": null,
+        "fingerprint": null,
+        "webcam": null
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "4": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": null
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": null
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": null,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": null
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": null,
+        "fingerprint": null,
+        "webcam": null
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "5": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": null
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": null
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": null,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": null
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": null,
+        "fingerprint": null,
+        "webcam": null
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "6": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": null
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": null
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": null,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": null
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": null,
+        "fingerprint": null,
+        "webcam": null
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "7": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": null
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": null
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": null,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": null
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": null,
+        "fingerprint": null,
+        "webcam": null
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "8": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": null
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": null
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": null,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": null
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": null,
+        "fingerprint": null,
+        "webcam": null
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "9": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": null
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": null
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": null,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": null
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": null,
+        "fingerprint": null,
+        "webcam": null
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "10": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": null
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": null
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": null,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": null
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": null,
+        "fingerprint": null,
+        "webcam": null
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "11": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": null
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": null
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": null,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": null
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": null,
+        "fingerprint": null,
+        "webcam": null
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "12": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": null
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": null
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": null,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": null
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": null,
+        "fingerprint": null,
+        "webcam": null
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "13": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": null
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": null
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": null,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": null
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": null,
+        "fingerprint": null,
+        "webcam": null
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "14": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": null
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": null
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": null,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": null
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": null,
+        "fingerprint": null,
+        "webcam": null
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "15": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": null
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": null
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": null,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": null
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": null,
+        "fingerprint": null,
+        "webcam": null
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "16": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": null
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": null
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": null,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": null
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": null,
+        "fingerprint": null,
+        "webcam": null
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "37": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": null
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": null
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": null,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": null
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": null,
+        "fingerprint": null,
+        "webcam": null
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "38": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": null
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": null
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": null,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": null
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": null,
+        "fingerprint": null,
+        "webcam": null
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "39": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": null
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": null
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": null,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": null
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": null,
+        "fingerprint": null,
+        "webcam": null
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "40": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": null
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": null
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": null,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": null
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": null,
+        "fingerprint": null,
+        "webcam": null
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "41": {
+      "type": "monitor",
+      "basic": {
+        "brand": "",
+        "model": "",
+        "size_inch": null,
+        "resolution": ""
+      },
+      "image": {
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "contrast": "",
+        "response_time_ms": null,
+        "color_gamut": "",
+        "hdr": "",
+        "adaptive_sync": ""
+      },
+      "ports": {
+        "hdmi": "",
+        "displayport": "",
+        "vga": "",
+        "usb": "",
+        "audio": ""
+      },
+      "features": {
+        "speakers": "",
+        "vesa": "",
+        "height_adjustment": "",
+        "swivel": "",
+        "pivot": "",
+        "tilt": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "43": {
+      "type": "monitor",
+      "basic": {
+        "brand": "Twisted Minds",
+        "model": "",
+        "size_inch": null,
+        "resolution": ""
+      },
+      "image": {
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "contrast": "",
+        "response_time_ms": null,
+        "color_gamut": "",
+        "hdr": "",
+        "adaptive_sync": ""
+      },
+      "ports": {
+        "hdmi": "",
+        "displayport": "",
+        "vga": "",
+        "usb": "",
+        "audio": ""
+      },
+      "features": {
+        "speakers": "",
+        "vesa": "",
+        "height_adjustment": "",
+        "swivel": "",
+        "pivot": "",
+        "tilt": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "44": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": null
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": null
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": null,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": null
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": null,
+        "fingerprint": null,
+        "webcam": null
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "45": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": null
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": null
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": null,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": null
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": null,
+        "fingerprint": null,
+        "webcam": null
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "46": {
+      "type": "monitor",
+      "basic": {
+        "brand": "",
+        "model": "",
+        "size_inch": null,
+        "resolution": ""
+      },
+      "image": {
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "contrast": "",
+        "response_time_ms": null,
+        "color_gamut": "",
+        "hdr": "",
+        "adaptive_sync": ""
+      },
+      "ports": {
+        "hdmi": "",
+        "displayport": "",
+        "vga": "",
+        "usb": "",
+        "audio": ""
+      },
+      "features": {
+        "speakers": "",
+        "vesa": "",
+        "height_adjustment": "",
+        "swivel": "",
+        "pivot": "",
+        "tilt": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    }
+  }
+}
