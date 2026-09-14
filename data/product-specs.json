@@ -1,82 +1,82 @@
 {
   "version": 1,
-  "updated_at": "2026-09-13T13:00:26.301Z",
+  "updated_at": "2026-09-14T08:20:16.559Z",
   "products": {
     "1": {
       "type": "laptop",
       "basic": {
-        "brand": "",
-        "model": ""
+        "brand": "ایسوس",
+        "model": "M1605YA"
       },
       "processor": {
-        "brand": "",
-        "model": "",
-        "family": "",
-        "generation": "",
-        "cores": null,
-        "threads": null,
-        "base_clock": "",
-        "boost_clock": "",
-        "cache": "",
-        "tdp": ""
+        "brand": "AMD",
+        "model": "Ryzen 7 - 7730U",
+        "family": "Ryzen",
+        "generation": "13",
+        "cores": 8,
+        "threads": 16,
+        "base_clock": "2GHz",
+        "boost_clock": "Up to 4.5 GHz",
+        "cache": "16 MB",
+        "tdp": "15W"
       },
       "memory": {
-        "capacity_gb": null,
-        "type": "",
+        "capacity_gb": 16,
+        "type": "DDR4",
         "speed_mhz": null,
-        "slots": null,
-        "max_capacity_gb": null,
-        "upgradeable": null
+        "slots": 1,
+        "max_capacity_gb": 16,
+        "upgradeable": true
       },
       "storage": {
-        "capacity_gb": null,
-        "type": "",
-        "interface": "",
-        "slots": null,
-        "additional_slot": null
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCIe 3.0",
+        "slots": 1,
+        "additional_slot": false
       },
       "graphics": {
-        "type": "",
-        "model": "",
-        "vram_gb": null,
-        "vram_type": "",
+        "type": "integrated",
+        "model": "Radeon 610M",
+        "vram_gb": 2,
+        "vram_type": "DDR5",
         "tgp": ""
       },
       "display": {
-        "size_inch": null,
-        "resolution": "",
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
+        "size_inch": 16,
+        "resolution": "1080*1920",
+        "panel": "IPS",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 300,
         "response_time_ms": null,
         "color_gamut": "",
-        "touch": null
+        "touch": false
       },
       "connectivity": {
-        "wifi": "",
-        "bluetooth": "",
-        "ethernet": ""
+        "wifi": "Wi-Fi 6E(802.11ax)",
+        "bluetooth": "Bluetooth® 5.3 Wireless Card",
+        "ethernet": "ندارد"
       },
       "ports": {
-        "usb_a": "",
-        "usb_c": "",
-        "thunderbolt": "",
-        "hdmi": "",
-        "displayport": "",
-        "audio": "",
-        "card_reader": ""
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "ندارد"
       },
       "physical": {
-        "battery_wh": null,
-        "weight_kg": null
+        "battery_wh": 42,
+        "weight_kg": 1.88
       },
       "features": {
-        "keyboard_backlight": null,
-        "fingerprint": null,
-        "webcam": null
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
       },
       "software": {
-        "os": ""
+        "os": "بدون سیستم عامل"
       },
       "source": {
         "url": "",
@@ -86,78 +86,79 @@
     "2": {
       "type": "laptop",
       "basic": {
-        "brand": "",
-        "model": ""
+        "brand": "ایسوس",
+        "model": "A1502VA"
       },
       "processor": {
-        "brand": "",
-        "model": "",
+        "brand": "Intel",
+        "model": "Core i5 -13420H",
         "family": "",
-        "generation": "",
-        "cores": null,
-        "threads": null,
-        "base_clock": "",
-        "boost_clock": "",
-        "cache": "",
+        "generation": "13",
+        "cores": 8,
+        "threads": 12,
+        "base_clock": "2.1GHz",
+        "boost_clock": "up to 4.6 GHz",
+        "cache": "12",
         "tdp": ""
       },
       "memory": {
-        "capacity_gb": null,
-        "type": "",
+        "capacity_gb": 16,
+        "type": "DDR4",
         "speed_mhz": null,
-        "slots": null,
-        "max_capacity_gb": null,
-        "upgradeable": null
+        "slots": 1,
+        "max_capacity_gb": 24,
+        "upgradeable": true
       },
       "storage": {
-        "capacity_gb": null,
-        "type": "",
-        "interface": "",
-        "slots": null,
-        "additional_slot": null
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCIe® 4.0 SSD",
+        "slots": 1,
+        "additional_slot": false
       },
       "graphics": {
-        "type": "",
-        "model": "",
-        "vram_gb": null,
-        "vram_type": "",
+        "type": "integrated",
+        "model": "Intel® UHD Graphics",
+        "vram_gb": 0.5,
+        "vram_mb": 512,
+        "vram_type": "GDDR5",
         "tgp": ""
       },
       "display": {
-        "size_inch": null,
-        "resolution": "",
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "TN",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 250,
         "response_time_ms": null,
         "color_gamut": "",
-        "touch": null
+        "touch": false
       },
       "connectivity": {
-        "wifi": "",
-        "bluetooth": "",
-        "ethernet": ""
+        "wifi": "Wi-Fi 5(802.11ac) (Dual band)",
+        "bluetooth": "Bluetooth® 5.1",
+        "ethernet": "ندارد"
       },
       "ports": {
-        "usb_a": "",
-        "usb_c": "",
-        "thunderbolt": "",
-        "hdmi": "",
-        "displayport": "",
-        "audio": "",
-        "card_reader": ""
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "ندارد"
       },
       "physical": {
-        "battery_wh": null,
-        "weight_kg": null
+        "battery_wh": 42,
+        "weight_kg": 1.7
       },
       "features": {
-        "keyboard_backlight": null,
-        "fingerprint": null,
-        "webcam": null
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
       },
       "software": {
-        "os": ""
+        "os": "بدون سیستم عامل"
       },
       "source": {
         "url": "",
@@ -167,78 +168,79 @@
     "3": {
       "type": "laptop",
       "basic": {
-        "brand": "",
-        "model": ""
+        "brand": "ایسوس",
+        "model": "X1504V"
       },
       "processor": {
-        "brand": "",
-        "model": "",
+        "brand": "Intel",
+        "model": "Core™ i3-1315U",
         "family": "",
-        "generation": "",
-        "cores": null,
-        "threads": null,
-        "base_clock": "",
-        "boost_clock": "",
-        "cache": "",
+        "generation": "13",
+        "cores": 6,
+        "threads": 8,
+        "base_clock": "1.2GHz",
+        "boost_clock": "up to 4.5 GHz",
+        "cache": "10",
         "tdp": ""
       },
       "memory": {
-        "capacity_gb": null,
-        "type": "",
+        "capacity_gb": 12,
+        "type": "DDR4",
         "speed_mhz": null,
-        "slots": null,
-        "max_capacity_gb": null,
-        "upgradeable": null
+        "slots": 1,
+        "max_capacity_gb": 24,
+        "upgradeable": true
       },
       "storage": {
-        "capacity_gb": null,
-        "type": "",
-        "interface": "",
-        "slots": null,
-        "additional_slot": null
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCIe® 4.0 SSD",
+        "slots": 1,
+        "additional_slot": false
       },
       "graphics": {
-        "type": "",
-        "model": "",
-        "vram_gb": null,
-        "vram_type": "",
+        "type": "integrated",
+        "model": "Intel® UHD Graphics",
+        "vram_gb": 0.5,
+        "vram_mb": 512,
+        "vram_type": "GDDR5",
         "tgp": ""
       },
       "display": {
-        "size_inch": null,
-        "resolution": "",
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "TN",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 250,
         "response_time_ms": null,
         "color_gamut": "",
-        "touch": null
+        "touch": false
       },
       "connectivity": {
-        "wifi": "",
-        "bluetooth": "",
-        "ethernet": ""
+        "wifi": "Wi-Fi 6E(802.11ax)",
+        "bluetooth": "Bluetooth® 5.3",
+        "ethernet": "ندارد"
       },
       "ports": {
-        "usb_a": "",
-        "usb_c": "",
-        "thunderbolt": "",
-        "hdmi": "",
-        "displayport": "",
-        "audio": "",
-        "card_reader": ""
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "ندارد"
       },
       "physical": {
-        "battery_wh": null,
-        "weight_kg": null
+        "battery_wh": 42,
+        "weight_kg": 1.7
       },
       "features": {
-        "keyboard_backlight": null,
-        "fingerprint": null,
-        "webcam": null
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
       },
       "software": {
-        "os": ""
+        "os": "بدون سیستم عامل"
       },
       "source": {
         "url": "",
@@ -248,78 +250,79 @@
     "4": {
       "type": "laptop",
       "basic": {
-        "brand": "",
-        "model": ""
+        "brand": "ایسر",
+        "model": "Aspire Lite"
       },
       "processor": {
-        "brand": "",
-        "model": "",
+        "brand": "Intel",
+        "model": "Core™ i3 - 1305U",
         "family": "",
-        "generation": "",
-        "cores": null,
-        "threads": null,
-        "base_clock": "",
-        "boost_clock": "",
+        "generation": "13",
+        "cores": 5,
+        "threads": 6,
+        "base_clock": "1.60GHz",
+        "boost_clock": "Up to 4.1GHz",
         "cache": "",
         "tdp": ""
       },
       "memory": {
-        "capacity_gb": null,
-        "type": "",
+        "capacity_gb": 8,
+        "type": "DDR5",
         "speed_mhz": null,
-        "slots": null,
+        "slots": 1,
         "max_capacity_gb": null,
-        "upgradeable": null
+        "upgradeable": false
       },
       "storage": {
-        "capacity_gb": null,
-        "type": "",
-        "interface": "",
-        "slots": null,
-        "additional_slot": null
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCI e 4.0",
+        "slots": 1,
+        "additional_slot": false
       },
       "graphics": {
-        "type": "",
-        "model": "",
-        "vram_gb": null,
-        "vram_type": "",
+        "type": "integrated",
+        "model": "Intel UHD Graphics",
+        "vram_gb": 0.5,
+        "vram_mb": 512,
+        "vram_type": "GDDR5",
         "tgp": ""
       },
       "display": {
-        "size_inch": null,
-        "resolution": "",
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
+        "size_inch": 16,
+        "resolution": "1200*1920",
+        "panel": "IPS",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 300,
         "response_time_ms": null,
         "color_gamut": "",
-        "touch": null
+        "touch": false
       },
       "connectivity": {
-        "wifi": "",
-        "bluetooth": "",
-        "ethernet": ""
+        "wifi": "IEEE 802.11ax",
+        "bluetooth": "Bluetooth 5.1",
+        "ethernet": "ندارد"
       },
       "ports": {
-        "usb_a": "",
-        "usb_c": "",
-        "thunderbolt": "",
-        "hdmi": "",
-        "displayport": "",
-        "audio": "",
-        "card_reader": ""
+        "usb_a": "3",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "ندارد"
       },
       "physical": {
-        "battery_wh": null,
-        "weight_kg": null
+        "battery_wh": 42,
+        "weight_kg": 1.7
       },
       "features": {
-        "keyboard_backlight": null,
-        "fingerprint": null,
-        "webcam": null
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
       },
       "software": {
-        "os": ""
+        "os": "بدون سیستم عامل"
       },
       "source": {
         "url": "",
@@ -329,78 +332,79 @@
     "5": {
       "type": "laptop",
       "basic": {
-        "brand": "",
-        "model": ""
+        "brand": "اچ پی",
+        "model": "G10 255"
       },
       "processor": {
-        "brand": "",
-        "model": "",
-        "family": "",
-        "generation": "",
-        "cores": null,
-        "threads": null,
-        "base_clock": "",
-        "boost_clock": "",
-        "cache": "",
+        "brand": "AMD",
+        "model": "Ryzen 5-7530U",
+        "family": "Ryzen",
+        "generation": "13",
+        "cores": 6,
+        "threads": 12,
+        "base_clock": "2GHz",
+        "boost_clock": "up to 4.5 GHz",
+        "cache": "16",
         "tdp": ""
       },
       "memory": {
-        "capacity_gb": null,
-        "type": "",
-        "speed_mhz": null,
-        "slots": null,
-        "max_capacity_gb": null,
-        "upgradeable": null
+        "capacity_gb": 16,
+        "type": "LPDDR5",
+        "speed_mhz": 5500,
+        "slots": 1,
+        "max_capacity_gb": 16,
+        "upgradeable": false
       },
       "storage": {
-        "capacity_gb": null,
-        "type": "",
-        "interface": "",
-        "slots": null,
-        "additional_slot": null
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCIe 4.0",
+        "slots": 1,
+        "additional_slot": false
       },
       "graphics": {
-        "type": "",
-        "model": "",
-        "vram_gb": null,
-        "vram_type": "",
+        "type": "integrated",
+        "model": "AMD Radeon Graphics",
+        "vram_gb": 0.5,
+        "vram_mb": 512,
+        "vram_type": "GDDR5",
         "tgp": ""
       },
       "display": {
-        "size_inch": null,
-        "resolution": "",
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "TN",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 250,
         "response_time_ms": null,
         "color_gamut": "",
-        "touch": null
+        "touch": false
       },
       "connectivity": {
-        "wifi": "",
-        "bluetooth": "",
-        "ethernet": ""
+        "wifi": "Realtek 8852BE-VS (1x1) Wi-Fi 6",
+        "bluetooth": "Bluetooth 5.3",
+        "ethernet": "ندارد"
       },
       "ports": {
-        "usb_a": "",
-        "usb_c": "",
-        "thunderbolt": "",
-        "hdmi": "",
-        "displayport": "",
-        "audio": "",
-        "card_reader": ""
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "ندارد"
       },
       "physical": {
-        "battery_wh": null,
-        "weight_kg": null
+        "battery_wh": 41,
+        "weight_kg": 1.52
       },
       "features": {
-        "keyboard_backlight": null,
-        "fingerprint": null,
-        "webcam": null
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
       },
       "software": {
-        "os": ""
+        "os": "بدون سیستم عامل"
       },
       "source": {
         "url": "",
@@ -410,78 +414,79 @@
     "6": {
       "type": "laptop",
       "basic": {
-        "brand": "",
-        "model": ""
+        "brand": "لنوو",
+        "model": "Ideapad Slim 3"
       },
       "processor": {
-        "brand": "",
-        "model": "",
+        "brand": "Intel",
+        "model": "Core i5 -13420H",
         "family": "",
-        "generation": "",
-        "cores": null,
-        "threads": null,
-        "base_clock": "",
-        "boost_clock": "",
-        "cache": "",
+        "generation": "13",
+        "cores": 8,
+        "threads": 12,
+        "base_clock": "2.1GHz",
+        "boost_clock": "up to 4.6 GHz",
+        "cache": "12",
         "tdp": ""
       },
       "memory": {
-        "capacity_gb": null,
-        "type": "",
+        "capacity_gb": 8,
+        "type": "DDR4",
         "speed_mhz": null,
-        "slots": null,
-        "max_capacity_gb": null,
-        "upgradeable": null
+        "slots": 1,
+        "max_capacity_gb": 24,
+        "upgradeable": true
       },
       "storage": {
-        "capacity_gb": null,
-        "type": "",
-        "interface": "",
-        "slots": null,
-        "additional_slot": null
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCIe® 4.0 SSD",
+        "slots": 1,
+        "additional_slot": false
       },
       "graphics": {
-        "type": "",
-        "model": "",
-        "vram_gb": null,
-        "vram_type": "",
+        "type": "integrated",
+        "model": "Intel® UHD Graphics",
+        "vram_gb": 0.5,
+        "vram_mb": 512,
+        "vram_type": "GDDR5",
         "tgp": ""
       },
       "display": {
-        "size_inch": null,
-        "resolution": "",
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "TN",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 250,
         "response_time_ms": null,
         "color_gamut": "",
-        "touch": null
+        "touch": false
       },
       "connectivity": {
-        "wifi": "",
-        "bluetooth": "",
-        "ethernet": ""
+        "wifi": "wifi\": \"Wi-Fi 5(802.11ac) (Dual band)",
+        "bluetooth": "Bluetooth® 5.1",
+        "ethernet": "ندارد"
       },
       "ports": {
-        "usb_a": "",
-        "usb_c": "",
-        "thunderbolt": "",
-        "hdmi": "",
-        "displayport": "",
-        "audio": "",
-        "card_reader": ""
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "ندارد"
       },
       "physical": {
-        "battery_wh": null,
-        "weight_kg": null
+        "battery_wh": 42,
+        "weight_kg": 1.7
       },
       "features": {
-        "keyboard_backlight": null,
-        "fingerprint": null,
-        "webcam": null
+        "keyboard_backlight": true,
+        "fingerprint": false,
+        "webcam": true
       },
       "software": {
-        "os": ""
+        "os": "بدون سیستم عامل"
       },
       "source": {
         "url": "",
@@ -491,78 +496,78 @@
     "7": {
       "type": "laptop",
       "basic": {
-        "brand": "",
-        "model": ""
+        "brand": "لنوو",
+        "model": "Ideapad Slim 3"
       },
       "processor": {
-        "brand": "",
-        "model": "",
-        "family": "",
-        "generation": "",
-        "cores": null,
-        "threads": null,
-        "base_clock": "",
-        "boost_clock": "",
-        "cache": "",
+        "brand": "AMD",
+        "model": "Ryzen 3 7320U",
+        "family": "Ryzen",
+        "generation": "13",
+        "cores": 4,
+        "threads": 8,
+        "base_clock": "2.4GHz",
+        "boost_clock": "up to 4.1GHz",
+        "cache": "4",
         "tdp": ""
       },
       "memory": {
-        "capacity_gb": null,
-        "type": "",
-        "speed_mhz": null,
-        "slots": null,
-        "max_capacity_gb": null,
-        "upgradeable": null
+        "capacity_gb": 8,
+        "type": "LPDDR5",
+        "speed_mhz": 5500,
+        "slots": 1,
+        "max_capacity_gb": 8,
+        "upgradeable": false
       },
       "storage": {
-        "capacity_gb": null,
-        "type": "",
-        "interface": "",
-        "slots": null,
-        "additional_slot": null
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCIe® 4.0",
+        "slots": 1,
+        "additional_slot": false
       },
       "graphics": {
-        "type": "",
-        "model": "",
-        "vram_gb": null,
-        "vram_type": "",
+        "type": "integrated",
+        "model": "AMD Radeon™ 610M",
+        "vram_gb": 2,
+        "vram_type": "GDDR6",
         "tgp": ""
       },
       "display": {
-        "size_inch": null,
-        "resolution": "",
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "IPS",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 250,
         "response_time_ms": null,
         "color_gamut": "",
-        "touch": null
+        "touch": false
       },
       "connectivity": {
-        "wifi": "",
-        "bluetooth": "",
-        "ethernet": ""
+        "wifi": "Wi-Fi® 6, 802.11ax 2x2",
+        "bluetooth": "BT5.2",
+        "ethernet": "ندارد"
       },
       "ports": {
-        "usb_a": "",
-        "usb_c": "",
-        "thunderbolt": "",
-        "hdmi": "",
-        "displayport": "",
-        "audio": "",
-        "card_reader": ""
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "ندارد"
       },
       "physical": {
-        "battery_wh": null,
-        "weight_kg": null
+        "battery_wh": 47,
+        "weight_kg": 1.62
       },
       "features": {
-        "keyboard_backlight": null,
-        "fingerprint": null,
-        "webcam": null
+        "keyboard_backlight": false,
+        "fingerprint": true,
+        "webcam": true
       },
       "software": {
-        "os": ""
+        "os": "بدون سیستم عامل"
       },
       "source": {
         "url": "",
@@ -572,78 +577,78 @@
     "8": {
       "type": "laptop",
       "basic": {
-        "brand": "",
-        "model": ""
+        "brand": "لنوو",
+        "model": "Ideapad Slim 3"
       },
       "processor": {
-        "brand": "",
-        "model": "",
-        "family": "",
-        "generation": "",
-        "cores": null,
-        "threads": null,
-        "base_clock": "",
-        "boost_clock": "",
-        "cache": "",
+        "brand": "AMD",
+        "model": "Ryzen™ 5 5625U",
+        "family": "Ryzen",
+        "generation": "12",
+        "cores": 6,
+        "threads": 12,
+        "base_clock": "2.3GHz",
+        "boost_clock": "up to 4.3GHz",
+        "cache": "16",
         "tdp": ""
       },
       "memory": {
-        "capacity_gb": null,
-        "type": "",
-        "speed_mhz": null,
-        "slots": null,
-        "max_capacity_gb": null,
-        "upgradeable": null
+        "capacity_gb": 8,
+        "type": "DDR4",
+        "speed_mhz": 3200,
+        "slots": 1,
+        "max_capacity_gb": 8,
+        "upgradeable": false
       },
       "storage": {
-        "capacity_gb": null,
-        "type": "",
-        "interface": "",
-        "slots": null,
-        "additional_slot": null
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCIe 3.0",
+        "slots": 1,
+        "additional_slot": false
       },
       "graphics": {
-        "type": "",
-        "model": "",
-        "vram_gb": null,
-        "vram_type": "",
+        "type": "integrated",
+        "model": "AMD Radeon™ Graphics",
+        "vram_gb": 2,
+        "vram_type": "GDDR6",
         "tgp": ""
       },
       "display": {
-        "size_inch": null,
-        "resolution": "",
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "TN",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 250,
         "response_time_ms": null,
         "color_gamut": "",
-        "touch": null
+        "touch": false
       },
       "connectivity": {
-        "wifi": "",
-        "bluetooth": "",
-        "ethernet": ""
+        "wifi": "Wi-Fi® 5, 802.11ac 2x2",
+        "bluetooth": "Bluetooth® 5.1, M.2",
+        "ethernet": "ندارد"
       },
       "ports": {
-        "usb_a": "",
-        "usb_c": "",
-        "thunderbolt": "",
-        "hdmi": "",
-        "displayport": "",
-        "audio": "",
-        "card_reader": ""
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "دارد"
       },
       "physical": {
-        "battery_wh": null,
-        "weight_kg": null
+        "battery_wh": 47,
+        "weight_kg": 1.62
       },
       "features": {
-        "keyboard_backlight": null,
-        "fingerprint": null,
-        "webcam": null
+        "keyboard_backlight": true,
+        "fingerprint": false,
+        "webcam": true
       },
       "software": {
-        "os": ""
+        "os": "بدون سیستم عامل"
       },
       "source": {
         "url": "",
@@ -653,78 +658,79 @@
     "9": {
       "type": "laptop",
       "basic": {
-        "brand": "",
-        "model": ""
+        "brand": "لنوو",
+        "model": "Ideapad 1"
       },
       "processor": {
-        "brand": "",
-        "model": "",
-        "family": "",
-        "generation": "",
-        "cores": null,
-        "threads": null,
-        "base_clock": "",
-        "boost_clock": "",
-        "cache": "",
+        "brand": "Intel",
+        "model": "Core™ i5-1335U",
+        "family": "Intel",
+        "generation": "13",
+        "cores": 10,
+        "threads": 12,
+        "base_clock": "2.1GHz",
+        "boost_clock": "up to 4.6GHz",
+        "cache": "12",
         "tdp": ""
       },
       "memory": {
-        "capacity_gb": null,
-        "type": "",
-        "speed_mhz": null,
-        "slots": null,
-        "max_capacity_gb": null,
-        "upgradeable": null
+        "capacity_gb": 16,
+        "type": "DDR4",
+        "speed_mhz": 3200,
+        "slots": 1,
+        "max_capacity_gb": 16,
+        "upgradeable": true
       },
       "storage": {
-        "capacity_gb": null,
-        "type": "",
-        "interface": "",
-        "slots": null,
-        "additional_slot": null
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCIe® 4.0",
+        "slots": 1,
+        "additional_slot": false
       },
       "graphics": {
-        "type": "",
-        "model": "",
-        "vram_gb": null,
-        "vram_type": "",
+        "type": "integrated",
+        "model": "Integrated Intel® Iris® Xe Graphics",
+        "vram_gb": 0.5,
+        "vram_mb": 512,
+        "vram_type": "GDDR5",
         "tgp": ""
       },
       "display": {
-        "size_inch": null,
-        "resolution": "",
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "TN",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 250,
         "response_time_ms": null,
         "color_gamut": "",
-        "touch": null
+        "touch": true
       },
       "connectivity": {
-        "wifi": "",
-        "bluetooth": "",
-        "ethernet": ""
+        "wifi": "Wi-Fi® 6, 802.11ax 2x2",
+        "bluetooth": "BT5.1",
+        "ethernet": "ندارد"
       },
       "ports": {
-        "usb_a": "",
-        "usb_c": "",
-        "thunderbolt": "",
-        "hdmi": "",
-        "displayport": "",
-        "audio": "",
-        "card_reader": ""
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "دارد"
       },
       "physical": {
-        "battery_wh": null,
-        "weight_kg": null
+        "battery_wh": 47,
+        "weight_kg": 1.62
       },
       "features": {
-        "keyboard_backlight": null,
-        "fingerprint": null,
-        "webcam": null
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
       },
       "software": {
-        "os": ""
+        "os": "بدون سیستم عامل"
       },
       "source": {
         "url": "",
@@ -734,78 +740,79 @@
     "10": {
       "type": "laptop",
       "basic": {
-        "brand": "",
-        "model": ""
+        "brand": "لنوو",
+        "model": "Ideapad Slim 3"
       },
       "processor": {
-        "brand": "",
-        "model": "",
-        "family": "",
-        "generation": "",
-        "cores": null,
-        "threads": null,
-        "base_clock": "",
-        "boost_clock": "",
-        "cache": "",
+        "brand": "AMD",
+        "model": "Athlon™ Silver 7120U",
+        "family": "AMD",
+        "generation": "13",
+        "cores": 2,
+        "threads": 2,
+        "base_clock": "2.4GHz",
+        "boost_clock": "up to 3.5GHz",
+        "cache": "2",
         "tdp": ""
       },
       "memory": {
-        "capacity_gb": null,
-        "type": "",
-        "speed_mhz": null,
-        "slots": null,
-        "max_capacity_gb": null,
-        "upgradeable": null
+        "capacity_gb": 8,
+        "type": "LPDDR5",
+        "speed_mhz": 5500,
+        "slots": 1,
+        "max_capacity_gb": 8,
+        "upgradeable": false
       },
       "storage": {
-        "capacity_gb": null,
-        "type": "",
-        "interface": "",
-        "slots": null,
-        "additional_slot": null
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCIe® 3.0x4",
+        "slots": 1,
+        "additional_slot": false
       },
       "graphics": {
-        "type": "",
-        "model": "",
-        "vram_gb": null,
-        "vram_type": "",
+        "type": "integrated",
+        "model": "Integrated AMD Radeon™ 610M Graphics",
+        "vram_gb": 0.5,
+        "vram_mb": 512,
+        "vram_type": "GDDR6",
         "tgp": ""
       },
       "display": {
-        "size_inch": null,
-        "resolution": "",
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "TN",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 250,
         "response_time_ms": null,
         "color_gamut": "",
-        "touch": null
+        "touch": false
       },
       "connectivity": {
-        "wifi": "",
-        "bluetooth": "",
-        "ethernet": ""
+        "wifi": "Wi-Fi® 6, 802.11ax 2x2",
+        "bluetooth": "BT5.2",
+        "ethernet": "ندارد"
       },
       "ports": {
-        "usb_a": "",
-        "usb_c": "",
-        "thunderbolt": "",
-        "hdmi": "",
-        "displayport": "",
-        "audio": "",
-        "card_reader": ""
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "دارد"
       },
       "physical": {
-        "battery_wh": null,
-        "weight_kg": null
+        "battery_wh": 47,
+        "weight_kg": 1.67
       },
       "features": {
-        "keyboard_backlight": null,
-        "fingerprint": null,
-        "webcam": null
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
       },
       "software": {
-        "os": ""
+        "os": "بدون سیستم عامل"
       },
       "source": {
         "url": "",
@@ -815,78 +822,79 @@
     "11": {
       "type": "laptop",
       "basic": {
-        "brand": "",
-        "model": ""
+        "brand": "لنوو",
+        "model": "Ideapad 1"
       },
       "processor": {
-        "brand": "",
-        "model": "",
-        "family": "",
-        "generation": "",
-        "cores": null,
-        "threads": null,
-        "base_clock": "",
-        "boost_clock": "",
-        "cache": "",
+        "brand": "Intel",
+        "model": "Celeron® N4500",
+        "family": "Intel",
+        "generation": "13",
+        "cores": 2,
+        "threads": 2,
+        "base_clock": "1.1GHz",
+        "boost_clock": "up to 2.8GHz",
+        "cache": "4",
         "tdp": ""
       },
       "memory": {
-        "capacity_gb": null,
-        "type": "",
-        "speed_mhz": null,
-        "slots": null,
-        "max_capacity_gb": null,
-        "upgradeable": null
+        "capacity_gb": 8,
+        "type": "DDR4",
+        "speed_mhz": 2933,
+        "slots": 1,
+        "max_capacity_gb": 8,
+        "upgradeable": false
       },
       "storage": {
-        "capacity_gb": null,
-        "type": "",
-        "interface": "",
-        "slots": null,
-        "additional_slot": null
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCIe® 3.0",
+        "slots": 1,
+        "additional_slot": false
       },
       "graphics": {
-        "type": "",
-        "model": "",
-        "vram_gb": null,
-        "vram_type": "",
+        "type": "integrated",
+        "model": "Intel® UHD Graphics",
+        "vram_gb": 0.5,
+        "vram_mb": 512,
+        "vram_type": "GDDR5",
         "tgp": ""
       },
       "display": {
-        "size_inch": null,
-        "resolution": "",
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "TN",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 250,
         "response_time_ms": null,
         "color_gamut": "",
-        "touch": null
+        "touch": false
       },
       "connectivity": {
-        "wifi": "",
-        "bluetooth": "",
-        "ethernet": ""
+        "wifi": "Wi-Fi® 5, 802.11ac 2x2 Wi-Fi®",
+        "bluetooth": "Bluetooth® 5.1",
+        "ethernet": "ندارد"
       },
       "ports": {
-        "usb_a": "",
-        "usb_c": "",
-        "thunderbolt": "",
-        "hdmi": "",
-        "displayport": "",
-        "audio": "",
-        "card_reader": ""
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "دارد"
       },
       "physical": {
-        "battery_wh": null,
-        "weight_kg": null
+        "battery_wh": 42,
+        "weight_kg": 1.55
       },
       "features": {
-        "keyboard_backlight": null,
-        "fingerprint": null,
-        "webcam": null
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
       },
       "software": {
-        "os": ""
+        "os": "بدون سیستم عامل"
       },
       "source": {
         "url": "",
@@ -896,78 +904,78 @@
     "12": {
       "type": "laptop",
       "basic": {
-        "brand": "",
-        "model": ""
+        "brand": "لنوو",
+        "model": "Ideapad Slim 3"
       },
       "processor": {
-        "brand": "",
-        "model": "",
-        "family": "",
-        "generation": "",
-        "cores": null,
-        "threads": null,
-        "base_clock": "",
-        "boost_clock": "",
-        "cache": "",
+        "brand": "AMD",
+        "model": "Ryzen™ 5 7520U",
+        "family": "Ryzen",
+        "generation": "13",
+        "cores": 4,
+        "threads": 8,
+        "base_clock": "2.8GHz",
+        "boost_clock": "up to 4.3GHz",
+        "cache": "6",
         "tdp": ""
       },
       "memory": {
-        "capacity_gb": null,
-        "type": "",
-        "speed_mhz": null,
-        "slots": null,
-        "max_capacity_gb": null,
-        "upgradeable": null
+        "capacity_gb": 8,
+        "type": "LPDDR5",
+        "speed_mhz": 5500,
+        "slots": 1,
+        "max_capacity_gb": 8,
+        "upgradeable": false
       },
       "storage": {
-        "capacity_gb": null,
-        "type": "",
-        "interface": "",
-        "slots": null,
-        "additional_slot": null
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCIe® 4.0",
+        "slots": 1,
+        "additional_slot": false
       },
       "graphics": {
-        "type": "",
-        "model": "",
-        "vram_gb": null,
-        "vram_type": "",
+        "type": "integrated",
+        "model": "AMD Radeon™ 610M",
+        "vram_gb": 2,
+        "vram_type": "GDDR6",
         "tgp": ""
       },
       "display": {
-        "size_inch": null,
-        "resolution": "",
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "IPS",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 300,
         "response_time_ms": null,
         "color_gamut": "",
-        "touch": null
+        "touch": false
       },
       "connectivity": {
-        "wifi": "",
-        "bluetooth": "",
-        "ethernet": ""
+        "wifi": "Wi-Fi® 6, 802.11ax 2x2",
+        "bluetooth": "Bluetooth® 5.2, M.2 card",
+        "ethernet": "ندارد"
       },
       "ports": {
-        "usb_a": "",
-        "usb_c": "",
-        "thunderbolt": "",
-        "hdmi": "",
-        "displayport": "",
-        "audio": "",
-        "card_reader": ""
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "دارد"
       },
       "physical": {
-        "battery_wh": null,
-        "weight_kg": null
+        "battery_wh": 47,
+        "weight_kg": 1.62
       },
       "features": {
-        "keyboard_backlight": null,
-        "fingerprint": null,
-        "webcam": null
+        "keyboard_backlight": false,
+        "fingerprint": true,
+        "webcam": true
       },
       "software": {
-        "os": ""
+        "os": "بدون سیستم عامل"
       },
       "source": {
         "url": "",
@@ -977,78 +985,78 @@
     "13": {
       "type": "laptop",
       "basic": {
-        "brand": "",
-        "model": ""
+        "brand": "لنوو",
+        "model": "Ideapad Slim 3"
       },
       "processor": {
-        "brand": "",
-        "model": "",
-        "family": "",
-        "generation": "",
-        "cores": null,
-        "threads": null,
-        "base_clock": "",
-        "boost_clock": "",
-        "cache": "",
+        "brand": "AMD",
+        "model": "Ryzen™ 5 7520U",
+        "family": "Ryzen",
+        "generation": "13",
+        "cores": 4,
+        "threads": 8,
+        "base_clock": "2.8GHz",
+        "boost_clock": "up to 4.3GHz",
+        "cache": "6",
         "tdp": ""
       },
       "memory": {
-        "capacity_gb": null,
-        "type": "",
-        "speed_mhz": null,
-        "slots": null,
-        "max_capacity_gb": null,
-        "upgradeable": null
+        "capacity_gb": 16,
+        "type": "LPDDR5",
+        "speed_mhz": 5500,
+        "slots": 1,
+        "max_capacity_gb": 16,
+        "upgradeable": false
       },
       "storage": {
-        "capacity_gb": null,
-        "type": "",
-        "interface": "",
-        "slots": null,
-        "additional_slot": null
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCIe® 4.0",
+        "slots": 1,
+        "additional_slot": false
       },
       "graphics": {
-        "type": "",
-        "model": "",
-        "vram_gb": null,
-        "vram_type": "",
+        "type": "integrated",
+        "model": "AMD Radeon™ 610M",
+        "vram_gb": 2,
+        "vram_type": "GDDR6",
         "tgp": ""
       },
       "display": {
-        "size_inch": null,
-        "resolution": "",
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "TN",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 250,
         "response_time_ms": null,
         "color_gamut": "",
-        "touch": null
+        "touch": false
       },
       "connectivity": {
-        "wifi": "",
-        "bluetooth": "",
-        "ethernet": ""
+        "wifi": "Wi-Fi® 6, 802.11ax 2x2",
+        "bluetooth": "Bluetooth® 5.2",
+        "ethernet": "ندارد"
       },
       "ports": {
-        "usb_a": "",
-        "usb_c": "",
-        "thunderbolt": "",
-        "hdmi": "",
-        "displayport": "",
-        "audio": "",
-        "card_reader": ""
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "دارد"
       },
       "physical": {
-        "battery_wh": null,
-        "weight_kg": null
+        "battery_wh": 47,
+        "weight_kg": 1.62
       },
       "features": {
-        "keyboard_backlight": null,
-        "fingerprint": null,
-        "webcam": null
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
       },
       "software": {
-        "os": ""
+        "os": "بدون سیستم عامل"
       },
       "source": {
         "url": "",
@@ -1058,78 +1066,79 @@
     "14": {
       "type": "laptop",
       "basic": {
-        "brand": "",
-        "model": ""
+        "brand": "اچ پی",
+        "model": "FC0171NIA"
       },
       "processor": {
-        "brand": "",
-        "model": "",
-        "family": "",
-        "generation": "",
-        "cores": null,
-        "threads": null,
-        "base_clock": "",
-        "boost_clock": "",
-        "cache": "",
+        "brand": "AMD",
+        "model": "Athlon™ Silver 7120U",
+        "family": "AMD",
+        "generation": "13",
+        "cores": 2,
+        "threads": 2,
+        "base_clock": "2.4GHz",
+        "boost_clock": "up to 3.5GHz",
+        "cache": "2",
         "tdp": ""
       },
       "memory": {
-        "capacity_gb": null,
-        "type": "",
-        "speed_mhz": null,
-        "slots": null,
-        "max_capacity_gb": null,
-        "upgradeable": null
+        "capacity_gb": 8,
+        "type": "LPDDR5",
+        "speed_mhz": 5500,
+        "slots": 1,
+        "max_capacity_gb": 8,
+        "upgradeable": false
       },
       "storage": {
-        "capacity_gb": null,
-        "type": "",
-        "interface": "",
-        "slots": null,
-        "additional_slot": null
+        "capacity_gb": 256,
+        "type": "NVMe SSD",
+        "interface": "PCIe® 3.0x4",
+        "slots": 1,
+        "additional_slot": false
       },
       "graphics": {
-        "type": "",
-        "model": "",
-        "vram_gb": null,
-        "vram_type": "",
+        "type": "integrated",
+        "model": "VEGA",
+        "vram_gb": 0.5,
+        "vram_mb": 512,
+        "vram_type": "GDDR5",
         "tgp": ""
       },
       "display": {
-        "size_inch": null,
-        "resolution": "",
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
+        "size_inch": 15.6,
+        "resolution": "180*1920",
+        "panel": "TN",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 250,
         "response_time_ms": null,
         "color_gamut": "",
-        "touch": null
+        "touch": false
       },
       "connectivity": {
-        "wifi": "",
-        "bluetooth": "",
-        "ethernet": ""
+        "wifi": "Wi-Fi® 6, 802.11ax 2x2",
+        "bluetooth": "BT5.2",
+        "ethernet": "ندارد"
       },
       "ports": {
-        "usb_a": "",
-        "usb_c": "",
-        "thunderbolt": "",
-        "hdmi": "",
-        "displayport": "",
-        "audio": "",
-        "card_reader": ""
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "ندارد"
       },
       "physical": {
-        "battery_wh": null,
-        "weight_kg": null
+        "battery_wh": 47,
+        "weight_kg": 1.72
       },
       "features": {
-        "keyboard_backlight": null,
-        "fingerprint": null,
-        "webcam": null
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
       },
       "software": {
-        "os": ""
+        "os": "بدون سیستم عامل"
       },
       "source": {
         "url": "",
@@ -1139,78 +1148,79 @@
     "15": {
       "type": "laptop",
       "basic": {
-        "brand": "",
-        "model": ""
+        "brand": "اچ پی",
+        "model": "0050"
       },
       "processor": {
-        "brand": "",
-        "model": "",
-        "family": "",
-        "generation": "",
-        "cores": null,
-        "threads": null,
-        "base_clock": "",
-        "boost_clock": "",
-        "cache": "",
+        "brand": "Intel",
+        "model": "Core i5 - 135G7",
+        "family": "Intel",
+        "generation": "11",
+        "cores": 6,
+        "threads": 12,
+        "base_clock": "2.1GHz",
+        "boost_clock": "up to 4.1GHz",
+        "cache": "12",
         "tdp": ""
       },
       "memory": {
-        "capacity_gb": null,
-        "type": "",
-        "speed_mhz": null,
-        "slots": null,
-        "max_capacity_gb": null,
-        "upgradeable": null
+        "capacity_gb": 16,
+        "type": "DDR4",
+        "speed_mhz": 3200,
+        "slots": 1,
+        "max_capacity_gb": 24,
+        "upgradeable": true
       },
       "storage": {
-        "capacity_gb": null,
-        "type": "",
-        "interface": "",
-        "slots": null,
-        "additional_slot": null
+        "capacity_gb": 256,
+        "type": "NVMe SSD",
+        "interface": "PCIe 4.0",
+        "slots": 1,
+        "additional_slot": false
       },
       "graphics": {
-        "type": "",
-        "model": "",
-        "vram_gb": null,
-        "vram_type": "",
+        "type": "integrated",
+        "model": "Intel Iris",
+        "vram_gb": 0.5,
+        "vram_mb": 512,
+        "vram_type": "GDDR4",
         "tgp": ""
       },
       "display": {
-        "size_inch": null,
-        "resolution": "",
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "IPS",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 300,
         "response_time_ms": null,
         "color_gamut": "",
-        "touch": null
+        "touch": false
       },
       "connectivity": {
-        "wifi": "",
-        "bluetooth": "",
-        "ethernet": ""
+        "wifi": "دارد",
+        "bluetooth": "دارد",
+        "ethernet": "ندارد"
       },
       "ports": {
-        "usb_a": "",
-        "usb_c": "",
-        "thunderbolt": "",
-        "hdmi": "",
-        "displayport": "",
-        "audio": "",
-        "card_reader": ""
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "ندارد"
       },
       "physical": {
-        "battery_wh": null,
-        "weight_kg": null
+        "battery_wh": 47,
+        "weight_kg": 1.71
       },
       "features": {
-        "keyboard_backlight": null,
-        "fingerprint": null,
-        "webcam": null
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
       },
       "software": {
-        "os": ""
+        "os": "بدون سیستم عامل"
       },
       "source": {
         "url": "",
@@ -1220,78 +1230,79 @@
     "16": {
       "type": "laptop",
       "basic": {
-        "brand": "",
-        "model": ""
+        "brand": "اچ پی",
+        "model": "FC0029"
       },
       "processor": {
-        "brand": "",
-        "model": "",
-        "family": "",
-        "generation": "",
-        "cores": null,
-        "threads": null,
-        "base_clock": "",
-        "boost_clock": "",
-        "cache": "",
+        "brand": "AMD",
+        "model": "Ryzen 3 7320U",
+        "family": "Ryzen",
+        "generation": "13",
+        "cores": 4,
+        "threads": 8,
+        "base_clock": "2.4GHz",
+        "boost_clock": "up to 4.1GHz",
+        "cache": "4",
         "tdp": ""
       },
       "memory": {
-        "capacity_gb": null,
-        "type": "",
-        "speed_mhz": null,
-        "slots": null,
-        "max_capacity_gb": null,
-        "upgradeable": null
+        "capacity_gb": 8,
+        "type": "LPDDR5",
+        "speed_mhz": 5500,
+        "slots": 1,
+        "max_capacity_gb": 8,
+        "upgradeable": false
       },
       "storage": {
-        "capacity_gb": null,
-        "type": "",
-        "interface": "",
-        "slots": null,
-        "additional_slot": null
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCIe® 4.0",
+        "slots": 1,
+        "additional_slot": false
       },
       "graphics": {
-        "type": "",
-        "model": "",
-        "vram_gb": null,
-        "vram_type": "",
+        "type": "integrated",
+        "model": "VEGA",
+        "vram_gb": 0.5,
+        "vram_mb": 512,
+        "vram_type": "GDDR5",
         "tgp": ""
       },
       "display": {
-        "size_inch": null,
-        "resolution": "",
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "TN",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 250,
         "response_time_ms": null,
         "color_gamut": "",
-        "touch": null
+        "touch": false
       },
       "connectivity": {
-        "wifi": "",
-        "bluetooth": "",
-        "ethernet": ""
+        "wifi": "Wi-Fi® 6, 802.11ax 2x2",
+        "bluetooth": "BT5.2",
+        "ethernet": "ندارد"
       },
       "ports": {
-        "usb_a": "",
-        "usb_c": "",
-        "thunderbolt": "",
-        "hdmi": "",
-        "displayport": "",
-        "audio": "",
-        "card_reader": ""
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "ندارد"
       },
       "physical": {
-        "battery_wh": null,
-        "weight_kg": null
+        "battery_wh": 47,
+        "weight_kg": 1.72
       },
       "features": {
-        "keyboard_backlight": null,
-        "fingerprint": null,
-        "webcam": null
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
       },
       "software": {
-        "os": ""
+        "os": "بدون سیستم عامل"
       },
       "source": {
         "url": "",
@@ -1301,78 +1312,78 @@
     "37": {
       "type": "laptop",
       "basic": {
-        "brand": "",
-        "model": ""
+        "brand": "اچ پی",
+        "model": "Victus"
       },
       "processor": {
-        "brand": "",
-        "model": "",
-        "family": "",
-        "generation": "",
-        "cores": null,
-        "threads": null,
-        "base_clock": "",
-        "boost_clock": "",
-        "cache": "",
+        "brand": "AMD",
+        "model": "Ryzen™ 5 8645HS",
+        "family": "AMD Ryzen™ 5 processor",
+        "generation": "13",
+        "cores": 6,
+        "threads": 12,
+        "base_clock": "2.5GHz",
+        "boost_clock": "up to 5.0 GHz",
+        "cache": "16",
         "tdp": ""
       },
       "memory": {
-        "capacity_gb": null,
-        "type": "",
-        "speed_mhz": null,
-        "slots": null,
-        "max_capacity_gb": null,
-        "upgradeable": null
+        "capacity_gb": 16,
+        "type": "DDR5",
+        "speed_mhz": 5600,
+        "slots": 2,
+        "max_capacity_gb": 32,
+        "upgradeable": true
       },
       "storage": {
-        "capacity_gb": null,
-        "type": "",
-        "interface": "",
-        "slots": null,
-        "additional_slot": null
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCIe 4.0",
+        "slots": 1,
+        "additional_slot": false
       },
       "graphics": {
-        "type": "",
-        "model": "",
-        "vram_gb": null,
-        "vram_type": "",
+        "type": "hybrid",
+        "model": "NVIDIA® GeForce RTX™ 3050",
+        "vram_gb": 6,
+        "vram_type": "GDDR6",
         "tgp": ""
       },
       "display": {
-        "size_inch": null,
-        "resolution": "",
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "IPS",
+        "refresh_rate_hz": 144,
+        "brightness_nits": 300,
         "response_time_ms": null,
-        "color_gamut": "",
-        "touch": null
+        "color_gamut": "62.5",
+        "touch": false
       },
       "connectivity": {
-        "wifi": "",
-        "bluetooth": "",
-        "ethernet": ""
+        "wifi": "Realtek Wi-Fi 6 (2x2)",
+        "bluetooth": "Bluetooth® 5.4",
+        "ethernet": "Integrated 10/100/1000 GbE"
       },
       "ports": {
-        "usb_a": "",
-        "usb_c": "",
-        "thunderbolt": "",
-        "hdmi": "",
-        "displayport": "",
-        "audio": "",
-        "card_reader": ""
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "دارد"
       },
       "physical": {
-        "battery_wh": null,
-        "weight_kg": null
+        "battery_wh": 70,
+        "weight_kg": 2.29
       },
       "features": {
-        "keyboard_backlight": null,
-        "fingerprint": null,
-        "webcam": null
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
       },
       "software": {
-        "os": ""
+        "os": "Windows 11 Home"
       },
       "source": {
         "url": "",
@@ -1382,78 +1393,78 @@
     "38": {
       "type": "laptop",
       "basic": {
-        "brand": "",
-        "model": ""
+        "brand": "ایسوس",
+        "model": "L1504EA"
       },
       "processor": {
-        "brand": "",
-        "model": "",
-        "family": "",
-        "generation": "",
-        "cores": null,
-        "threads": null,
-        "base_clock": "",
-        "boost_clock": "",
-        "cache": "",
+        "brand": "AMD",
+        "model": "Ryzen™ 3 7320U",
+        "family": "Ryzen",
+        "generation": "13",
+        "cores": 4,
+        "threads": 8,
+        "base_clock": "2.4GHz",
+        "boost_clock": "up to 4.1GHz",
+        "cache": "6",
         "tdp": ""
       },
       "memory": {
-        "capacity_gb": null,
-        "type": "",
-        "speed_mhz": null,
-        "slots": null,
+        "capacity_gb": 8,
+        "type": "LPDDR5",
+        "speed_mhz": 5500,
+        "slots": 1,
         "max_capacity_gb": null,
-        "upgradeable": null
+        "upgradeable": false
       },
       "storage": {
-        "capacity_gb": null,
-        "type": "",
-        "interface": "",
-        "slots": null,
-        "additional_slot": null
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCIe 3.0",
+        "slots": 1,
+        "additional_slot": false
       },
       "graphics": {
-        "type": "",
-        "model": "",
-        "vram_gb": null,
-        "vram_type": "",
+        "type": "integrated",
+        "model": "AMD Radeon™ Graphics",
+        "vram_gb": 2,
+        "vram_type": "GDDR5",
         "tgp": ""
       },
       "display": {
-        "size_inch": null,
-        "resolution": "",
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "TN",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 250,
         "response_time_ms": null,
         "color_gamut": "",
-        "touch": null
+        "touch": false
       },
       "connectivity": {
-        "wifi": "",
-        "bluetooth": "",
-        "ethernet": ""
+        "wifi": "Wi-Fi 5(802.11ac) (Dual band) 1*1",
+        "bluetooth": "Bluetooth® 5.1",
+        "ethernet": "ندارد"
       },
       "ports": {
-        "usb_a": "",
-        "usb_c": "",
-        "thunderbolt": "",
-        "hdmi": "",
-        "displayport": "",
-        "audio": "",
-        "card_reader": ""
+        "usb_a": "3",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "ندارد"
       },
       "physical": {
-        "battery_wh": null,
-        "weight_kg": null
+        "battery_wh": 47,
+        "weight_kg": 1.63
       },
       "features": {
-        "keyboard_backlight": null,
-        "fingerprint": null,
-        "webcam": null
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
       },
       "software": {
-        "os": ""
+        "os": "بدون سیستم عامل"
       },
       "source": {
         "url": "",
@@ -1463,78 +1474,78 @@
     "39": {
       "type": "laptop",
       "basic": {
-        "brand": "",
-        "model": ""
+        "brand": "لنوو",
+        "model": "Ideapad Slim 3"
       },
       "processor": {
-        "brand": "",
-        "model": "",
-        "family": "",
-        "generation": "",
-        "cores": null,
-        "threads": null,
-        "base_clock": "",
-        "boost_clock": "",
-        "cache": "",
+        "brand": "AMD",
+        "model": "Ryzen 3 30",
+        "family": "Ryzen",
+        "generation": "14",
+        "cores": 4,
+        "threads": 8,
+        "base_clock": "2.4GHz",
+        "boost_clock": "up to 4.1GHz",
+        "cache": "4",
         "tdp": ""
       },
       "memory": {
-        "capacity_gb": null,
-        "type": "",
-        "speed_mhz": null,
-        "slots": null,
-        "max_capacity_gb": null,
-        "upgradeable": null
+        "capacity_gb": 8,
+        "type": "LPDDR5",
+        "speed_mhz": 5500,
+        "slots": 1,
+        "max_capacity_gb": 8,
+        "upgradeable": false
       },
       "storage": {
-        "capacity_gb": null,
-        "type": "",
-        "interface": "",
-        "slots": null,
-        "additional_slot": null
+        "capacity_gb": 256,
+        "type": "NVMe SSD",
+        "interface": "PCIe® 4.0",
+        "slots": 1,
+        "additional_slot": false
       },
       "graphics": {
-        "type": "",
-        "model": "",
-        "vram_gb": null,
-        "vram_type": "",
+        "type": "integrated",
+        "model": "AMD Radeon™ 610M",
+        "vram_gb": 2,
+        "vram_type": "GDDR5",
         "tgp": ""
       },
       "display": {
-        "size_inch": null,
-        "resolution": "",
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "IPS",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 300,
         "response_time_ms": null,
         "color_gamut": "",
-        "touch": null
+        "touch": false
       },
       "connectivity": {
-        "wifi": "",
-        "bluetooth": "",
-        "ethernet": ""
+        "wifi": "Wi-Fi® 6, 802.11ax 2x2",
+        "bluetooth": "BT5.2",
+        "ethernet": "ندارد"
       },
       "ports": {
-        "usb_a": "",
-        "usb_c": "",
-        "thunderbolt": "",
-        "hdmi": "",
-        "displayport": "",
-        "audio": "",
-        "card_reader": ""
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "دارد"
       },
       "physical": {
-        "battery_wh": null,
-        "weight_kg": null
+        "battery_wh": 47,
+        "weight_kg": 1.62
       },
       "features": {
-        "keyboard_backlight": null,
-        "fingerprint": null,
-        "webcam": null
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
       },
       "software": {
-        "os": ""
+        "os": "بدون سیستم عامل"
       },
       "source": {
         "url": "",
@@ -1544,78 +1555,79 @@
     "40": {
       "type": "laptop",
       "basic": {
-        "brand": "",
-        "model": ""
+        "brand": "لنوو",
+        "model": "Idea pad 1"
       },
       "processor": {
-        "brand": "",
-        "model": "",
-        "family": "",
-        "generation": "",
-        "cores": null,
-        "threads": null,
-        "base_clock": "",
-        "boost_clock": "",
-        "cache": "",
+        "brand": "Intel",
+        "model": "Celeron® N4500",
+        "family": "Intel",
+        "generation": "13",
+        "cores": 2,
+        "threads": 2,
+        "base_clock": "1.1GHZ",
+        "boost_clock": "up to 2.8GHz",
+        "cache": "4",
         "tdp": ""
       },
       "memory": {
-        "capacity_gb": null,
-        "type": "",
-        "speed_mhz": null,
-        "slots": null,
-        "max_capacity_gb": null,
-        "upgradeable": null
+        "capacity_gb": 8,
+        "type": "DDR4",
+        "speed_mhz": 2933,
+        "slots": 1,
+        "max_capacity_gb": 8,
+        "upgradeable": false
       },
       "storage": {
-        "capacity_gb": null,
-        "type": "",
-        "interface": "",
-        "slots": null,
-        "additional_slot": null
+        "capacity_gb": 256,
+        "type": "NVMe SSD",
+        "interface": "PCIe 3.0",
+        "slots": 1,
+        "additional_slot": false
       },
       "graphics": {
-        "type": "",
-        "model": "",
-        "vram_gb": null,
-        "vram_type": "",
+        "type": "integrated",
+        "model": "Intel® UHD Graphics",
+        "vram_gb": 0.5,
+        "vram_mb": 512,
+        "vram_type": "GDDR4",
         "tgp": ""
       },
       "display": {
-        "size_inch": null,
-        "resolution": "",
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "TN",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 250,
         "response_time_ms": null,
         "color_gamut": "",
-        "touch": null
+        "touch": false
       },
       "connectivity": {
-        "wifi": "",
-        "bluetooth": "",
-        "ethernet": ""
+        "wifi": "Wi-Fi® 5, 802.11ac 2x2 Wi-Fi®",
+        "bluetooth": "Bluetooth® 5.1",
+        "ethernet": "ندارد"
       },
       "ports": {
-        "usb_a": "",
-        "usb_c": "",
-        "thunderbolt": "",
-        "hdmi": "",
-        "displayport": "",
-        "audio": "",
-        "card_reader": ""
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "دارد"
       },
       "physical": {
-        "battery_wh": null,
-        "weight_kg": null
+        "battery_wh": 42,
+        "weight_kg": 1.55
       },
       "features": {
-        "keyboard_backlight": null,
-        "fingerprint": null,
-        "webcam": null
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
       },
       "software": {
-        "os": ""
+        "os": "بدون سیستم عامل"
       },
       "source": {
         "url": "",
@@ -1701,78 +1713,78 @@
     "44": {
       "type": "laptop",
       "basic": {
-        "brand": "",
-        "model": ""
+        "brand": "لنوو",
+        "model": "Ideapad Slim 3"
       },
       "processor": {
-        "brand": "",
-        "model": "",
-        "family": "",
-        "generation": "",
-        "cores": null,
-        "threads": null,
-        "base_clock": "",
-        "boost_clock": "",
-        "cache": "",
+        "brand": "AMD",
+        "model": "Ryzen 3 30",
+        "family": "Ryzen",
+        "generation": "14",
+        "cores": 4,
+        "threads": 8,
+        "base_clock": "2.4GHz",
+        "boost_clock": "up to 4.1GHz",
+        "cache": "4",
         "tdp": ""
       },
       "memory": {
-        "capacity_gb": null,
-        "type": "",
-        "speed_mhz": null,
-        "slots": null,
-        "max_capacity_gb": null,
-        "upgradeable": null
+        "capacity_gb": 8,
+        "type": "LPDDR5",
+        "speed_mhz": 5500,
+        "slots": 1,
+        "max_capacity_gb": 8,
+        "upgradeable": false
       },
       "storage": {
-        "capacity_gb": null,
-        "type": "",
-        "interface": "",
-        "slots": null,
-        "additional_slot": null
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCIe® 4.0",
+        "slots": 1,
+        "additional_slot": false
       },
       "graphics": {
-        "type": "",
-        "model": "",
-        "vram_gb": null,
-        "vram_type": "",
+        "type": "integrated",
+        "model": "AMD Radeon™ 610M",
+        "vram_gb": 2,
+        "vram_type": "GDDR5",
         "tgp": ""
       },
       "display": {
-        "size_inch": null,
-        "resolution": "",
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "IPS",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 300,
         "response_time_ms": null,
         "color_gamut": "",
-        "touch": null
+        "touch": false
       },
       "connectivity": {
-        "wifi": "",
-        "bluetooth": "",
-        "ethernet": ""
+        "wifi": "Wi-Fi® 6, 802.11ax 2x2",
+        "bluetooth": "BT5.2",
+        "ethernet": "ندارد"
       },
       "ports": {
-        "usb_a": "",
-        "usb_c": "",
-        "thunderbolt": "",
-        "hdmi": "",
-        "displayport": "",
-        "audio": "",
-        "card_reader": ""
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "دارد"
       },
       "physical": {
-        "battery_wh": null,
-        "weight_kg": null
+        "battery_wh": 47,
+        "weight_kg": 1.62
       },
       "features": {
-        "keyboard_backlight": null,
-        "fingerprint": null,
-        "webcam": null
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
       },
       "software": {
-        "os": ""
+        "os": "بدون سیستم عامل"
       },
       "source": {
         "url": "",
@@ -1782,78 +1794,78 @@
     "45": {
       "type": "laptop",
       "basic": {
-        "brand": "",
-        "model": ""
+        "brand": "لنوو",
+        "model": "ideapad Slim 3"
       },
       "processor": {
-        "brand": "",
-        "model": "",
-        "family": "",
-        "generation": "",
-        "cores": null,
-        "threads": null,
-        "base_clock": "",
-        "boost_clock": "",
-        "cache": "",
+        "brand": "AMD",
+        "model": "Ryzen 5 40",
+        "family": "Ryzen",
+        "generation": "14",
+        "cores": 4,
+        "threads": 8,
+        "base_clock": "2.8GHz",
+        "boost_clock": "up to 4.3GHz",
+        "cache": "6",
         "tdp": ""
       },
       "memory": {
-        "capacity_gb": null,
-        "type": "",
-        "speed_mhz": null,
-        "slots": null,
-        "max_capacity_gb": null,
-        "upgradeable": null
+        "capacity_gb": 16,
+        "type": "LPDDR5",
+        "speed_mhz": 5500,
+        "slots": 1,
+        "max_capacity_gb": 16,
+        "upgradeable": false
       },
       "storage": {
-        "capacity_gb": null,
-        "type": "",
-        "interface": "",
-        "slots": null,
-        "additional_slot": null
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCIe 4.0",
+        "slots": 1,
+        "additional_slot": false
       },
       "graphics": {
-        "type": "",
-        "model": "",
-        "vram_gb": null,
-        "vram_type": "",
+        "type": "integrated",
+        "model": "AMD Radeon™ 610M",
+        "vram_gb": 2,
+        "vram_type": "GDDR5",
         "tgp": ""
       },
       "display": {
-        "size_inch": null,
-        "resolution": "",
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "IPS",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 300,
         "response_time_ms": null,
         "color_gamut": "",
-        "touch": null
+        "touch": false
       },
       "connectivity": {
-        "wifi": "",
-        "bluetooth": "",
-        "ethernet": ""
+        "wifi": "Wi-Fi® 6, 802.11ax 2x2 Wi-Fi®",
+        "bluetooth": "Bluetooth® 5.2",
+        "ethernet": "ندارد"
       },
       "ports": {
-        "usb_a": "",
-        "usb_c": "",
-        "thunderbolt": "",
-        "hdmi": "",
-        "displayport": "",
-        "audio": "",
-        "card_reader": ""
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "دارد"
       },
       "physical": {
-        "battery_wh": null,
-        "weight_kg": null
+        "battery_wh": 47,
+        "weight_kg": 1.62
       },
       "features": {
-        "keyboard_backlight": null,
-        "fingerprint": null,
-        "webcam": null
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
       },
       "software": {
-        "os": ""
+        "os": "بدون سیستم عامل"
       },
       "source": {
         "url": "",
