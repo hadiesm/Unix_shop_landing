@@ -18,6 +18,7 @@ const compareEmpty = document.getElementById("compareEmpty");
 const compareNeedMore = document.getElementById("compareNeedMore");
 const compareSummary = document.getElementById("compareSummary");
 const clearCompare = document.getElementById("clearCompare");
+const smartCompareAnalysis = document.getElementById("smartCompareAnalysis");
 
 function escapeHtml(value) {
     return String(value ?? "")
@@ -78,56 +79,6 @@ function getCompareIds() {
     } catch (error) {
         console.error("خطا در خواندن مقایسه:", error);
         return [];
-    }
-}
-
-function validateCompareSelection(products) {
-
-    const ids = getCompareIds();
-
-    if (ids.length < 2) {
-        return;
-    }
-
-    const selectedProducts = ids
-        .map(id =>
-            products.find(
-                product =>
-                    String(product.id) === String(id)
-            )
-        )
-        .filter(Boolean);
-
-    if (selectedProducts.length < 2) {
-        saveCompareIds(
-            selectedProducts.map(product => String(product.id))
-        );
-        return;
-    }
-
-    const types =
-        new Set(
-            selectedProducts.map(getComparisonType)
-        );
-
-    /*
-     * Mixed product types are invalid.
-     */
-    if (types.size > 1) {
-
-        console.warn(
-            "Invalid comparison selection removed:",
-            [...types]
-        );
-
-        /*
-         * Keep the first product only.
-         * The user can then select compatible
-         * products again from products.html.
-         */
-        saveCompareIds([
-            String(selectedProducts[0].id)
-        ]);
     }
 }
 
@@ -413,63 +364,46 @@ const MONITOR_GROUPS = [
 ];
 
 function getComparisonType(product) {
+    const spec = getProductSpecs(product);
+
+    if (spec?.type) {
+        return spec.type;
+    }
+
     const categoryId = Number(product.category_id);
 
-    if ([1, 3, 4, 5, 6, 7, 8].includes(categoryId)) {
+    // Root categories from data/categories.json.
+    if (categoryId === 1 || [3, 4, 5, 6, 7, 8].includes(categoryId)) {
         return "laptop";
     }
 
-    if ([20, 21, 23, 24].includes(categoryId)) {
+    if (categoryId === 20 || [21, 23, 24].includes(categoryId)) {
         return "monitor";
     }
 
+    // Mouse categories: 9 = mouse, 10 = wired, 11 = wireless.
     if ([9, 10, 11].includes(categoryId)) {
         return "mouse";
     }
 
-    if ([13, 14, 15].includes(categoryId)) {
-        return "gamepad";
-    }
-
-    if (categoryId === 12) {
-        return "cooling-pad";
-    }
-
-    if (categoryId === 16) {
-        return "mouse-pad";
-    }
-
-    if (categoryId === 22) {
-        return "steering-wheel";
-    }
-
-    return `category:${categoryId}`;
+    return "generic";
 }
 
 function getGroupsForProducts(products) {
+    const types = new Set(products.map(getComparisonType));
 
-    const types = new Set(
-        products.map(getComparisonType)
-    );
+    if (types.size === 1) {
+        const type = [...types][0];
 
-    if (types.size !== 1) {
+        if (type === "monitor") return MONITOR_GROUPS;
+        if (type === "laptop") return LAPTOP_GROUPS;
+        if (type === "mouse") return MOUSE_GROUPS;
         return GENERIC_GROUPS;
     }
 
-    const type = [...types][0];
-
-    if (type === "monitor") {
-        return MONITOR_GROUPS;
-    }
-
-    if (type === "laptop") {
-        return LAPTOP_GROUPS;
-    }
-
-    if (type === "mouse") {
-        return MOUSE_GROUPS;
-    }
-
+    // This should normally be prevented by the same-category rule on products.html.
+    // If an old localStorage selection contains mixed types, use only generic fields
+    // instead of incorrectly showing laptop specifications.
     return GENERIC_GROUPS;
 }
 
@@ -531,7 +465,274 @@ function renderProductHeader(product) {
     `;
 }
 
+
+/* =====================================================
+   SMART COMPARISON ANALYSIS
+===================================================== */
+
+function normalizeCompareText(value) {
+    return String(value ?? "")
+        .toLowerCase()
+        .replace(/ي/g, "ی")
+        .replace(/ك/g, "ک")
+        .replace(/‌/g, " ")
+        .replace(/,/g, "");
+}
+
+function getSpecNumber(specValue) {
+    const value = Number(specValue);
+    return Number.isFinite(value) && value > 0 ? value : 0;
+}
+
+function getLaptopCompareProfile(product) {
+    const spec = getProductSpecs(product) || {};
+    const name = normalizeCompareText(product.name);
+    const cpuText = `${name} ${normalizeCompareText(spec.processor?.model)} ${normalizeCompareText(spec.processor?.family)}`;
+    const gpuText = `${name} ${normalizeCompareText(spec.graphics?.model)}`;
+
+    let cpuScore = 0;
+    if (/ryzen\s*9|core\s*i9|\bi9\b/.test(cpuText)) cpuScore = 10;
+    else if (/ryzen\s*7|core\s*i7|\bi7\b/.test(cpuText)) cpuScore = 8;
+    else if (/ryzen\s*5|core\s*i5|\bi5\b/.test(cpuText)) cpuScore = 6;
+    else if (/ryzen\s*3|core\s*i3|\bi3\b/.test(cpuText)) cpuScore = 4;
+    else if (/ultra\s*7/.test(cpuText)) cpuScore = 8;
+    else if (/ultra\s*5/.test(cpuText)) cpuScore = 7;
+    else if (/athlon|celeron|pentium|n[345]\d{3}/.test(cpuText)) cpuScore = 2;
+
+    const generationMatch = cpuText.match(/(?:ryzen|i[3579]|core\s*i[3579])\s*[- ]?(\d{4,5})/i);
+    if (generationMatch) {
+        const modelNumber = Number(generationMatch[1]);
+        if (Number.isFinite(modelNumber)) {
+            if (/ryzen/.test(cpuText)) {
+                const generation = Math.floor(modelNumber / 1000);
+                cpuScore += Math.min(generation, 8) * 0.25;
+            } else {
+                const generation = Math.floor(modelNumber / 10000) || Math.floor(modelNumber / 1000);
+                cpuScore += Math.min(generation, 14) * 0.15;
+            }
+        }
+    }
+
+    const directRam = getSpecNumber(spec.memory?.capacity_gb);
+    let ram = directRam;
+    if (!ram) {
+        const ramMatches = [...name.matchAll(/(?:\/|\s)(4|8|12|16|24|32|64)(?:\s*\(d[45]\))?(?=\/)/gi)];
+        ram = ramMatches.length ? Number(ramMatches[0][1]) : 0;
+    }
+
+    const directStorage = getSpecNumber(spec.storage?.capacity_gb);
+    let storage = directStorage;
+    if (!storage) {
+        const storageMatches = [...name.matchAll(/(?:\/|\s)(128|256|512|1024|2048)(?:\s|\/|$)/gi)];
+        storage = storageMatches.length ? Number(storageMatches[storageMatches.length - 1][1]) : 0;
+    }
+
+    let gpuScore = 0;
+    let gpuKnown = false;
+    let dedicatedGpu = false;
+    let gpuLabel = "";
+
+    if (/rtx\s*50|rtx\s*40|rtx\s*30|gtx\s*16|gtx\s*10|rx\s*7\d{2,3}|rx\s*6\d{2,3}|radeon\s*(?:rx|pro)/.test(gpuText)) {
+        dedicatedGpu = true;
+        gpuKnown = true;
+        if (/rtx\s*50/.test(gpuText)) gpuScore = 10;
+        else if (/rtx\s*40/.test(gpuText)) gpuScore = 9;
+        else if (/rtx\s*30/.test(gpuText)) gpuScore = 8;
+        else if (/gtx\s*16/.test(gpuText)) gpuScore = 6;
+        else if (/gtx\s*10/.test(gpuText)) gpuScore = 5;
+        else gpuScore = 6;
+        gpuLabel = (spec.graphics?.model || product.name || "").trim();
+    } else if (/mx\s*\d+/.test(gpuText)) {
+        dedicatedGpu = true;
+        gpuKnown = true;
+        gpuScore = 4;
+        gpuLabel = (spec.graphics?.model || "NVIDIA MX").trim();
+    } else if (/arc\s*a\d|radeon\s*7m|radeon\s*5m/.test(gpuText)) {
+        dedicatedGpu = true;
+        gpuKnown = true;
+        gpuScore = 4;
+        gpuLabel = (spec.graphics?.model || product.name || "").trim();
+    } else if (/iris xe|iris|uhd|vega|radeon graphics|integrated|گرافیک آنبرد/.test(gpuText)) {
+        gpuKnown = true;
+        gpuScore = 2;
+        gpuLabel = "گرافیک مجتمع";
+    }
+
+    const vramGb = getSpecNumber(spec.graphics?.vram_gb);
+    if (dedicatedGpu && vramGb > 0) {
+        gpuScore += Math.min(vramGb, 12) * 0.35;
+    }
+
+    const size = getSpecNumber(spec.display?.size_inch);
+    const refresh = getSpecNumber(spec.display?.refresh_rate_hz);
+    const displayScore = Math.min(10, (size ? Math.min(size / 2.0, 4) : 0) + (refresh ? Math.min(refresh / 30, 4) : 0) + (spec.display?.resolution ? 2 : 0));
+
+    const availability = getNumber(product.qty) > 0;
+    const price = getNumber(product.sale_price);
+
+    return {
+        product,
+        cpuScore,
+        ram,
+        storage,
+        gpuScore,
+        gpuKnown,
+        dedicatedGpu,
+        gpuLabel,
+        displayScore,
+        availability,
+        price
+    };
+}
+
+function compareNormalize(values, value, invert = false) {
+    const usable = values.filter(v => Number.isFinite(v) && v > 0);
+    if (!usable.length || !Number.isFinite(value) || value <= 0) return 0;
+    const min = Math.min(...usable);
+    const max = Math.max(...usable);
+    if (max === min) return 1;
+    const normalized = (value - min) / (max - min);
+    return invert ? 1 - normalized : normalized;
+}
+
+function getLaptopCompareAnalysis(products) {
+    const profiles = products.map(getLaptopCompareProfile);
+    const cpuValues = profiles.map(p => p.cpuScore);
+    const ramValues = profiles.map(p => p.ram);
+    const storageValues = profiles.map(p => p.storage);
+    const gpuValues = profiles.map(p => p.gpuScore);
+    const displayValues = profiles.map(p => p.displayScore);
+    const priceValues = profiles.map(p => p.price);
+
+    profiles.forEach(profile => {
+        const cpu = compareNormalize(cpuValues, profile.cpuScore);
+        const ram = compareNormalize(ramValues, profile.ram);
+        const storage = compareNormalize(storageValues, profile.storage);
+        const gpu = compareNormalize(gpuValues, profile.gpuScore);
+        const display = compareNormalize(displayValues, profile.displayScore);
+        const price = compareNormalize(priceValues, profile.price, true);
+        const performance = cpu * 0.32 + gpu * 0.34 + ram * 0.14 + storage * 0.10 + display * 0.10;
+        const value = performance * 0.72 + price * 0.20 + (profile.availability ? 0.08 : 0);
+        profile.performance = performance * 100;
+        profile.value = value * 100;
+        profile.overall = (
+            cpu * 0.25 +
+            gpu * 0.25 +
+            ram * 0.12 +
+            storage * 0.10 +
+            display * 0.08 +
+            price * 0.10 +
+            (profile.availability ? 0.10 : 0)
+        ) * 100;
+    });
+
+    const bestOverall = [...profiles].sort((a, b) => b.overall - a.overall)[0];
+    const bestValue = [...profiles].sort((a, b) => b.value - a.value)[0];
+    const bestCpu = [...profiles].sort((a, b) => b.cpuScore - a.cpuScore)[0];
+    const gpuCandidates = profiles.filter(p => p.gpuKnown && p.dedicatedGpu);
+    const bestGpu = gpuCandidates.length ? [...gpuCandidates].sort((a, b) => b.gpuScore - a.gpuScore)[0] : null;
+    const bestMemory = [...profiles].sort((a, b) => (b.ram * 100000 + b.storage) - (a.ram * 100000 + a.storage))[0];
+
+    return { profiles, bestOverall, bestValue, bestCpu, bestGpu, bestMemory };
+}
+
+function laptopCompareReason(profile, bestOverall) {
+    const parts = [];
+    if (profile === bestOverall) parts.push("متعادل‌ترین انتخاب بین گزینه‌های فعلی");
+    if (profile.dedicatedGpu) parts.push("گرافیک مجزا");
+    if (profile.cpuScore >= 8) parts.push("پردازنده رده‌بالا");
+    else if (profile.cpuScore >= 6) parts.push("پردازنده مناسب");
+    if (profile.ram >= 16) parts.push(`${persianNumber(profile.ram)} گیگ رم`);
+    if (profile.storage >= 512) parts.push(`${persianNumber(profile.storage)} گیگ حافظه`);
+    if (profile.availability) parts.push("موجود");
+    return parts.slice(0, 3).join(" • ") || "بر اساس اطلاعات ثبت‌شده در فروشگاه";
+}
+
+function renderSmartCompareAnalysis(products) {
+    if (!smartCompareAnalysis) return;
+
+    const type = getComparisonType(products[0]);
+    if (type !== "laptop" || products.length < 2) {
+        smartCompareAnalysis.hidden = true;
+        smartCompareAnalysis.innerHTML = "";
+        return;
+    }
+
+    const analysis = getLaptopCompareAnalysis(products);
+    const { bestOverall, bestValue, bestCpu, bestGpu, bestMemory, profiles } = analysis;
+
+    const unique = value => !profiles.some(p => p.product.id !== value.product.id && p.product.id === value.product.id);
+
+    const awardCards = [
+        {
+            icon: "🏆",
+            title: "بهترین انتخاب کلی",
+            profile: bestOverall,
+            text: laptopCompareReason(bestOverall, bestOverall)
+        },
+        {
+            icon: "💰",
+            title: "بهترین ارزش خرید",
+            profile: bestValue,
+            text: "تعادل بهتر بین کارایی، قیمت و موجودی"
+        },
+        {
+            icon: "🚀",
+            title: "قوی‌ترین پردازنده",
+            profile: bestCpu,
+            text: "بر اساس مدل پردازنده ثبت‌شده"
+        },
+        bestGpu ? {
+            icon: "🎮",
+            title: "قوی‌ترین گرافیک",
+            profile: bestGpu,
+            text: bestGpu.gpuLabel || "گرافیک مجزا"
+        } : {
+            icon: "💾",
+            title: "بهترین حافظه",
+            profile: bestMemory,
+            text: `${bestMemory.ram ? persianNumber(bestMemory.ram) + " گیگ رم" : "رم نامشخص"}${bestMemory.storage ? " • " + persianNumber(bestMemory.storage) + " گیگ ذخیره‌سازی" : ""}`
+        }
+    ];
+
+    let conclusion = `بر اساس اطلاعات ثبت‌شده، «${bestOverall.product.name || "این محصول"}» متعادل‌ترین انتخاب در این مقایسه است.`;
+    if (bestValue.product.id !== bestOverall.product.id) {
+        conclusion += ` برای صرفه‌جویی بیشتر، «${bestValue.product.name || "محصول دوم"}» ارزش خرید بهتری دارد.`;
+    }
+
+    smartCompareAnalysis.innerHTML = `
+        <div class="smart-compare-head">
+            <div>
+                <span class="smart-compare-eyebrow">تحلیل یونیکس شاپ</span>
+                <h2>🏆 تحلیل هوشمند مقایسه</h2>
+                <p>بر اساس قیمت، کارایی پردازنده و گرافیک، رم، حافظه، نمایشگر و موجودی همین محصولات.</p>
+            </div>
+        </div>
+
+        <div class="smart-compare-awards">
+            ${awardCards.map(card => `
+                <article class="smart-compare-award">
+                    <div class="smart-award-icon">${card.icon}</div>
+                    <div class="smart-award-content">
+                        <span class="smart-award-title">${escapeHtml(card.title)}</span>
+                        <strong>${escapeHtml(card.profile.product.name || "محصول")}</strong>
+                        <small>${escapeHtml(card.text)}</small>
+                    </div>
+                </article>
+            `).join("")}
+        </div>
+
+        <div class="smart-compare-conclusion">
+            <span class="smart-conclusion-icon">💡</span>
+            <p>${escapeHtml(conclusion)}</p>
+        </div>
+    `;
+
+    smartCompareAnalysis.hidden = false;
+}
+
 function renderComparison(products) {
+    renderSmartCompareAnalysis(products);
     const groups = buildComparisonGroups(products);
     const columnCount = products.length;
     const gridTemplate = `170px repeat(${columnCount}, minmax(210px, 1fr))`;
@@ -658,23 +859,6 @@ async function loadCompareData() {
     compareSpecs = specsData && typeof specsData.products === "object"
         ? specsData.products
         : {};
-
-    validateCompareSelection(compareProducts);
-
-    const validIdsAfterValidation = getCompareIds();
-
-    compareProducts = validIdsAfterValidation
-        .map(id =>
-            productsData.find(
-                product =>
-                    String(product.id) === String(id)
-            )
-        )
-        .filter(
-            product =>
-                product &&
-                Number(product.is_active) === 1
-        );
 
     const validIds = compareProducts.map(product => String(product.id));
     if (validIds.length !== ids.length) saveCompareIds(validIds);
