@@ -1158,11 +1158,11 @@ function createProductCard(product) {
 
                         <button
                             type="button"
-                            class="product-button"
+                            class="product-details-button"
                             aria-label="مشاهده مشخصات ${productName}"
                             data-product-id="${escapeHtml(product.id)}"
                         >
-                            ←
+                            <span>مشخصات</span>
                         </button>
 
                     </div>
@@ -1328,6 +1328,38 @@ function ensureProductModal() {
 
                     </div>
 
+                    <div
+                        id="relatedProductsSection"
+                        class="product-details-related"
+                        hidden
+                    >
+
+                        <div class="product-details-related-heading">
+
+                            <div>
+                                <span class="product-details-related-eyebrow">
+                                    انتخاب‌های نزدیک
+                                </span>
+
+                                <h3>
+                                    محصولات مشابه این محصول
+                                </h3>
+
+                                <p id="relatedProductsDescription"></p>
+                            </div>
+
+                            <span class="product-details-related-count"
+                                  id="relatedProductsCount"></span>
+
+                        </div>
+
+                        <div
+                            id="relatedProductsGrid"
+                            class="related-products-grid"
+                        ></div>
+
+                    </div>
+
                 </div>
 
             </div>
@@ -1381,6 +1413,408 @@ function formatTechnicalSpecs(value) {
             `
         )
         .join("");
+}
+
+
+/* =====================================================
+STRUCTURED TECHNICAL SPECS
+===================================================== */
+
+function formatStructuredSpecs(spec) {
+
+    if (!spec || typeof spec !== "object") {
+        return "";
+    }
+
+    const labels = {
+        basic: "اطلاعات پایه",
+        processor: "پردازنده",
+        memory: "حافظه رم",
+        storage: "حافظه داخلی",
+        graphics: "گرافیک",
+        display: "نمایشگر",
+        image: "تصویر",
+        connectivity: "اتصالات",
+        dimensions: "ابعاد",
+        battery: "باتری",
+        ports: "درگاه‌ها",
+        network: "شبکه",
+        features: "ویژگی‌ها"
+    };
+
+    const valueLabels = {
+        brand: "برند",
+        model: "مدل",
+        family: "سری پردازنده",
+        generation: "نسل",
+        cores: "تعداد هسته",
+        threads: "تعداد رشته",
+        base_clock_ghz: "فرکانس پایه",
+        turbo_clock_ghz: "فرکانس بوست",
+        capacity_gb: "ظرفیت",
+        type: "نوع",
+        bus_mhz: "باس",
+        speed_mhz: "سرعت",
+        model_gpu: "مدل گرافیک",
+        vram_gb: "حافظه گرافیک",
+        resolution: "رزولوشن",
+        size_inch: "اندازه",
+        refresh_rate_hz: "نرخ نوسازی",
+        response_time_ms: "زمان پاسخ",
+        panel: "نوع پنل",
+        adaptive_sync: "همگام‌سازی تطبیقی"
+    };
+
+    const formatScalar = value => {
+        if (value === null || value === undefined || value === "") {
+            return "";
+        }
+        if (typeof value === "boolean") {
+            return value ? "دارد" : "ندارد";
+        }
+        if (Array.isArray(value)) {
+            return value
+                .map(item => formatScalar(item))
+                .filter(Boolean)
+                .join("، ");
+        }
+        if (typeof value === "object") {
+            return Object.entries(value)
+                .map(([key, item]) => {
+                    const rendered = formatScalar(item);
+                    return rendered
+                        ? `${valueLabels[key] || key}: ${rendered}`
+                        : "";
+                })
+                .filter(Boolean)
+                .join(" | ");
+        }
+        return String(value);
+    };
+
+    return Object.entries(spec)
+        .filter(([key]) => key !== "type")
+        .map(([sectionKey, sectionValue]) => {
+            if (!sectionValue || typeof sectionValue !== "object") {
+                return "";
+            }
+
+            const rows = Object.entries(sectionValue)
+                .map(([key, value]) => {
+                    const rendered = formatScalar(value);
+                    if (!rendered) return "";
+                    return `
+                        <div class="product-structured-spec-row">
+                            <span>${escapeHtml(valueLabels[key] || key)}</span>
+                            <strong>${escapeHtml(rendered)}</strong>
+                        </div>
+                    `;
+                })
+                .filter(Boolean)
+                .join("");
+
+            if (!rows) return "";
+
+            return `
+                <div class="product-structured-spec-group">
+                    <h4>${escapeHtml(labels[sectionKey] || sectionKey)}</h4>
+                    <div class="product-structured-spec-rows">
+                        ${rows}
+                    </div>
+                </div>
+            `;
+        })
+        .filter(Boolean)
+        .join("");
+}
+
+
+/* =====================================================
+RELATED PRODUCTS
+===================================================== */
+
+function getProductSpec(product) {
+    if (!product) {
+        return null;
+    }
+
+    return laptopFinderSpecs[String(product.id)] || null;
+}
+
+function getProductType(product) {
+    const spec = getProductSpec(product);
+
+    if (spec && spec.type) {
+        return String(spec.type).toLowerCase().trim();
+    }
+
+    const path = getCategoryPath(product?.category_id || null);
+    const normalized = normalizeSearch(path);
+
+    if (normalized.includes("لپ تاپ")) return "laptop";
+    if (normalized.includes("مانیتور")) return "monitor";
+    if (normalized.includes("ماوس")) return "mouse";
+    if (normalized.includes("کول پد")) return "cooling-pad";
+    if (normalized.includes("دسته بازی")) return "gamepad";
+    if (normalized.includes("فرمان")) return "steering-wheel";
+    if (normalized.includes("پد ماوس")) return "mouse-pad";
+
+    return "generic";
+}
+
+function similarityNumber(a, b, tolerance = 1) {
+    const av = Number(a);
+    const bv = Number(b);
+
+    if (!Number.isFinite(av) || !Number.isFinite(bv)) {
+        return 0;
+    }
+
+    const max = Math.max(Math.abs(av), Math.abs(bv), tolerance);
+    const ratio = 1 - Math.abs(av - bv) / max;
+
+    return Math.max(0, Math.min(1, ratio));
+}
+
+function normalizedSpecValue(value) {
+    return normalizeSearch(value)
+        .replace(/\s+/g, "")
+        .trim();
+}
+
+function getComparableRootKey(product) {
+    return getCompareCategoryKey(product?.id);
+}
+
+function scoreRelatedProduct(source, candidate) {
+    const sourceType = getProductType(source);
+    const candidateType = getProductType(candidate);
+
+    if (sourceType !== candidateType) {
+        return -1;
+    }
+
+    const sourceKey = getComparableRootKey(source);
+    const candidateKey = getComparableRootKey(candidate);
+
+    if (sourceKey === null || candidateKey === null || sourceKey !== candidateKey) {
+        return -1;
+    }
+
+    const sourceSpec = getProductSpec(source) || {};
+    const candidateSpec = getProductSpec(candidate) || {};
+
+    let score = 0;
+    let weightedMatches = 0;
+
+    const addTextMatch = (a, b, weight) => {
+        const av = normalizedSpecValue(a);
+        const bv = normalizedSpecValue(b);
+
+        if (!av || !bv) return;
+
+        weightedMatches += weight;
+        if (av === bv || av.includes(bv) || bv.includes(av)) {
+            score += weight;
+        }
+    };
+
+    const addNumericMatch = (a, b, weight, tolerance) => {
+        const av = Number(a);
+        const bv = Number(b);
+
+        if (!Number.isFinite(av) || !Number.isFinite(bv)) return;
+
+        weightedMatches += weight;
+        score += weight * similarityNumber(av, bv, tolerance);
+    };
+
+    const sourcePrice = getNumber(source.sale_price);
+    const candidatePrice = getNumber(candidate.sale_price);
+
+    if (sourcePrice > 0 && candidatePrice > 0) {
+        const priceSimilarity = similarityNumber(sourcePrice, candidatePrice, sourcePrice);
+        score += 26 * priceSimilarity;
+        weightedMatches += 26;
+    }
+
+    if (sourceType === "laptop") {
+        addTextMatch(sourceSpec.basic?.brand, candidateSpec.basic?.brand, 8);
+        addTextMatch(sourceSpec.processor?.family, candidateSpec.processor?.family, 10);
+        addTextMatch(sourceSpec.processor?.model, candidateSpec.processor?.model, 9);
+        addNumericMatch(sourceSpec.processor?.generation, candidateSpec.processor?.generation, 5, 2);
+        addNumericMatch(sourceSpec.memory?.capacity_gb, candidateSpec.memory?.capacity_gb, 8, 16);
+        addTextMatch(sourceSpec.memory?.type, candidateSpec.memory?.type, 4);
+        addNumericMatch(sourceSpec.storage?.capacity_gb, candidateSpec.storage?.capacity_gb, 6, 512);
+        addTextMatch(sourceSpec.storage?.type, candidateSpec.storage?.type, 4);
+        addTextMatch(sourceSpec.graphics?.model, candidateSpec.graphics?.model, 8);
+        addNumericMatch(sourceSpec.graphics?.vram_gb, candidateSpec.graphics?.vram_gb, 7, 4);
+        addTextMatch(sourceSpec.display?.resolution, candidateSpec.display?.resolution, 6);
+        addNumericMatch(sourceSpec.display?.size_inch, candidateSpec.display?.size_inch, 4, 3);
+        addNumericMatch(sourceSpec.display?.refresh_rate_hz, candidateSpec.display?.refresh_rate_hz, 5, 60);
+    } else if (sourceType === "monitor") {
+        addTextMatch(sourceSpec.basic?.brand, candidateSpec.basic?.brand, 5);
+        addTextMatch(sourceSpec.basic?.resolution, candidateSpec.basic?.resolution, 13);
+        addNumericMatch(sourceSpec.basic?.size_inch, candidateSpec.basic?.size_inch, 13, 5);
+        addTextMatch(sourceSpec.image?.panel, candidateSpec.image?.panel, 10);
+        addNumericMatch(sourceSpec.image?.refresh_rate_hz, candidateSpec.image?.refresh_rate_hz, 12, 120);
+        addNumericMatch(sourceSpec.image?.response_time_ms, candidateSpec.image?.response_time_ms, 5, 5);
+        addTextMatch(sourceSpec.image?.adaptive_sync, candidateSpec.image?.adaptive_sync, 5);
+    } else {
+        addTextMatch(sourceSpec.basic?.brand, candidateSpec.basic?.brand, 8);
+        addTextMatch(sourceSpec.basic?.model, candidateSpec.basic?.model, 8);
+    }
+
+    const baseScore = weightedMatches > 0
+        ? (score / weightedMatches) * 100
+        : 0;
+
+    // Availability is a useful tie-breaker, not the primary similarity signal.
+    const candidateAvailable = getNumber(candidate.qty) > 0;
+    return baseScore + (candidateAvailable ? 6 : 0);
+}
+
+function getRelatedProducts(source, limit = 4) {
+    return products
+        .filter(candidate => String(candidate.id) !== String(source.id))
+        .map(candidate => ({
+            product: candidate,
+            score: scoreRelatedProduct(source, candidate)
+        }))
+        .filter(item => item.score >= 0)
+        .sort((a, b) => {
+            if ((b.score || 0) !== (a.score || 0)) {
+                return (b.score || 0) - (a.score || 0);
+            }
+
+            return getNumber(b.product.qty) - getNumber(a.product.qty);
+        })
+        .slice(0, limit)
+        .map(item => item.product);
+}
+
+function getRelatedProductImageBase(product) {
+    const code = String(product.code || "").trim();
+    if (!code) return "";
+    return `images/products/${encodeURIComponent(code)}`;
+}
+
+function bindRelatedProductImageFallbacks(grid) {
+    if (!grid) return;
+
+    const formats = ["webp", "jpg", "jpeg", "png"];
+
+    grid.querySelectorAll(".related-product-real-image").forEach(image => {
+        const base = image.dataset.imageBase;
+        if (!base) return;
+
+        image.dataset.tried = "webp";
+
+        image.onerror = function () {
+            const tried = this.dataset.tried
+                ? this.dataset.tried.split(",").filter(Boolean)
+                : [];
+
+            const next = formats.find(format => !tried.includes(format));
+
+            if (next) {
+                tried.push(next);
+                this.dataset.tried = tried.join(",");
+                this.src = `${base}.${next}`;
+                return;
+            }
+
+            this.hidden = true;
+            const fallback = this.parentElement?.querySelector(".related-product-fallback");
+            if (fallback) fallback.hidden = false;
+        };
+
+        image.src = `${base}.webp`;
+    });
+}
+
+function renderRelatedProducts(sourceProduct) {
+    const section = document.getElementById("relatedProductsSection");
+    const grid = document.getElementById("relatedProductsGrid");
+    const description = document.getElementById("relatedProductsDescription");
+    const count = document.getElementById("relatedProductsCount");
+
+    if (!section || !grid || !sourceProduct) {
+        return;
+    }
+
+    const related = getRelatedProducts(sourceProduct, 4);
+
+    if (!related.length) {
+        section.hidden = true;
+        grid.innerHTML = "";
+        return;
+    }
+
+    const type = getProductType(sourceProduct);
+    const typeLabel = {
+        laptop: "لپ‌تاپ‌های نزدیک به این مدل",
+        monitor: "مانیتورهای مشابه از نظر مشخصات",
+        mouse: "ماوس‌های مشابه",
+        "cooling-pad": "کول‌پدهای مشابه",
+        gamepad: "دسته‌های بازی مشابه",
+        "steering-wheel": "فرمان‌های مشابه",
+        "mouse-pad": "پدهای ماوس مشابه",
+        generic: "محصولات نزدیک به این گزینه"
+    }[type] || "محصولات نزدیک به این گزینه";
+
+    description.textContent = typeLabel;
+    count.textContent = `${formatPersianNumber(related.length)} گزینه`;
+
+    grid.innerHTML = related.map(product => {
+        const available = getNumber(product.qty) > 0;
+        const imageBase = getRelatedProductImageBase(product);
+
+        return `
+            <button
+                type="button"
+                class="related-product-card"
+                data-related-product-id="${escapeHtml(product.id)}"
+            >
+                <div class="related-product-image-wrap">
+                    ${imageBase ? `
+                        <img
+                            class="related-product-real-image"
+                            src="${imageBase}.webp"
+                            alt="${escapeHtml(product.name || "محصول")}"
+                            loading="lazy"
+                            decoding="async"
+                            data-image-base="${imageBase}"
+                            data-tried="webp"
+                        >
+                    ` : ""}
+                    <div class="related-product-fallback" ${imageBase ? "hidden" : ""}>
+                        U
+                    </div>
+                </div>
+
+                <div class="related-product-info">
+                    <span class="related-product-stock ${available ? "available" : "unavailable"}">
+                        ${available ? "موجود" : "ناموجود"}
+                    </span>
+                    <strong>${escapeHtml(product.name || "محصول بدون نام")}</strong>
+                    <span class="related-product-price">
+                        ${available ? `${formatMoney(product.sale_price)} تومان` : "تماس برای قیمت"}
+                    </span>
+                </div>
+            </button>
+        `;
+    }).join("");
+
+    bindRelatedProductImageFallbacks(grid);
+
+    grid.querySelectorAll("[data-related-product-id]").forEach(button => {
+        button.addEventListener("click", () => {
+            openProductDetails(button.dataset.relatedProductId);
+        });
+    });
+
+    section.hidden = false;
 }
 
 
@@ -1553,10 +1987,19 @@ function openProductDetails(productId) {
      * Technical specifications
      */
 
-    const specsHtml =
+    const technicalSpecsHtml =
         formatTechnicalSpecs(
             product.technical_specs
         );
+
+    const structuredSpecsHtml =
+        formatStructuredSpecs(
+            getProductSpec(product)
+        );
+
+    const specsHtml =
+        technicalSpecsHtml ||
+        structuredSpecsHtml;
 
 
     if (specsHtml) {
@@ -1570,12 +2013,19 @@ function openProductDetails(productId) {
     } else {
 
         specsText.innerHTML =
-            "";
+            "<p class=\"product-specs-empty\">مشخصات فنی این محصول هنوز ثبت نشده است.</p>";
 
         specsSection.hidden =
-            true;
+            false;
 
     }
+
+
+    /*
+     * Related products
+     */
+
+    renderRelatedProducts(product);
 
 
     /*
@@ -1769,6 +2219,18 @@ if (productsGrid) {
     productsGrid.addEventListener(
         "click",
         event => {
+
+            const detailsButton =
+                event.target.closest(
+                    ".product-details-button"
+                );
+
+            if (detailsButton) {
+                event.preventDefault();
+                event.stopPropagation();
+                openProductDetails(detailsButton.dataset.productId);
+                return;
+            }
 
             const compareButton =
                 event.target.closest(
@@ -2841,6 +3303,8 @@ async function initializeProductsPage() {
 
 
 initializeProductsPage();
+
+
 
 /* =====================================================
 COMPARE BAR
