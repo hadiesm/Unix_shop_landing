@@ -3278,17 +3278,33 @@ async function initializeProductsPage() {
 
         await loadData();
 
-
         readUrlCategory();
-
 
         renderCategories();
 
-
         renderProducts();
 
-    }
+        /* Open smart laptop finder when requested from header */
+        const finderParams =
+            new URLSearchParams(window.location.search);
 
+        if (finderParams.get("finder") === "1") {
+
+            setTimeout(() => {
+
+                openLaptopFinder();
+
+                window.history.replaceState(
+                    {},
+                    document.title,
+                    window.location.pathname
+                );
+
+            }, 100);
+
+        }
+
+    }
 
     catch (error) {
 
@@ -3303,7 +3319,6 @@ async function initializeProductsPage() {
 
 
 initializeProductsPage();
-
 
 
 /* =====================================================
