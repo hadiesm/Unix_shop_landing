@@ -959,7 +959,7 @@ function getProductUrl(product) {
         return "products.html";
     }
 
-    return `/products/${encodeURIComponent(code.toLowerCase())}/`;
+    return `product.html?code=${encodeURIComponent(code)}`;
 }
 
 
@@ -3383,7 +3383,7 @@ function updateProductStructuredData() {
         "@type": "ListItem",
         "position": index + 1,
         "name": product.name || product.code || `محصول ${index + 1}`,
-        "url": `${window.location.origin}/products/${encodeURIComponent(String(product.code || "").toLowerCase())}/`
+        "url": `${window.location.origin}/product.html?code=${encodeURIComponent(String(product.code || ""))}`
     }));
 
     const schema = {

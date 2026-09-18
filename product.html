@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>محصول | یونیکس شاپ</title>
+
+    <meta
+        id="metaDescription"
+        name="description"
+        content="مشخصات و اطلاعات محصول در یونیکس شاپ."
+    >
+
+    <link
+        id="canonicalLink"
+        rel="canonical"
+        href="https://unix-shop.ir/product.html"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/style.css?v=1.0.9"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/products.css?v=1.0.9"
+    >
+
+    <link
+        rel="icon"
+        href="images/favicon.ico"
+        sizes="any"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="images/Favicon/favicon-32x32.png"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="images/Favicon/favicon-16x16.png"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="images/apple-touch-icon.png"
+    >
+
+    <style>
+
+        .product-page {
+            min-height: 70vh;
+            padding: 70px 0 100px;
+        }
+
+        .product-page-container {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .product-breadcrumb {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+            opacity: 0.75;
+        }
+
+        .product-breadcrumb a {
+            text-decoration: none;
+        }
+
+        .product-detail-card {
+            display: grid;
+            grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
+            gap: 50px;
+            padding: 35px;
+            border-radius: 28px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.035);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.18);
+        }
+
+        .product-detail-image {
+            min-height: 430px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 24px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.025);
+            position: relative;
+        }
+
+        .product-detail-image img {
+            width: 100%;
+            height: 430px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .product-detail-fallback {
+            font-size: 90px;
+            font-weight: 800;
+            opacity: 0.2;
+        }
+
+        .product-detail-category {
+            display: inline-block;
+            margin-bottom: 12px;
+            font-size: 14px;
+            opacity: 0.65;
+        }
+
+        .product-detail-title {
+            margin: 0 0 20px;
+            font-size: clamp(28px, 4vw, 42px);
+            line-height: 1.35;
+        }
+
+        .product-detail-code {
+            margin-bottom: 24px;
+            opacity: 0.7;
+        }
+
+        .product-detail-summary {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .product-detail-price-box,
+        .product-detail-stock-box {
+            flex: 1 1 180px;
+            padding: 18px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.045);
+        }
+
+        .product-detail-price-box span,
+        .product-detail-stock-box span {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 13px;
+            opacity: 0.65;
+        }
+
+        .product-detail-price-box strong {
+            font-size: 24px;
+        }
+
+        .product-detail-stock-box strong.available {
+            color: #40d890;
+        }
+
+        .product-detail-stock-box strong.unavailable {
+            color: #ff7070;
+        }
+
+        .product-detail-section {
+            margin-top: 30px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .product-detail-section h2 {
+            margin: 0 0 18px;
+            font-size: 21px;
+        }
+
+        .product-detail-notes {
+            line-height: 2;
+            opacity: 0.85;
+            white-space: pre-line;
+        }
+
+        .product-detail-specs {
+            display: grid;
+            gap: 12px;
+        }
+
+        .product-detail-spec-group {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.07);
+            background: rgba(255,255,255,0.025);
+        }
+
+        .product-detail-spec-group h3 {
+            margin: 0;
+            padding: 14px 18px;
+            font-size: 16px;
+            background: rgba(255,255,255,0.04);
+        }
+
+        .product-detail-spec-row {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 15px;
+            padding: 13px 18px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .product-detail-spec-row span {
+            opacity: 0.65;
+        }
+
+        .product-detail-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 30px;
+            text-decoration: none;
+        }
+
+        .product-not-found {
+            max-width: 700px;
+            margin: 60px auto;
+            text-align: center;
+            padding: 50px 30px;
+            border-radius: 24px;
+            background: rgba(255,255,255,0.035);
+        }
+
+        .product-not-found h1 {
+            margin-bottom: 15px;
+        }
+
+        .product-loading {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.7;
+        }
+
+        .product-loading[hidden] {
+            display: none !important;
+        }
+
+        @media (max-width: 800px) {
+
+            .product-detail-card {
+                grid-template-columns: 1fr;
+                padding: 20px;
+                gap: 25px;
+            }
+
+            .product-detail-image,
+            .product-detail-image img {
+                height: 330px;
+                min-height: 330px;
+            }
+
+            .product-detail-spec-row {
+                grid-template-columns: 1fr;
+                gap: 5px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+    <div class="header-container">
+
+        <a href="index.html" class="site-logo">
+
+            <img
+                src="images/logo.png"
+                alt="یونیکس شاپ"
+            >
+
+        </a>
+
+        <nav
+            class="main-nav"
+            aria-label="منوی اصلی"
+        >
+
+            <a
+                href="index.html"
+                class="nav-link"
+            >
+                خانه
+            </a>
+
+            <a
+                href="products.html"
+                class="nav-link active"
+            >
+                محصولات
+            </a>
+
+            <a
+                href="products.html?finder=1"
+                class="nav-link"
+            >
+                پیشنهاد هوشمند
+            </a>
+
+            <a
+                href="compare.html"
+                class="nav-link"
+            >
+                مقایسه
+            </a>
+
+            <a
+                href="index.html#about"
+                class="nav-link"
+            >
+                درباره ما
+            </a>
+
+            <a
+                href="index.html#contact"
+                class="nav-link"
+            >
+                تماس با ما
+            </a>
+
+        </nav>
+
+        <div class="header-actions">
+
+            <a
+                href="index.html#contact"
+                class="header-contact"
+            >
+                تماس با ما
+                <span>←</span>
+            </a>
+
+            <button
+                class="mobile-menu-button"
+                type="button"
+                aria-label="باز کردن منوی سایت"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="product-page">
+
+    <div class="product-page-container">
+
+        <div class="product-breadcrumb">
+
+            <a href="index.html">
+                خانه
+            </a>
+
+            <span>←</span>
+
+            <a href="products.html">
+                محصولات
+            </a>
+
+            <span>←</span>
+
+            <span id="breadcrumbProduct">
+                محصول
+            </span>
+
+        </div>
+
+
+        <div id="productLoading" class="product-loading">
+
+            در حال بارگذاری محصول...
+
+        </div>
+
+
+        <section
+            id="productContent"
+            hidden
+        >
+
+            <div class="product-detail-card">
+
+                <div class="product-detail-image">
+
+                    <img
+                        id="productImage"
+                        src=""
+                        alt=""
+                    >
+
+                    <div
+                        id="productFallback"
+                        class="product-detail-fallback"
+                        hidden
+                    >
+                        U
+                    </div>
+
+                </div>
+
+
+                <div class="product-detail-info">
+
+                    <span
+                        id="productCategory"
+                        class="product-detail-category"
+                    ></span>
+
+                    <h1
+                        id="productTitle"
+                        class="product-detail-title"
+                    ></h1>
+
+                    <div class="product-detail-code">
+
+                        کد محصول:
+                        <strong id="productCode"></strong>
+
+                    </div>
+
+
+                    <div class="product-detail-summary">
+
+                        <div class="product-detail-price-box">
+
+                            <span>
+                                قیمت
+                            </span>
+
+                            <strong id="productPrice">
+                                -
+                            </strong>
+
+                            <span>
+                                ریال
+                            </span>
+
+                        </div>
+
+
+                        <div class="product-detail-stock-box">
+
+                            <span>
+                                وضعیت موجودی
+                            </span>
+
+                            <strong id="productStock">
+                                -
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="notesSection"
+                        class="product-detail-section"
+                        hidden
+                    >
+
+                        <h2>
+                            توضیحات
+                        </h2>
+
+                        <div
+                            id="productNotes"
+                            class="product-detail-notes"
+                        ></div>
+
+                    </div>
+
+
+                    <div
+                        id="specsSection"
+                        class="product-detail-section"
+                        hidden
+                    >
+
+                        <h2>
+                            مشخصات فنی
+                        </h2>
+
+                        <div
+                            id="productSpecs"
+                            class="product-detail-specs"
+                        ></div>
+
+                    </div>
+
+
+                    <a
+                        href="products.html"
+                        class="product-detail-back"
+                    >
+                        ← بازگشت به محصولات
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section
+            id="productNotFound"
+            class="product-not-found"
+            hidden
+        >
+
+            <h1>
+                محصول پیدا نشد
+            </h1>
+
+            <p>
+                این محصول وجود ندارد یا دیگر در فهرست محصولات فعال نیست.
+            </p>
+
+            <a
+                href="products.html"
+                class="product-detail-back"
+            >
+                بازگشت به محصولات
+            </a>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<footer class="site-footer">
+
+    <div class="section-container">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+
+                <a
+                    href="index.html"
+                    class="footer-logo"
+                >
+
+                    <img
+                        src="images/logo.png"
+                        alt="یونیکس شاپ"
+                    >
+
+                </a>
+
+                <p>
+                    یونیکس شاپ؛ انتخابی مطمئن برای دنیای تکنولوژی.
+                </p>
+
+                <span class="footer-location">
+                    ارومیه، آذربایجان غربی
+                </span>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    دسترسی سریع
+                </h3>
+
+                <a href="index.html">خانه</a>
+                <a href="products.html">محصولات</a>
+                <a href="index.html#about">درباره ما</a>
+                <a href="index.html#contact">تماس با ما</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    محصولات
+                </h3>
+
+                <a href="products.html">لپ‌تاپ</a>
+                <a href="products.html">لوازم جانبی</a>
+                <a href="products.html">مانیتور</a>
+
+            </div>
+
+
+            <div class="footer-column footer-contact">
+
+                <h3>
+                    ارتباط با ما
+                </h3>
+
+                <a href="tel:+984432222124">
+                    ۰۴۴-۳۲۲۲۲۱۲۴
+                </a>
+
+                <a href="tel:+989384081327">
+                    ۰۹۳۸-۴۰۸-۱۳۲۷
+                </a>
+
+                <a href="mailto:info@unix-shop.ir">
+                    info@unix-shop.ir
+                </a>
+
+                <span>
+                    ارومیه ، خیابان امام ، مجتمع تجاری فیلیپس ، طبقه زیر همکف ، پلاک ۲۳
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © ۱۴۰۵ یونیکس شاپ —
+                تمامی حقوق محفوظ است.
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script src="js/main.js?v=1.0.9"></script>
+
+
+<script>
+
+(function () {
+
+    const loading = document.getElementById("productLoading");
+    const content = document.getElementById("productContent");
+    const notFound = document.getElementById("productNotFound");
+
+    const titleElement = document.getElementById("productTitle");
+    const categoryElement = document.getElementById("productCategory");
+    const codeElement = document.getElementById("productCode");
+    const priceElement = document.getElementById("productPrice");
+    const stockElement = document.getElementById("productStock");
+    const imageElement = document.getElementById("productImage");
+    const fallbackElement = document.getElementById("productFallback");
+    const notesSection = document.getElementById("notesSection");
+    const notesElement = document.getElementById("productNotes");
+    const specsSection = document.getElementById("specsSection");
+    const specsElement = document.getElementById("productSpecs");
+    const breadcrumbProduct = document.getElementById("breadcrumbProduct");
+    const metaDescription = document.getElementById("metaDescription");
+    const canonicalLink = document.getElementById("canonicalLink");
+
+    let products = [];
+    let categories = [];
+    let productSpecs = {};
+
+    function escapeHtml(value) {
+
+        return String(value ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+    }
+
+
+    function getNumber(value) {
+
+        const number = Number(value);
+
+        return Number.isFinite(number)
+            ? number
+            : 0;
+
+    }
+
+
+    function formatMoney(value) {
+
+        return getNumber(value).toLocaleString("fa-IR");
+
+    }
+
+
+    function getCategory(id) {
+
+        return categories.find(
+            category =>
+                Number(category.id) === Number(id)
+        ) || null;
+
+    }
+
+
+    function getCategoryPath(id) {
+
+        const path = [];
+        let category = getCategory(id);
+        const visited = new Set();
+
+        while (category) {
+
+            if (visited.has(Number(category.id))) {
+                break;
+            }
+
+            visited.add(Number(category.id));
+
+            path.unshift(category.name);
+
+            if (
+                category.parent_id === null ||
+                category.parent_id === undefined
+            ) {
+                break;
+            }
+
+            category = getCategory(category.parent_id);
+
+        }
+
+        return path.join(" / ");
+
+    }
+
+
+    function renderSpecs(spec) {
+
+        if (!spec || typeof spec !== "object") {
+            return "";
+        }
+
+        const labels = {
+            basic: "اطلاعات پایه",
+            processor: "پردازنده",
+            memory: "حافظه رم",
+            storage: "حافظه داخلی",
+            graphics: "گرافیک",
+            display: "نمایشگر",
+            image: "تصویر",
+            connectivity: "اتصالات",
+            dimensions: "ابعاد",
+            battery: "باتری",
+            ports: "درگاه‌ها",
+            network: "شبکه",
+            features: "ویژگی‌ها"
+        };
+
+        const valueLabels = {
+            brand: "برند",
+            model: "مدل",
+            family: "سری",
+            generation: "نسل",
+            cores: "تعداد هسته",
+            threads: "تعداد رشته",
+            base_clock_ghz: "فرکانس پایه",
+            turbo_clock_ghz: "فرکانس بوست",
+            capacity_gb: "ظرفیت",
+            type: "نوع",
+            bus_mhz: "باس",
+            speed_mhz: "سرعت",
+            model_gpu: "مدل گرافیک",
+            vram_gb: "حافظه گرافیک",
+            resolution: "رزولوشن",
+            size_inch: "اندازه",
+            refresh_rate_hz: "نرخ نوسازی",
+            response_time_ms: "زمان پاسخ",
+            panel: "نوع پنل",
+            adaptive_sync: "همگام‌سازی تطبیقی"
+        };
+
+
+        function formatValue(value) {
+
+            if (
+                value === null ||
+                value === undefined ||
+                value === ""
+            ) {
+                return "";
+            }
+
+            if (typeof value === "boolean") {
+                return value ? "دارد" : "ندارد";
+            }
+
+            if (Array.isArray(value)) {
+
+                return value
+                    .map(item => formatValue(item))
+                    .filter(Boolean)
+                    .join("، ");
+
+            }
+
+            if (typeof value === "object") {
+
+                return Object.entries(value)
+                    .map(([key, item]) => {
+
+                        const rendered = formatValue(item);
+
+                        return rendered
+                            ? `${valueLabels[key] || key}: ${rendered}`
+                            : "";
+
+                    })
+                    .filter(Boolean)
+                    .join(" | ");
+
+            }
+
+            return String(value);
+
+        }
+
+
+        const groups = Object.entries(spec)
+            .filter(([key]) => key !== "type")
+            .map(([sectionKey, sectionValue]) => {
+
+                if (
+                    !sectionValue ||
+                    typeof sectionValue !== "object"
+                ) {
+                    return "";
+                }
+
+                const rows = Object.entries(sectionValue)
+                    .map(([key, value]) => {
+
+                        const rendered = formatValue(value);
+
+                        if (!rendered) {
+                            return "";
+                        }
+
+                        return `
+                            <div class="product-detail-spec-row">
+                                <span>
+                                    ${escapeHtml(
+                                        valueLabels[key] || key
+                                    )}
+                                </span>
+
+                                <strong>
+                                    ${escapeHtml(rendered)}
+                                </strong>
+                            </div>
+                        `;
+
+                    })
+                    .filter(Boolean)
+                    .join("");
+
+                if (!rows) {
+                    return "";
+                }
+
+                return `
+                    <div class="product-detail-spec-group">
+
+                        <h3>
+                            ${escapeHtml(
+                                labels[sectionKey] || sectionKey
+                            )}
+                        </h3>
+
+                        ${rows}
+
+                    </div>
+                `;
+
+            })
+            .filter(Boolean)
+            .join("");
+
+        return groups;
+
+    }
+
+
+    function renderTechnicalSpecs(value) {
+
+        const text = String(value ?? "").trim();
+
+        if (!text) {
+            return "";
+        }
+
+        const parts = text
+            .split("/")
+            .map(item => item.trim())
+            .filter(Boolean);
+
+        if (!parts.length) {
+            return "";
+        }
+
+        return `
+            <div class="product-detail-spec-group">
+
+                <h3>
+                    مشخصات
+                </h3>
+
+                ${parts.map(item => `
+                    <div class="product-detail-spec-row">
+                        <span>ویژگی</span>
+                        <strong>${escapeHtml(item)}</strong>
+                    </div>
+                `).join("")}
+
+            </div>
+        `;
+
+    }
+
+
+    function loadImage(product) {
+
+        const code = String(product.code || "").trim();
+
+        if (!code) {
+
+            imageElement.hidden = true;
+            fallbackElement.hidden = false;
+
+            return;
+
+        }
+
+        const base =
+            `images/products/${encodeURIComponent(code)}`;
+
+        const formats = [
+            "webp",
+            "jpg",
+            "jpeg",
+            "png"
+        ];
+
+        let index = 0;
+
+        imageElement.hidden = false;
+        fallbackElement.hidden = true;
+
+        imageElement.alt =
+            product.name || "تصویر محصول";
+
+        function tryNext() {
+
+            if (index >= formats.length) {
+
+                imageElement.hidden = true;
+                fallbackElement.hidden = false;
+
+                return;
+
+            }
+
+            const format = formats[index++];
+
+            imageElement.src =
+                `${base}.${format}`;
+
+        }
+
+        imageElement.onerror = tryNext;
+
+        tryNext();
+
+    }
+
+
+    function showProduct(product) {
+
+        const categoryPath =
+            getCategoryPath(product.category_id);
+
+
+        const hasStock =
+            getNumber(product.qty) > 0;
+
+
+        const productName =
+            product.name ||
+            "محصول بدون نام";
+
+
+        titleElement.textContent =
+            productName;
+
+
+        categoryElement.textContent =
+            categoryPath ||
+            "بدون دسته‌بندی";
+
+
+        codeElement.textContent =
+            product.code ||
+            "—";
+
+
+        priceElement.textContent =
+            hasStock
+                ? formatMoney(product.sale_price)
+                : "-";
+
+
+        stockElement.textContent =
+            hasStock
+                ? "موجود"
+                : "ناموجود";
+
+
+        stockElement.className =
+            hasStock
+                ? "available"
+                : "unavailable";
+
+
+        breadcrumbProduct.textContent =
+            productName;
+
+
+        document.title =
+            `${productName} | یونیکس شاپ`;
+
+
+        metaDescription.setAttribute(
+            "content",
+            `${productName} | مشاهده قیمت، موجودی و مشخصات محصول در یونیکس شاپ.`
+        );
+
+
+        canonicalLink.href =
+            `${window.location.origin}/product.html?code=${encodeURIComponent(product.code || "")}`;
+
+
+        const notes =
+            String(product.notes ?? "").trim();
+
+
+        if (notes) {
+
+            notesElement.textContent =
+                notes;
+
+            notesSection.hidden = false;
+
+        } else {
+
+            notesSection.hidden = true;
+
+        }
+
+
+        const structured =
+            renderSpecs(
+                productSpecs[String(product.id)]
+            );
+
+
+        const technical =
+            renderTechnicalSpecs(
+                product.technical_specs
+            );
+
+
+        const specsHtml =
+            structured || technical;
+
+
+        if (specsHtml) {
+
+            specsElement.innerHTML =
+                specsHtml;
+
+            specsSection.hidden = false;
+
+        } else {
+
+            specsSection.hidden = true;
+
+        }
+
+
+        loadImage(product);
+
+
+        loading.hidden = true;
+        content.hidden = false;
+
+
+        const existingSchema =
+            document.getElementById(
+                "productSchema"
+            );
+
+        if (existingSchema) {
+            existingSchema.remove();
+        }
+
+
+        const schema = {
+
+            "@context": "https://schema.org",
+
+            "@type": "Product",
+
+            "name": productName,
+
+            "sku": product.code || undefined,
+
+            "description":
+                notes ||
+                `${productName} در یونیکس شاپ.`,
+
+            "image":
+                String(product.code || "").trim()
+                    ? [
+                        `${window.location.origin}/images/products/${encodeURIComponent(String(product.code || "").trim())}.webp`
+                    ]
+                    : undefined,
+
+            "offers": {
+
+                "@type": "Offer",
+
+                "url":
+                    `${window.location.origin}/product.html?code=${encodeURIComponent(String(product.code || ""))}`,
+
+                "priceCurrency": "IRR",
+
+                "price":
+                    hasStock
+                        ? String(getNumber(product.sale_price))
+                        : undefined,
+
+                "availability":
+                    hasStock
+                        ? "https://schema.org/InStock"
+                        : "https://schema.org/OutOfStock"
+
+            }
+
+        };
+
+
+        const script =
+            document.createElement("script");
+
+        script.id = "productSchema";
+        script.type = "application/ld+json";
+
+        script.textContent =
+            JSON.stringify(schema);
+
+        document.head.appendChild(script);
+
+    }
+
+
+    async function initialize() {
+
+        try {
+
+            const code =
+                new URLSearchParams(
+                    window.location.search
+                ).get("code");
+
+
+            if (!code) {
+
+                loading.hidden = true;
+                notFound.hidden = false;
+
+                return;
+
+            }
+
+
+            const [
+                availabilityResponse,
+                categoriesResponse,
+                specsResponse
+            ] = await Promise.all([
+
+                fetch("data/availability.json", {
+                    cache: "no-store"
+                }),
+
+                fetch("data/categories.json", {
+                    cache: "no-store"
+                }),
+
+                fetch("data/product-specs.json", {
+                    cache: "no-store"
+                })
+
+            ]);
+
+
+            if (!availabilityResponse.ok) {
+                throw new Error("availability.json failed");
+            }
+
+            if (!categoriesResponse.ok) {
+                throw new Error("categories.json failed");
+            }
+
+
+            products =
+                await availabilityResponse.json();
+
+            categories =
+                await categoriesResponse.json();
+
+
+            if (specsResponse.ok) {
+
+                try {
+
+                    const specsData =
+                        await specsResponse.json();
+
+                    productSpecs =
+                        specsData &&
+                        typeof specsData.products === "object"
+                            ? specsData.products
+                            : {};
+
+                } catch (error) {
+
+                    console.warn(
+                        "product-specs.json could not be read.",
+                        error
+                    );
+
+                }
+
+            }
+
+
+            if (!Array.isArray(products)) {
+                products = [];
+            }
+
+            if (!Array.isArray(categories)) {
+                categories = [];
+            }
+
+
+            products =
+                products.filter(
+                    product =>
+                        Number(product.is_active) === 1
+                );
+
+
+            const normalizedCode =
+                String(code)
+                    .trim()
+                    .toLowerCase();
+
+
+            const product =
+                products.find(
+                    item =>
+                        String(item.code || "")
+                            .trim()
+                            .toLowerCase() === normalizedCode
+                );
+
+
+            if (!product) {
+
+                loading.hidden = true;
+                notFound.hidden = false;
+
+                return;
+
+            }
+
+
+            showProduct(product);
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Product page error:",
+                error
+            );
+
+            loading.hidden = true;
+            notFound.hidden = false;
+
+        }
+
+    }
+
+
+    initialize();
+
+})();
+
+</script>
+
+</body>
+
+</html>

@@ -2431,3 +2431,109 @@ SEO PRODUCT PAGE LINK
         padding-right: 6px;
     }
 }
+
+/* =====================================================
+   PRODUCT CARD ACTIONS
+   Keep all three buttons visible and properly aligned
+===================================================== */
+
+.product-card .product-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+}
+
+.product-card .product-price {
+    width: 100%;
+}
+
+.product-card .product-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    align-items: stretch;
+}
+
+.product-card .product-actions > * {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.product-card .product-compare-button,
+.product-card .product-details-button,
+.product-card .product-page-link {
+    min-height: 42px;
+    padding: 9px 7px;
+    border-radius: 10px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: clip;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+
+    line-height: 1.2;
+}
+
+.product-card .product-compare-button {
+    cursor: pointer;
+}
+
+.product-card .product-compare-button .compare-button-icon {
+    flex: 0 0 auto;
+    font-size: 13px;
+}
+
+.product-card .product-compare-button .compare-button-label {
+    min-width: 0;
+    white-space: nowrap;
+}
+
+.product-card .product-details-button {
+    cursor: pointer;
+}
+
+.product-card .product-page-link {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Prevent the card itself from shrinking action contents */
+.product-card .product-actions button,
+.product-card .product-actions a {
+    overflow: visible;
+}
+
+/* Smaller cards */
+@media (max-width: 420px) {
+
+    .product-card .product-actions {
+        gap: 6px;
+    }
+
+    .product-card .product-compare-button,
+    .product-card .product-details-button,
+    .product-card .product-page-link {
+        padding: 8px 5px;
+        font-size: 11px;
+        gap: 4px;
+    }
+
+    .product-card .product-compare-button .compare-button-icon {
+        font-size: 12px;
+    }
+
+}
