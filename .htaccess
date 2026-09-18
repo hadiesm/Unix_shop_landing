@@ -1,25 +1,22 @@
+# BEGIN cPanel-generated php ini directives, do not edit
+# Manual editing of this file may result in unexpected behavior.
+# To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
+# For more information, read our documentation (https://go.cpanel.net/EA4ModifyINI)
+<IfModule php8_module>
+   php_value error_log "/home3/fpwucrzv/logs/php.error.log"
+   php_flag log_errors On
+</IfModule>
+<IfModule lsapi_module>
+   php_value error_log "/home3/fpwucrzv/logs/php.error.log"
+   php_flag log_errors On
+</IfModule>
+# END cPanel-generated php ini directives, do not edit
+
+# =====================================================
+# UNIX SHOP
+# Redirect root domain to index.html
+# =====================================================
+
 RewriteEngine On
 
-# Canonicalize the homepage.
-RewriteCond %{THE_REQUEST} \s/+index\.html(?:[\s?]) [NC]
-RewriteRule ^index\.html$ / [R=301,L]
-
-# Redirect old product URLs to the new dynamic product page.
-# Example:
-# /products/prd-00002/
-# -> /product.html?code=prd-00002
-RewriteRule ^products/([^/]+)/?$ /product.html?code=$1 [R=301,L,NE]
-
-# Canonicalize product/category index URLs to their clean trailing-slash URLs.
-RewriteCond %{THE_REQUEST} \s/+((?:products|category)/[^\s?]+)/index\.html(?:[\s?]) [NC]
-RewriteRule ^(?:products|category)/[^/]+/index\.html$ /%1/ [R=301,L]
-
-# Do not expose maintenance/generator scripts publicly.
-<FilesMatch "\.(py|bat)$">
-    Require all denied
-</FilesMatch>
-
-# Serve sitemap and robots directly.
-<FilesMatch "^(robots\.txt|sitemap\.xml)$">
-    Require all granted
-</FilesMatch>
+RewriteRule ^$ index.html [R=301,L]

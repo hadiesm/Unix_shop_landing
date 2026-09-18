@@ -2,11 +2,24 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home3/fpwucrzv/public_html/
-    - /bin/cp -R index.html $DEPLOYPATH
-    - /bin/cp -R products.html $DEPLOYPATH
-    - /bin/cp -R about.html $DEPLOYPATH
-    - /bin/cp -R contact.html $DEPLOYPATH
+
+    # Main HTML pages
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp products.html $DEPLOYPATH
+    - /bin/cp product.html $DEPLOYPATH
+    - /bin/cp about.html $DEPLOYPATH
+    - /bin/cp contact.html $DEPLOYPATH
+    - /bin/cp compare.html $DEPLOYPATH
+
+    # SEO files
+    - /bin/cp robots.txt $DEPLOYPATH
+    - /bin/cp sitemap.xml $DEPLOYPATH
+
+    # Website assets
     - /bin/cp -R css $DEPLOYPATH
     - /bin/cp -R js $DEPLOYPATH
     - /bin/cp -R images $DEPLOYPATH
     - /bin/cp -R data $DEPLOYPATH
+
+    # Generated SEO category pages
+    - /bin/cp -R category $DEPLOYPATH
