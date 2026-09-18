@@ -949,6 +949,21 @@ function renderProducts() {
 
 
 /* =====================================================
+PRODUCT URL
+===================================================== */
+
+function getProductUrl(product) {
+    const code = String(product?.code || "").trim();
+
+    if (!code) {
+        return "products.html";
+    }
+
+    return `/products/${encodeURIComponent(code.toLowerCase())}/`;
+}
+
+
+/* =====================================================
 PRODUCT CARD
 ===================================================== */
 
@@ -1164,6 +1179,14 @@ function createProductCard(product) {
                         >
                             <span>مشخصات</span>
                         </button>
+
+                        <a
+                            class="product-page-link"
+                            href="${getProductUrl(product)}"
+                            aria-label="صفحه کامل ${productName}"
+                        >
+                            صفحه کامل
+                        </a>
 
                     </div>
 
@@ -2219,6 +2242,15 @@ if (productsGrid) {
     productsGrid.addEventListener(
         "click",
         event => {
+
+            const productPageLink =
+                event.target.closest(
+                    ".product-page-link"
+                );
+
+            if (productPageLink) {
+                return;
+            }
 
             const detailsButton =
                 event.target.closest(
@@ -3284,6 +3316,8 @@ async function initializeProductsPage() {
 
         renderProducts();
 
+        updateProductStructuredData();
+
         /* Open smart laptop finder when requested from header */
         const finderParams =
             new URLSearchParams(window.location.search);
@@ -3349,7 +3383,7 @@ function updateProductStructuredData() {
         "@type": "ListItem",
         "position": index + 1,
         "name": product.name || product.code || `محصول ${index + 1}`,
-        "url": `${window.location.origin}/products.html#product-${encodeURIComponent(product.id)}`
+        "url": `${window.location.origin}/products/${encodeURIComponent(String(product.code || "").toLowerCase())}/`
     }));
 
     const schema = {
