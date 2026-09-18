@@ -11,6 +11,39 @@ DATA_DIR = ROOT / "data"
 OUTPUT_DIR = ROOT / "products"
 BASE_URL = "https://unix-shop.ir"
 
+CATEGORY_SLUGS = {
+    1: "laptop",
+    2: "accessories",
+    3: "lenovo-laptop",
+    4: "asus-laptop",
+    5: "hp-laptop",
+    6: "acer-laptop",
+    7: "stock-laptop",
+    8: "used-laptop",
+    9: "mouse",
+    10: "wired-mouse",
+    11: "wireless-mouse",
+    12: "cooling-pad",
+    13: "gamepad",
+    14: "wired-gamepad",
+    15: "wireless-gamepad",
+    16: "mouse-pad",
+    17: "adapter",
+    18: "keyboard-stickers",
+    19: "laptop-bag",
+    20: "monitor",
+    21: "innoverse-monitor",
+    22: "gaming-wheel",
+    23: "twisted-minds-monitor",
+    24: "aoc-monitor",
+}
+
+def category_url(category_id: int | None) -> str | None:
+    if category_id is None:
+        return None
+    slug = CATEGORY_SLUGS.get(int(category_id))
+    return f"/category/{slug}/" if slug else None
+
 SECTION_LABELS = {
     "basic": "اطلاعات پایه",
     "processor": "پردازنده",
@@ -90,6 +123,12 @@ def esc(value: object) -> str:
 
 def clean_text(value: object) -> str:
     return re.sub(r"\s+", " ", str(value or "")).strip()
+
+def normalize_id(value: object) -> int | None:
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return None
 
 
 def slug_safe(code: str) -> str:
@@ -311,7 +350,12 @@ def product_page(product: dict, categories_by_id: dict[int, dict], specs: dict, 
         {"@type": "ListItem", "position": 2, "name": "محصولات", "item": BASE_URL + "/products.html"},
     ]
     if cat:
-        breadcrumb_items.append({"@type": "ListItem", "position": 3, "name": cat[-1]})
+        category_id = normalize_id(product.get("category_id"))
+        category_href = BASE_URL + category_url(category_id) if category_url(category_id) else None
+        item = {"@type": "ListItem", "position": 3, "name": cat[-1]}
+        if category_href:
+            item["item"] = category_href
+        breadcrumb_items.append(item)
     breadcrumb_items.append({"@type": "ListItem", "position": len(breadcrumb_items) + 1, "name": name, "item": canonical})
 
     breadcrumb_schema = {
@@ -376,7 +420,7 @@ def product_page(product: dict, categories_by_id: dict[int, dict], specs: dict, 
 </div></header>
 <main class="product-page">
 <nav class="product-breadcrumb" aria-label="مسیر صفحه">
-<a href="/">خانه</a><span>›</span><a href="/products.html">محصولات</a><span>›</span><span>{esc(name)}</span>
+<a href="/">خانه</a><span>›</span><a href="/products.html">محصولات</a><span>›</span>{f'<a href="{esc(BASE_URL + category_url(normalize_id(product.get("category_id"))))}">{esc(cat[-1])}</a><span>›</span>' if cat and category_url(normalize_id(product.get("category_id"))) else ''}<span>{esc(name)}</span>
 </nav>
 <section class="product-hero">
 <div class="product-media-card">

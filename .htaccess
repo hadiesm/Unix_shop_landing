@@ -1,10 +1,19 @@
 RewriteEngine On
 
-# Redirect the bare domain to the canonical homepage path.
-RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+# Canonicalize the homepage.
+RewriteCond %{THE_REQUEST} \s/+index\.html(?:[\s?]) [NC]
 RewriteRule ^index\.html$ / [R=301,L]
 
-# Serve the sitemap and robots file directly.
+# Canonicalize product/category index URLs to their clean trailing-slash URLs.
+RewriteCond %{THE_REQUEST} \s/+((?:products|category)/[^\s?]+)/index\.html(?:[\s?]) [NC]
+RewriteRule ^(?:products|category)/[^/]+/index\.html$ /%1/ [R=301,L]
+
+# Do not expose maintenance/generator scripts publicly.
+<FilesMatch "\.(py|bat)$">
+    Require all denied
+</FilesMatch>
+
+# Serve sitemap and robots directly.
 <FilesMatch "^(robots\.txt|sitemap\.xml)$">
     Require all granted
 </FilesMatch>
