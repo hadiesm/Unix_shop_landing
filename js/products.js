@@ -3332,3 +3332,39 @@ if (compareClearButton) {
 }
 
 updateCompareUI();
+
+
+/* =====================================================
+SEO STRUCTURED DATA
+Adds an ItemList from the same product feed used by the catalog.
+===================================================== */
+
+function updateProductStructuredData() {
+    const existing = document.getElementById("productItemListSchema");
+    if (existing) existing.remove();
+
+    const visibleProducts = products.filter(product => Number(product.is_active) === 1);
+
+    const itemListElement = visibleProducts.map((product, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "name": product.name || product.code || `محصول ${index + 1}`,
+        "url": `${window.location.origin}/products.html#product-${encodeURIComponent(product.id)}`
+    }));
+
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "محصولات یونیکس شاپ",
+        "url": `${window.location.origin}/products.html`,
+        "numberOfItems": itemListElement.length,
+        "itemListElement": itemListElement
+    };
+
+    const script = document.createElement("script");
+    script.id = "productItemListSchema";
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify(schema);
+    document.head.appendChild(script);
+}
+

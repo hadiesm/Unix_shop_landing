@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /spec-manager.html
+
+Sitemap: https://unix-shop.ir/sitemap.xml
