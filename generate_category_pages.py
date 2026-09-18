@@ -90,8 +90,8 @@ def category_url(category_id: int) -> str | None:
 
 
 def product_url(code: str) -> str:
-    safe = re.sub(r"[^A-Za-z0-9_-]+", "-", code).strip("-").lower()
-    return f"/products/{safe}/"
+    code = clean(code)
+    return f"/product.html?code={code}"
 
 
 def spec_summary(product: dict, specs: dict) -> str:
