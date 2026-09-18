@@ -4,6 +4,12 @@ RewriteEngine On
 RewriteCond %{THE_REQUEST} \s/+index\.html(?:[\s?]) [NC]
 RewriteRule ^index\.html$ / [R=301,L]
 
+# Redirect old product URLs to the new dynamic product page.
+# Example:
+# /products/prd-00002/
+# -> /product.html?code=prd-00002
+RewriteRule ^products/([^/]+)/?$ /product.html?code=$1 [R=301,L,NE]
+
 # Canonicalize product/category index URLs to their clean trailing-slash URLs.
 RewriteCond %{THE_REQUEST} \s/+((?:products|category)/[^\s?]+)/index\.html(?:[\s?]) [NC]
 RewriteRule ^(?:products|category)/[^/]+/index\.html$ /%1/ [R=301,L]

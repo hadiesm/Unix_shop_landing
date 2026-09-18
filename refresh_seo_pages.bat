@@ -17,6 +17,18 @@ if errorlevel 1 (
 )
 
 echo.
-echo Category SEO pages refreshed successfully.
+echo Generating sitemap...
+
+python generate_sitemap.py
+
+if errorlevel 1 (
+    echo.
+    echo Sitemap generation failed.
+    pause
+    exit /b 1
+)
+
+echo.
+echo Category SEO pages and sitemap refreshed successfully.
 
 pause
