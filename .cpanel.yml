@@ -28,3 +28,8 @@ deployment:
     - /bin/rm -f $DEPLOYPATH/spec-manager.html
     - /bin/rm -f $DEPLOYPATH/js/spec-manager.js
     - /bin/rm -f $DEPLOYPATH/css/spec-manager.css
+
+    # Never deploy development/SEO generator files
+    - /bin/rm -f $DEPLOYPATH/generate_category_pages.py
+    - /bin/rm -f $DEPLOYPATH/generate_sitemap.py
+    - /bin/rm -f $DEPLOYPATH/refresh_seo_pages.bat
