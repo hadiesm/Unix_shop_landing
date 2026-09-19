@@ -23,3 +23,8 @@ deployment:
 
     # Generated SEO category pages
     - /bin/cp -R category $DEPLOYPATH
+
+    # Never deploy Spec Manager
+    - /bin/rm -f $DEPLOYPATH/spec-manager.html
+    - /bin/rm -f $DEPLOYPATH/js/spec-manager.js
+    - /bin/rm -f $DEPLOYPATH/css/spec-manager.css
