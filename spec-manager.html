@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>مدیریت مشخصات فنی | یونیکس شاپ</title>
+<meta name="description" content="مدیریت داخلی مشخصات فنی محصولات یونیکس شاپ.">
+<link rel="canonical" href="https://unix-shop.ir/spec-manager.html">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="css/style.css?v=1.0.9">
+    <link rel="stylesheet" href="css/spec-manager.css?v=1.0.9">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="site-logo">
+                <img src="images/logo.png" alt="یونیکس شاپ">
+            </a>
+            <nav class="main-nav">
+                <a href="index.html">خانه</a>
+                <a href="products.html">محصولات</a>
+                <a href="compare.html">مقایسه</a>
+                <a href="about.html">درباره ما</a>
+                <a href="contact.html">تماس با ما</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="spec-manager-page">
+        <section class="spec-hero">
+            <div class="page-container">
+                <span class="eyebrow">یونیکس شاپ</span>
+                <h1>مدیریت مشخصات فنی</h1>
+                <p>مشخصات ساختاریافته محصولات را ثبت، ویرایش و برای سایت خروجی بگیرید.</p>
+            </div>
+        </section>
+
+        <section class="manager-section">
+            <div class="page-container">
+                <div id="statusMessage" class="status-message hidden"></div>
+
+                <div class="manager-toolbar">
+                    <div>
+                        <h2>مشخصات محصولات</h2>
+                        <p id="productSummary">در حال بارگذاری...</p>
+                    </div>
+                    <div class="toolbar-actions">
+                        <label class="file-button">
+                            وارد کردن JSON
+                            <input id="importJson" type="file" accept="application/json,.json" hidden>
+                        </label>
+                        <button id="downloadJson" type="button" class="primary-button">دانلود product-specs.json</button>
+                    </div>
+                </div>
+
+                <div class="manager-layout">
+                    <aside class="product-sidebar">
+                        <div class="search-box">
+                            <input id="productSearch" type="search" placeholder="جستجوی محصول یا کد..."></input>
+                        </div>
+                        <div id="productList" class="product-list"></div>
+                    </aside>
+
+                    <section class="editor-panel">
+                        <div id="emptyEditor" class="empty-editor">
+                            <div class="empty-icon">⚙</div>
+                            <h3>یک محصول را انتخاب کنید</h3>
+                            <p>از فهرست محصولات، موردی را برای ثبت مشخصات انتخاب کنید.</p>
+                        </div>
+
+                        <form id="specForm" class="spec-form hidden">
+                            <div class="editor-heading">
+                                <div>
+                                    <span id="editorCategory" class="editor-category"></span>
+                                    <h2 id="editorProductName"></h2>
+                                    <span id="editorProductCode"></span>
+                                </div>
+                                <div class="editor-actions">
+                                    <button id="clearProductSpecs" type="button" class="secondary-button">پاک کردن مشخصات</button>
+                                    <button type="submit" class="primary-button">ذخیره مشخصات</button>
+                                </div>
+                            </div>
+
+                            <div id="laptopFields" class="spec-groups hidden">
+                                <section class="spec-group">
+                                    <h3>اطلاعات پایه</h3>
+                                    <div class="field-grid">
+                                        <label>برند<input name="brand"></label>
+                                        <label>مدل<input name="model"></label>
+                                    </div>
+                                </section>
+
+                                <section class="spec-group">
+                                    <h3>پردازنده</h3>
+                                    <div class="field-grid four">
+                                        <label>سازنده<input name="cpu_brand"></label>
+                                        <label>مدل<input name="cpu_model"></label>
+                                        <label>خانواده<input name="cpu_family"></label>
+                                        <label>نسل<input name="cpu_generation"></label>
+                                        <label>تعداد هسته<input name="cpu_cores" type="number" min="0"></label>
+                                        <label>تعداد رشته<input name="cpu_threads" type="number" min="0"></label>
+                                        <label>فرکانس پایه<input name="cpu_base_clock" placeholder="مثلاً 4.3 GHz"></label>
+                                        <label>فرکانس بوست<input name="cpu_boost_clock" placeholder="مثلاً 5.0 GHz"></label>
+                                        <label>حافظه کش<input name="cpu_cache" placeholder="مثلاً 16 MB"></label>
+                                        <label>TDP<input name="cpu_tdp" placeholder="مثلاً 45 W"></label>
+                                    </div>
+                                </section>
+
+                                <section class="spec-group">
+                                    <h3>رم</h3>
+                                    <div class="field-grid four">
+                                        <label>ظرفیت (GB)<input name="ram_capacity" type="number" min="0"></label>
+                                        <label>نوع<select name="ram_type"><option value="">انتخاب کنید</option><option>DDR4</option><option>DDR5</option><option>LPDDR4</option><option>LPDDR5</option><option>LPDDR5X</option></select></label>
+                                        <label>سرعت (MHz)<input name="ram_speed" type="number" min="0"></label>
+                                        <label>تعداد اسلات<input name="ram_slots" type="number" min="0"></label>
+                                        <label>حداکثر ظرفیت (GB)<input name="ram_max" type="number" min="0"></label>
+                                        <label class="checkbox-field"><input name="ram_upgradeable" type="checkbox"> قابل ارتقا</label>
+                                    </div>
+                                </section>
+
+                                <section class="spec-group">
+                                    <h3>حافظه داخلی</h3>
+                                    <div class="field-grid four">
+                                        <label>ظرفیت (GB)<input name="storage_capacity" type="number" min="0"></label>
+                                        <label>نوع<select name="storage_type"><option value="">انتخاب کنید</option><option>NVMe SSD</option><option>SATA SSD</option><option>HDD</option><option>eMMC</option></select></label>
+                                        <label>رابط<input name="storage_interface" placeholder="مثلاً PCIe 4.0"></label>
+                                        <label>تعداد اسلات<input name="storage_slots" type="number" min="0"></label>
+                                        <label class="checkbox-field"><input name="storage_additional" type="checkbox"> اسلات اضافه</label>
+                                    </div>
+                                </section>
+
+                                <section class="spec-group">
+                                    <h3>گرافیک</h3>
+                                    <div class="field-grid four">
+                                        <label>نوع<select name="gpu_type"><option value="">انتخاب کنید</option><option value="integrated">یکپارچه</option><option value="dedicated">مجزا</option><option value="hybrid">یکپارچه + مجزا</option></select></label>
+                                        <label>مدل<input name="gpu_model"></label>
+                                        <label>حافظه گرافیک
+                                            <div class="inline-input-group">
+                                                <input name="gpu_vram" type="number" min="0" step="0.01">
+                                                <select name="gpu_vram_unit" aria-label="واحد حافظه گرافیک">
+                                                    <option value="gb">GB</option>
+                                                    <option value="mb">MB</option>
+                                                </select>
+                                            </div>
+                                        </label>
+                                        <label>نوع حافظه<input name="gpu_vram_type"></label>
+                                        <label>TGP / توان<input name="gpu_tgp" placeholder="مثلاً 95 W"></label>
+                                    </div>
+                                </section>
+
+                                <section class="spec-group">
+                                    <h3>نمایشگر</h3>
+                                    <div class="field-grid four">
+                                        <label>اندازه (اینچ)<input name="display_size" type="number" min="0" step="0.1"></label>
+                                        <label>رزولوشن<input name="display_resolution" placeholder="مثلاً 1920×1080"></label>
+                                        <label>پنل<select name="display_panel"><option value="">انتخاب کنید</option><option>IPS</option><option>VA</option><option>TN</option><option>OLED</option><option>Mini LED</option></select></label>
+                                        <label>نرخ نوسازی (Hz)<input name="display_refresh" type="number" min="0"></label>
+                                        <label>روشنایی (nits)<input name="display_brightness" type="number" min="0"></label>
+                                        <label>زمان پاسخ (ms)<input name="display_response" type="number" min="0" step="0.1"></label>
+                                        <label>فضای رنگ<input name="display_gamut" placeholder="مثلاً 100% sRGB"></label>
+                                        <label class="checkbox-field"><input name="display_touch" type="checkbox"> لمسی</label>
+                                    </div>
+                                </section>
+
+                                <section class="spec-group">
+                                    <h3>ارتباطات و درگاه‌ها</h3>
+                                    <div class="field-grid four">
+                                        <label>Wi-Fi<input name="wifi"></label>
+                                        <label>Bluetooth<input name="bluetooth"></label>
+                                        <label>Ethernet<input name="ethernet"></label>
+                                        <label>USB-A<input name="usb_a" placeholder="مثلاً 2 عدد"></label>
+                                        <label>USB-C<input name="usb_c" placeholder="مثلاً 1 عدد"></label>
+                                        <label>Thunderbolt<input name="thunderbolt"></label>
+                                        <label>HDMI<input name="hdmi"></label>
+                                        <label>DisplayPort<input name="displayport"></label>
+                                        <label>Audio<input name="audio"></label>
+                                        <label>Card Reader<input name="card_reader"></label>
+                                    </div>
+                                </section>
+
+                                <section class="spec-group">
+                                    <h3>مشخصات فیزیکی و نرم‌افزار</h3>
+                                    <div class="field-grid four">
+                                        <label>باتری (Wh)<input name="battery" type="number" min="0" step="0.1"></label>
+                                        <label>وزن (kg)<input name="weight" type="number" min="0" step="0.01"></label>
+                                        <label>سیستم‌عامل<input name="os"></label>
+                                        <label class="checkbox-field"><input name="keyboard_backlight" type="checkbox"> کیبورد با نور پس‌زمینه</label>
+                                        <label class="checkbox-field"><input name="fingerprint" type="checkbox"> حسگر اثر انگشت</label>
+                                        <label class="checkbox-field"><input name="webcam" type="checkbox"> وب‌کم</label>
+                                    </div>
+                                </section>
+                            </div>
+
+                            <div id="monitorFields" class="spec-groups hidden">
+                                <section class="spec-group">
+                                    <h3>اطلاعات پایه</h3>
+                                    <div class="field-grid four">
+                                        <label>برند<input name="monitor_brand"></label>
+                                        <label>مدل<input name="monitor_model"></label>
+                                        <label>اندازه (اینچ)<input name="monitor_size" type="number" min="0" step="0.1"></label>
+                                        <label>رزولوشن<input name="monitor_resolution" placeholder="مثلاً 1920×1080"></label>
+                                    </div>
+                                </section>
+
+                                <section class="spec-group">
+                                    <h3>تصویر</h3>
+                                    <div class="field-grid four">
+                                        <label>پنل<select name="monitor_panel"><option value="">انتخاب کنید</option><option>IPS</option><option>VA</option><option>TN</option><option>OLED</option><option>Mini LED</option></select></label>
+                                        <label>نرخ نوسازی (Hz)<input name="monitor_refresh" type="number" min="0"></label>
+                                        <label>روشنایی (nits)<input name="monitor_brightness" type="number" min="0"></label>
+                                        <label>کنتراست<input name="monitor_contrast"></label>
+                                        <label>زمان پاسخ (ms)<input name="monitor_response" type="number" min="0" step="0.1"></label>
+                                        <label>فضای رنگ<input name="monitor_gamut"></label>
+                                        <label>HDR<input name="monitor_hdr"></label>
+                                        <label>Adaptive Sync<input name="monitor_sync"></label>
+                                    </div>
+                                </section>
+
+                                <section class="spec-group">
+                                    <h3>درگاه‌ها و امکانات</h3>
+                                    <div class="field-grid four">
+                                        <label>HDMI<input name="monitor_hdmi"></label>
+                                        <label>DisplayPort<input name="monitor_displayport"></label>
+                                        <label>VGA<input name="monitor_vga"></label>
+                                        <label>USB<input name="monitor_usb"></label>
+                                        <label>Audio<input name="monitor_audio"></label>
+                                        <label>اسپیکر<input name="monitor_speakers"></label>
+                                        <label>VESA<input name="monitor_vesa"></label>
+                                        <label>تنظیم ارتفاع<input name="monitor_height"></label>
+                                        <label>چرخش افقی<input name="monitor_swivel"></label>
+                                        <label>چرخش عمودی<input name="monitor_pivot"></label>
+                                        <label>زاویه‌پذیری<input name="monitor_tilt"></label>
+                                    </div>
+                                </section>
+                            </div>
+
+                            <section class="spec-group common-group">
+                                <h3>منبع اطلاعات</h3>
+                                <div class="field-grid">
+                                    <label>لینک منبع<input name="source_url" type="url" placeholder="https://..."></label>
+                                    <label>یادداشت<textarea name="notes" rows="3"></textarea></label>
+                                </div>
+                            </section>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/spec-manager.js?v=1.0.9"></script>
+</body>
+</html>
