@@ -142,5 +142,11 @@
         "name": "AOC",
         "parent_id": 20,
         "is_active": 1
+    },
+    {
+        "id": 25,
+        "name": "LG",
+        "parent_id": 20,
+        "is_active": 1
     }
 ]

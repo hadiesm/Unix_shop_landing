@@ -456,7 +456,7 @@ function createFeaturedProductCard(product) {
 
 
                     <a
-                        href="${productCode ? `/products/${encodeURIComponent(productCode.toLowerCase())}/` : "products.html"}"
+                        href="${productCode ? `product.html?code=${encodeURIComponent(productCode)}` : "products.html"}"
                         class="product-button"
                         aria-label="مشاهده صفحه محصول ${escapeFeaturedHtml(product.name || "محصول")}"
                     >

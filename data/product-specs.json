@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-14T08:20:16.559Z",
+  "updated_at": "2026-09-19T14:06:15.090Z",
   "products": {
     "1": {
       "type": "laptop",
@@ -119,8 +119,7 @@
       "graphics": {
         "type": "integrated",
         "model": "Intel® UHD Graphics",
-        "vram_gb": 0.5,
-        "vram_mb": 512,
+        "vram_gb": 0,
         "vram_type": "GDDR5",
         "tgp": ""
       },
@@ -201,8 +200,7 @@
       "graphics": {
         "type": "integrated",
         "model": "Intel® UHD Graphics",
-        "vram_gb": 0.5,
-        "vram_mb": 512,
+        "vram_gb": 0,
         "vram_type": "GDDR5",
         "tgp": ""
       },
@@ -283,8 +281,7 @@
       "graphics": {
         "type": "integrated",
         "model": "Intel UHD Graphics",
-        "vram_gb": 0.5,
-        "vram_mb": 512,
+        "vram_gb": 0,
         "vram_type": "GDDR5",
         "tgp": ""
       },
@@ -365,8 +362,7 @@
       "graphics": {
         "type": "integrated",
         "model": "AMD Radeon Graphics",
-        "vram_gb": 0.5,
-        "vram_mb": 512,
+        "vram_gb": 0,
         "vram_type": "GDDR5",
         "tgp": ""
       },
@@ -447,8 +443,7 @@
       "graphics": {
         "type": "integrated",
         "model": "Intel® UHD Graphics",
-        "vram_gb": 0.5,
-        "vram_mb": 512,
+        "vram_gb": 0,
         "vram_type": "GDDR5",
         "tgp": ""
       },
@@ -691,8 +686,7 @@
       "graphics": {
         "type": "integrated",
         "model": "Integrated Intel® Iris® Xe Graphics",
-        "vram_gb": 0.5,
-        "vram_mb": 512,
+        "vram_gb": 0,
         "vram_type": "GDDR5",
         "tgp": ""
       },
@@ -773,8 +767,7 @@
       "graphics": {
         "type": "integrated",
         "model": "Integrated AMD Radeon™ 610M Graphics",
-        "vram_gb": 0.5,
-        "vram_mb": 512,
+        "vram_gb": 0,
         "vram_type": "GDDR6",
         "tgp": ""
       },
@@ -855,8 +848,7 @@
       "graphics": {
         "type": "integrated",
         "model": "Intel® UHD Graphics",
-        "vram_gb": 0.5,
-        "vram_mb": 512,
+        "vram_gb": 0,
         "vram_type": "GDDR5",
         "tgp": ""
       },
@@ -1099,8 +1091,7 @@
       "graphics": {
         "type": "integrated",
         "model": "VEGA",
-        "vram_gb": 0.5,
-        "vram_mb": 512,
+        "vram_gb": 0,
         "vram_type": "GDDR5",
         "tgp": ""
       },
@@ -1181,8 +1172,7 @@
       "graphics": {
         "type": "integrated",
         "model": "Intel Iris",
-        "vram_gb": 0.5,
-        "vram_mb": 512,
+        "vram_gb": 0,
         "vram_type": "GDDR4",
         "tgp": ""
       },
@@ -1263,8 +1253,7 @@
       "graphics": {
         "type": "integrated",
         "model": "VEGA",
-        "vram_gb": 0.5,
-        "vram_mb": 512,
+        "vram_gb": 0,
         "vram_type": "GDDR5",
         "tgp": ""
       },
@@ -1588,8 +1577,7 @@
       "graphics": {
         "type": "integrated",
         "model": "Intel® UHD Graphics",
-        "vram_gb": 0.5,
-        "vram_mb": 512,
+        "vram_gb": 0,
         "vram_type": "GDDR4",
         "tgp": ""
       },
@@ -1676,29 +1664,29 @@
       "type": "monitor",
       "basic": {
         "brand": "Twisted Minds",
-        "model": "",
-        "size_inch": null,
-        "resolution": ""
+        "model": "tm24fhd100ips",
+        "size_inch": 24,
+        "resolution": "1080*1920"
       },
       "image": {
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
-        "contrast": "",
-        "response_time_ms": null,
+        "panel": "IPS",
+        "refresh_rate_hz": 100,
+        "brightness_nits": 300,
+        "contrast": "1000:1",
+        "response_time_ms": 1,
         "color_gamut": "",
         "hdr": "",
         "adaptive_sync": ""
       },
       "ports": {
-        "hdmi": "",
-        "displayport": "",
-        "vga": "",
-        "usb": "",
-        "audio": ""
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "vga": "دارد",
+        "usb": "ندارد",
+        "audio": "جک 3.5"
       },
       "features": {
-        "speakers": "",
+        "speakers": "دارد",
         "vesa": "",
         "height_adjustment": "",
         "swivel": "",
@@ -1875,30 +1863,106 @@
     "46": {
       "type": "monitor",
       "basic": {
-        "brand": "",
-        "model": "",
-        "size_inch": null,
+        "brand": "AOC",
+        "model": "27b30h/89",
+        "size_inch": 27,
         "resolution": ""
       },
       "image": {
-        "panel": "",
-        "refresh_rate_hz": null,
-        "brightness_nits": null,
-        "contrast": "",
-        "response_time_ms": null,
-        "color_gamut": "",
-        "hdr": "",
+        "panel": "IPS",
+        "refresh_rate_hz": 120,
+        "brightness_nits": 300,
+        "contrast": "1000:1",
+        "response_time_ms": 1,
+        "color_gamut": "sRGB 103% (CIE1931)",
+        "hdr": "HDR 10",
         "adaptive_sync": ""
       },
       "ports": {
-        "hdmi": "",
-        "displayport": "",
-        "vga": "",
-        "usb": "",
-        "audio": ""
+        "hdmi": "HDMI 1.4",
+        "displayport": "ندارد",
+        "vga": "دارد",
+        "usb": "ندارد",
+        "audio": "جک 3.5"
       },
       "features": {
-        "speakers": "",
+        "speakers": "دارد",
+        "vesa": "",
+        "height_adjustment": "",
+        "swivel": "",
+        "pivot": "",
+        "tilt": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "54": {
+      "type": "monitor",
+      "basic": {
+        "brand": "LG",
+        "model": "24U411",
+        "size_inch": 23.8,
+        "resolution": "1080*1920"
+      },
+      "image": {
+        "panel": "IPS",
+        "refresh_rate_hz": 120,
+        "brightness_nits": 250,
+        "contrast": "3000:1",
+        "response_time_ms": 5,
+        "color_gamut": "sRGB 95% (CIE1931)",
+        "hdr": "HDR 10",
+        "adaptive_sync": ""
+      },
+      "ports": {
+        "hdmi": "2.0",
+        "displayport": "ندارد",
+        "vga": "دارد",
+        "usb": "ندارد",
+        "audio": "3-pole (Sound Only)"
+      },
+      "features": {
+        "speakers": "ندارد",
+        "vesa": "",
+        "height_adjustment": "",
+        "swivel": "",
+        "pivot": "",
+        "tilt": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "55": {
+      "type": "monitor",
+      "basic": {
+        "brand": "LG",
+        "model": "24U421",
+        "size_inch": 23.8,
+        "resolution": "1080*1920"
+      },
+      "image": {
+        "panel": "VA",
+        "refresh_rate_hz": 100,
+        "brightness_nits": 250,
+        "contrast": "3000:1",
+        "response_time_ms": 5,
+        "color_gamut": "sRGB 99% (CIE1931)",
+        "hdr": "HDR 10",
+        "adaptive_sync": ""
+      },
+      "ports": {
+        "hdmi": "2.0",
+        "displayport": "ندارد",
+        "vga": "ندارد",
+        "usb": "Type C",
+        "audio": "جک 3.5"
+      },
+      "features": {
+        "speakers": "ندارد",
         "vesa": "",
         "height_adjustment": "",
         "swivel": "",

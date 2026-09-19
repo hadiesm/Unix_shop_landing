@@ -19,7 +19,12 @@ deployment:
     - /bin/cp -R css $DEPLOYPATH
     - /bin/cp -R js $DEPLOYPATH
     - /bin/cp -R images $DEPLOYPATH
-    - /bin/cp -R data $DEPLOYPATH
+
+    # Only deploy static data maintained in Git.
+    # availability.json and categories.json are uploaded separately
+    # by the accounting app and must not be overwritten by Git deployment.
+    - /bin/mkdir -p $DEPLOYPATH/data
+    - /bin/cp data/product-specs.json $DEPLOYPATH/data/
 
     # Generated SEO category pages
     - /bin/cp -R category $DEPLOYPATH
