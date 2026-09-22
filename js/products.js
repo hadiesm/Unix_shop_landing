@@ -1240,7 +1240,7 @@ function ensureProductModal() {
 
             <div class="product-details-content">
 
-                <div class="product-details-image">
+                <div class="product-details-image" id="productDetailsImageContainer">
 
                     <img
                         id="productDetailsImage"
@@ -1254,6 +1254,48 @@ function ensureProductModal() {
                         hidden
                     ></div>
 
+                    <div class="product-details-zoom-hint" id="productDetailsZoomHint">
+                        🔍 برای بزرگ‌نمایی کلیک کنید
+                    </div>
+
+                </div>
+
+                <div
+                    id="productDetailsImageLightbox"
+                    class="product-details-image-lightbox"
+                    aria-hidden="true"
+                >
+                    <button
+                        type="button"
+                        class="product-details-image-lightbox-close"
+                        id="productDetailsImageLightboxClose"
+                        aria-label="بستن"
+                    >×</button>
+
+                    <div class="product-details-image-lightbox-help">
+                        با اسکرول بزرگ‌نمایی کنید • برای جابه‌جایی تصویر را بکشید
+                    </div>
+
+                    <div
+                        class="product-details-image-lightbox-stage"
+                        id="productDetailsImageLightboxStage"
+                    >
+                        <img
+                            id="productDetailsImageLightboxImage"
+                            class="product-details-image-lightbox-image"
+                            src=""
+                            alt=""
+                        >
+                    </div>
+
+                    <div
+                        class="product-details-image-lightbox-controls"
+                        aria-label="کنترل بزرگ‌نمایی"
+                    >
+                        <button type="button" id="productDetailsImageZoomOut" aria-label="کوچک‌نمایی">−</button>
+                        <button type="button" id="productDetailsImageZoomReset" aria-label="اندازه اصلی">↺</button>
+                        <button type="button" id="productDetailsImageZoomIn" aria-label="بزرگ‌نمایی">+</button>
+                    </div>
                 </div>
 
 
@@ -1391,6 +1433,294 @@ function ensureProductModal() {
     `;
 
     document.body.appendChild(modal);
+
+    setupProductDetailsImageZoom();
+
+}
+
+
+
+/* =====================================================
+PRODUCT DETAILS IMAGE ZOOM
+===================================================== */
+
+function setupProductDetailsImageZoom() {
+
+    const container =
+        document.getElementById("productDetailsImageContainer");
+
+    const image =
+        document.getElementById("productDetailsImage");
+
+    const lightbox =
+        document.getElementById("productDetailsImageLightbox");
+
+    const stage =
+        document.getElementById("productDetailsImageLightboxStage");
+
+    const lightboxImage =
+        document.getElementById("productDetailsImageLightboxImage");
+
+    const closeButton =
+        document.getElementById("productDetailsImageLightboxClose");
+
+    const zoomInButton =
+        document.getElementById("productDetailsImageZoomIn");
+
+    const zoomOutButton =
+        document.getElementById("productDetailsImageZoomOut");
+
+    const zoomResetButton =
+        document.getElementById("productDetailsImageZoomReset");
+
+    if (!container || !image || !lightbox || !stage || !lightboxImage) {
+        return;
+    }
+
+    let zoom = 1;
+    let panX = 0;
+    let panY = 0;
+    let dragging = false;
+    let startX = 0;
+    let startY = 0;
+    let startPanX = 0;
+    let startPanY = 0;
+
+    function updateTransform() {
+        lightboxImage.style.transform =
+            `translate3d(${panX}px, ${panY}px, 0) scale(${zoom})`;
+    }
+
+    function resetZoom() {
+        zoom = 1;
+        panX = 0;
+        panY = 0;
+        updateTransform();
+    }
+
+    function setZoom(nextZoom) {
+
+        const previousZoom = zoom;
+
+        zoom = Math.max(
+            1,
+            Math.min(5, nextZoom)
+        );
+
+        if (zoom === 1) {
+
+            panX = 0;
+            panY = 0;
+
+        } else if (previousZoom !== zoom) {
+
+            const ratio = zoom / previousZoom;
+
+            panX *= ratio;
+            panY *= ratio;
+
+        }
+
+        updateTransform();
+    }
+
+    function openZoom() {
+
+        if (
+            image.hidden ||
+            !image.src ||
+            image.src === window.location.href
+        ) {
+            return;
+        }
+
+        lightboxImage.src = image.src;
+        lightboxImage.alt =
+            image.alt || "تصویر محصول";
+
+        resetZoom();
+
+        lightbox.classList.add("open");
+        lightbox.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        document.body.classList.add(
+            "product-details-image-lightbox-open"
+        );
+
+    }
+
+    function closeZoom() {
+
+        lightbox.classList.remove("open");
+        lightbox.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        document.body.classList.remove(
+            "product-details-image-lightbox-open"
+        );
+
+        dragging = false;
+        stage.classList.remove("dragging");
+
+    }
+
+    container.addEventListener("click", event => {
+
+        if (event.target === image) {
+            openZoom();
+        }
+
+    });
+
+    closeButton?.addEventListener(
+        "click",
+        closeZoom
+    );
+
+    lightbox.addEventListener("click", event => {
+
+        if (event.target === lightbox) {
+            closeZoom();
+        }
+
+    });
+
+    zoomInButton?.addEventListener(
+        "click",
+        () => setZoom(zoom + 0.5)
+    );
+
+    zoomOutButton?.addEventListener(
+        "click",
+        () => setZoom(zoom - 0.5)
+    );
+
+    zoomResetButton?.addEventListener(
+        "click",
+        resetZoom
+    );
+
+    stage.addEventListener(
+        "wheel",
+        event => {
+
+            event.preventDefault();
+
+            setZoom(
+                zoom +
+                (event.deltaY < 0 ? 0.25 : -0.25)
+            );
+
+        },
+        { passive: false }
+    );
+
+    stage.addEventListener(
+        "pointerdown",
+        event => {
+
+            if (zoom <= 1) {
+                return;
+            }
+
+            dragging = true;
+
+            startX = event.clientX;
+            startY = event.clientY;
+
+            startPanX = panX;
+            startPanY = panY;
+
+            stage.classList.add("dragging");
+
+            stage.setPointerCapture?.(
+                event.pointerId
+            );
+
+        }
+    );
+
+    stage.addEventListener(
+        "pointermove",
+        event => {
+
+            if (!dragging) {
+                return;
+            }
+
+            panX =
+                startPanX +
+                event.clientX -
+                startX;
+
+            panY =
+                startPanY +
+                event.clientY -
+                startY;
+
+            updateTransform();
+
+        }
+    );
+
+    function stopDragging() {
+
+        dragging = false;
+
+        stage.classList.remove(
+            "dragging"
+        );
+
+    }
+
+    stage.addEventListener(
+        "pointerup",
+        stopDragging
+    );
+
+    stage.addEventListener(
+        "pointercancel",
+        stopDragging
+    );
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                !lightbox.classList.contains(
+                    "open"
+                )
+            ) {
+                return;
+            }
+
+            if (event.key === "Escape") {
+                closeZoom();
+            }
+
+            if (
+                event.key === "+" ||
+                event.key === "="
+            ) {
+                setZoom(zoom + 0.5);
+            }
+
+            if (event.key === "-") {
+                setZoom(zoom - 0.5);
+            }
+
+            if (event.key === "0") {
+                resetZoom();
+            }
+
+        }
+    );
 
 }
 
