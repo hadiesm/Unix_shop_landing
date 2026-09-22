@@ -1555,6 +1555,7 @@ function setupProductDetailsImageZoom() {
     function closeZoom() {
 
         lightbox.classList.remove("open");
+
         lightbox.setAttribute(
             "aria-hidden",
             "true"
@@ -1565,9 +1566,22 @@ function setupProductDetailsImageZoom() {
         );
 
         dragging = false;
+
         stage.classList.remove("dragging");
 
+        // Completely clear the previous product image.
+        lightboxImage.src = "";
+        lightboxImage.alt = "";
+
+        // Reset zoom/pan state so the next product starts clean.
+        zoom = 1;
+        panX = 0;
+        panY = 0;
+
+        lightboxImage.style.transform =
+            "translate3d(0, 0, 0) scale(1)";
     }
+    window.closeProductDetailsImageZoom = closeZoom;
 
     container.addEventListener("click", event => {
 
@@ -2177,6 +2191,10 @@ OPEN PRODUCT DETAILS
 
 function openProductDetails(productId) {
 
+    if (typeof window.closeProductDetailsImageZoom === "function") {
+        window.closeProductDetailsImageZoom();
+    }
+
     ensureProductModal();
 
     const product =
@@ -2534,6 +2552,10 @@ CLOSE PRODUCT DETAILS
 ===================================================== */
 
 function closeProductDetails() {
+
+    if (typeof window.closeProductDetailsImageZoom === "function") {
+        window.closeProductDetailsImageZoom();
+    }
 
     const modal =
         document.getElementById(
