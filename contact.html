@@ -39,10 +39,94 @@
   ]
 }
 </script>
+
+    <style>
+        /* Contact page specific styles */
+
+        .location-map {
+            position: relative;
+            min-height: 320px;
+            overflow: hidden;
+            border-radius: 24px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.08),
+                    rgba(255,255,255,0.02)
+                );
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .location-map > a {
+            display: flex;
+            width: 100%;
+            min-height: 320px;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .location-map-overlay {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 8px;
+            padding: 28px;
+        }
+
+        .location-map-pin {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            font-size: 30px;
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.14);
+        }
+
+        .location-map-link {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .location-map-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 22px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .location-map {
+                min-height: 260px;
+            }
+
+            .location-map > a {
+                min-height: 260px;
+            }
+
+            .location-map-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 
 
 <body class="contact-page">
+
+    
 
 
 <!-- =====================================================
@@ -539,24 +623,60 @@
                 </h2>
 
                 <p>
-                    برای مراجعه حضوری و دریافت اطلاعات بیشتر،
-                    با ما تماس بگیرید.
+                    برای مراجعه حضوری به یونیکس شاپ،
+                    می‌توانید موقعیت فروشگاه را روی نقشه مشاهده
+                    کرده و مسیر رسیدن به فروشگاه را دریافت کنید.
                 </p>
+
+                <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=37.547843,45.069263"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="location-map-button"
+                    aria-label="دریافت مسیر یونیکس شاپ در گوگل مپ">
+
+                    مشاهده مسیر در گوگل مپ
+
+                    <span aria-hidden="true">
+                        ←
+                    </span>
+
+                </a>
 
             </div>
 
 
             <!-- Location visual -->
 
-            <div class="location-placeholder">
+            <div class="location-map">
 
-                <small>
-                    آذربایجان غربی
-                </small>
+                <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=37.547843,45.069263"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="باز کردن موقعیت یونیکس شاپ در گوگل مپ">
 
-                <span>
-                    ارومیه
-                </span>
+                    <div class="location-map-overlay">
+
+                        <span class="location-map-pin">
+                            ⌖
+                        </span>
+
+                        <strong>
+                            یونیکس شاپ
+                        </strong>
+
+                        <small>
+                            ارومیه، آذربایجان غربی
+                        </small>
+
+                        <span class="location-map-link">
+                            باز کردن در گوگل مپ
+                        </span>
+
+                    </div>
+
+                </a>
 
             </div>
 
@@ -566,10 +686,6 @@
     </div>
 
 </section>
-
-
-</main>
-
 
 
 <!-- =====================================================
