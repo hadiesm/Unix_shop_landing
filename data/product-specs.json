@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-19T14:06:15.090Z",
+  "updated_at": "2026-09-26T12:34:28.705Z",
   "products": {
     "1": {
       "type": "laptop",
@@ -1968,6 +1968,87 @@
         "swivel": "",
         "pivot": "",
         "tilt": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "56": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "AMD",
+        "model": "Ryzen 3 7320U",
+        "family": "Ryzen",
+        "generation": "13",
+        "cores": 4,
+        "threads": 8,
+        "base_clock": "2.4GHz",
+        "boost_clock": "up to 4.1GHz",
+        "cache": "4",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": 8,
+        "type": "LPDDR5",
+        "speed_mhz": 5500,
+        "slots": 1,
+        "max_capacity_gb": 8,
+        "upgradeable": false
+      },
+      "storage": {
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCIe® 4.0",
+        "slots": 1,
+        "additional_slot": false
+      },
+      "graphics": {
+        "type": "integrated",
+        "model": "AMD Radeon™ 610M",
+        "vram_gb": 2,
+        "vram_type": "GDDR6",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "IPS",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 250,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": false
+      },
+      "connectivity": {
+        "wifi": "Wi-Fi® 6, 802.11ax 2x2",
+        "bluetooth": "BT5.2",
+        "ethernet": "ندارد"
+      },
+      "ports": {
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "ندارد"
+      },
+      "physical": {
+        "battery_wh": 47,
+        "weight_kg": 1.62
+      },
+      "features": {
+        "keyboard_backlight": false,
+        "fingerprint": true,
+        "webcam": true
+      },
+      "software": {
+        "os": "بدون سیستم عامل"
       },
       "source": {
         "url": "",
