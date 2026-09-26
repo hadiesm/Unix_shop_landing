@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-<head>
+<head><script>(function(){try{var s=localStorage.getItem('unix-shop-theme');var t=s||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}})();</script>
 <meta charset="UTF-8">
 <title>یونیکس شاپ | لپ‌تاپ، کامپیوتر و محصولات دیجیتال در ارومیه</title>
 <meta name="description" content="یونیکس شاپ در ارومیه؛ مشاهده و بررسی لپ‌تاپ، کامپیوتر، مانیتور و لوازم جانبی دیجیتال با اطلاعات فنی و قیمت روز.">
@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=1.0.10">
+<link rel="stylesheet" href="css/style.css?v=1.1.0">
 <link rel="icon" href="images/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="images/Favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/Favicon/favicon-16x16.png">
@@ -40,7 +40,7 @@
 </script>
 </head>
 
-<body>
+<body class="home-page">
 
 <!-- =====================================================
      HEADER
@@ -72,6 +72,8 @@
             </a>
 
             <!-- Mobile menu -->
+<button class="theme-toggle" type="button" aria-label="تغییر حالت روشن و تاریک" aria-pressed="false"><span class="theme-toggle-icon theme-toggle-sun" aria-hidden="true">☀</span><span class="theme-toggle-track"><span class="theme-toggle-thumb"></span></span><span class="theme-toggle-icon theme-toggle-moon" aria-hidden="true">☾</span></button>
+
             <button class="mobile-menu-button" type="button" aria-label="باز کردن منوی سایت" aria-expanded="false">
                 <span></span>
                 <span></span>
@@ -375,7 +377,7 @@
                     </h2>
                 </div>
 
-                <a href="products.html" class="section-link">
+                <a href="products.html" class="section-link section-link-products">
                     مشاهده همه محصولات
                     <span>←</span>
                 </a>
@@ -685,5 +687,5 @@
 ====================================================== -->
 <script src="js/main.js?v=1.0.11"></script>
 
-</body>
+<script>(function(){const r=document.documentElement,t=document.querySelector('.theme-toggle');function a(x,p){r.setAttribute('data-theme',x);if(p)try{localStorage.setItem('unix-shop-theme',x)}catch(e){}if(t){let d=x==='dark';t.setAttribute('aria-pressed',d?'true':'false');t.setAttribute('aria-label',d?'فعال کردن حالت روشن':'فعال کردن حالت تاریک');t.title=d?'حالت روشن':'حالت تاریک'}}a(r.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),false);if(t)t.onclick=()=>a(r.getAttribute('data-theme')==='dark'?'light':'dark',true)})();</script></body>
 </html>
