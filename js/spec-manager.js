@@ -1,6 +1,9 @@
 const AVAILABILITY_URL = "data/availability.json";
 const CATEGORIES_URL = "data/categories.json";
 const SPECS_URL = "data/product-specs.json";
+const LOCAL_SPECS_API = "/__spec_manager__/product-specs";
+const LOCAL_HEARTBEAT_API = "/__spec_manager__/heartbeat";
+let heartbeatTimer = null;
 
 let products = [];
 let categories = [];
@@ -107,12 +110,74 @@ async function loadJson(url, fallback) {
     }
 }
 
+async function loadSpecsFile() {
+    // When running through the included local Python server, read the real
+    // data/product-specs.json through its local API. Otherwise fall back to
+    // the normal static JSON request (useful on the hosted website).
+    try {
+        const response = await fetch(LOCAL_SPECS_API, { cache: "no-store" });
+        if (response.ok) return await response.json();
+    } catch (error) {
+        console.info("Local Spec Manager API is not available; using static JSON.", error);
+    }
+
+    return loadJson(SPECS_URL, { version: 1, updated_at: null, products: {} });
+}
+
+async function writeSpecsFile() {
+    specsData.version = 1;
+    specsData.updated_at = new Date().toISOString();
+
+    try {
+        const response = await fetch(LOCAL_SPECS_API, {
+            method: "POST",
+            headers: { "Content-Type": "application/json;charset=utf-8" },
+            body: JSON.stringify(specsData, null, 2)
+        });
+
+        if (response.ok) {
+            return { saved: true, local: true };
+        }
+
+        const message = await response.text().catch(() => "");
+        throw new Error(message || `HTTP ${response.status}`);
+    } catch (error) {
+        console.info("Local write API is not available.", error);
+
+        // Static/hosted fallback: download a backup instead of pretending
+        // that the browser can overwrite an arbitrary local file.
+        downloadSpecs();
+        return { saved: false, local: false };
+    }
+}
+
+
+function startLocalServerHeartbeat() {
+    // Only the local server responds to this endpoint.
+    // Heartbeat keeps the server informed that the page is alive.
+    const sendHeartbeat = () => {
+        fetch(LOCAL_HEARTBEAT_API, {
+            method: "GET",
+            cache: "no-store",
+            keepalive: true
+        }).catch(() => {});
+    };
+
+    sendHeartbeat();
+
+    if (heartbeatTimer) {
+        clearInterval(heartbeatTimer);
+    }
+
+    heartbeatTimer = setInterval(sendHeartbeat, 2000);
+}
+
 async function initialize() {
     try {
         const [availability, categoryData, existingSpecs] = await Promise.all([
             loadJson(AVAILABILITY_URL),
             loadJson(CATEGORIES_URL),
-            loadJson(SPECS_URL, { version: 1, updated_at: null, products: {} })
+            loadSpecsFile()
         ]);
 
         products = Array.isArray(availability)
@@ -133,6 +198,7 @@ async function initialize() {
         renderProductList();
         $("productSummary").textContent = `${toPersianDigits(products.length)} محصول فعال`;
         showStatus("اطلاعات محصولات آماده است.", "info");
+        startLocalServerHeartbeat();
     } catch (error) {
         console.error(error);
         showStatus("بارگذاری اطلاعات با خطا مواجه شد.", "error");
@@ -303,7 +369,7 @@ function collectMonitorSpecs() {
     };
 }
 
-function saveCurrentProduct() {
+async function saveCurrentProduct() {
     const product = products.find(p => Number(p.id) === Number(selectedProductId));
     if (!product) return;
 
@@ -317,19 +383,33 @@ function saveCurrentProduct() {
         ? collectLaptopSpecs()
         : collectMonitorSpecs();
 
-    specsData.version = 1;
-    specsData.updated_at = new Date().toISOString();
+    const result = await writeSpecsFile();
     renderProductList();
-    showStatus("مشخصات در حافظه مرورگر آماده خروجی شد. برای اعمال روی سایت، فایل JSON را دانلود و جایگزین کنید.", "success");
+
+    if (result.local) {
+        showStatus("مشخصات ذخیره شد و فایل data/product-specs.json به‌روزرسانی شد.", "success");
+    } else {
+        showStatus("ذخیره مستقیم در دسترس نیست؛ فایل JSON به‌عنوان پشتیبان دانلود شد.", "info");
+    }
 }
 
-function clearCurrentProduct() {
+
+async function clearCurrentProduct() {
     const product = products.find(p => Number(p.id) === Number(selectedProductId));
     if (!product) return;
+
     delete specsData.products[String(product.id)];
+
+    const result = await writeSpecsFile();
     selectProduct(product.id);
-    showStatus("مشخصات این محصول پاک شد.", "info");
+
+    if (result.local) {
+        showStatus("مشخصات پاک شد و فایل data/product-specs.json به‌روزرسانی شد.", "success");
+    } else {
+        showStatus("مشخصات پاک شد؛ فایل JSON به‌عنوان پشتیبان دانلود شد.", "info");
+    }
 }
+
 
 function downloadSpecs() {
     specsData.version = 1;
@@ -354,17 +434,27 @@ async function importSpecs(file) {
         if (!imported || typeof imported !== "object" || !imported.products || typeof imported.products !== "object") {
             throw new Error("ساختار فایل صحیح نیست.");
         }
+
         specsData = imported;
+        const result = await writeSpecsFile();
+
         selectedProductId = null;
         $("specForm").classList.add("hidden");
         $("emptyEditor").classList.remove("hidden");
         renderProductList();
-        showStatus("فایل مشخصات با موفقیت وارد شد.", "success");
+
+        showStatus(
+            result.local
+                ? "فایل مشخصات وارد و data/product-specs.json به‌روزرسانی شد."
+                : "فایل وارد شد و نسخه جدید JSON دانلود شد.",
+            result.local ? "success" : "info"
+        );
     } catch (error) {
         console.error(error);
         showStatus("فایل JSON معتبر نیست.", "error");
     }
 }
+
 
 function showStatus(message, type) {
     const box = $("statusMessage");

@@ -39,7 +39,7 @@ dist/
 build/
 coverage/
 
-# Python (if any tools/scripts are added later)
+# Python
 __pycache__/
 *.py[cod]
 *.pyo
@@ -77,10 +77,3 @@ settings.local.*
 uploads/
 tmp/
 temp/
-# =====================================================
-# Private local specification manager
-# Never publish the internal product specification editor
-# =====================================================
-# spec-manager.html
-# js/spec-manager.js
-# css/spec-manager.css

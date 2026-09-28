@@ -3,7 +3,10 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home3/fpwucrzv/public_html/
 
+    # =====================================================
     # Main HTML pages
+    # =====================================================
+
     - /bin/cp index.html $DEPLOYPATH
     - /bin/cp products.html $DEPLOYPATH
     - /bin/cp product.html $DEPLOYPATH
@@ -11,30 +14,54 @@ deployment:
     - /bin/cp contact.html $DEPLOYPATH
     - /bin/cp compare.html $DEPLOYPATH
 
+    # =====================================================
     # SEO files
+    # =====================================================
+
     - /bin/cp robots.txt $DEPLOYPATH
     - /bin/cp sitemap.xml $DEPLOYPATH
 
+    # =====================================================
     # Website assets
+    # =====================================================
+
     - /bin/cp -R css $DEPLOYPATH
     - /bin/cp -R js $DEPLOYPATH
     - /bin/cp -R images $DEPLOYPATH
 
-    # Only deploy static data maintained in Git.
-    # availability.json and categories.json are uploaded separately
-    # by the accounting app and must not be overwritten by Git deployment.
+    # =====================================================
+    # Static data maintained in Git
+    #
+    # availability.json and categories.json are generated
+    # by the accounting app and uploaded separately.
+    # They must never be overwritten by Git deployment.
+    # =====================================================
+
     - /bin/mkdir -p $DEPLOYPATH/data
     - /bin/cp data/product-specs.json $DEPLOYPATH/data/
 
+    # =====================================================
     # Generated SEO category pages
+    # =====================================================
+
     - /bin/cp -R category $DEPLOYPATH
 
-    # Never deploy Spec Manager
+    # =====================================================
+    # NEVER DEPLOY SPEC MANAGER
+    # =====================================================
+
     - /bin/rm -f $DEPLOYPATH/spec-manager.html
     - /bin/rm -f $DEPLOYPATH/js/spec-manager.js
     - /bin/rm -f $DEPLOYPATH/css/spec-manager.css
 
-    # Never deploy development/SEO generator files
+    # Local Spec Manager server/helper
+    - /bin/rm -f $DEPLOYPATH/spec-manager-local.py
+    - /bin/rm -f $DEPLOYPATH/open-spec-manager.bat
+
+    # =====================================================
+    # NEVER DEPLOY DEVELOPMENT / SEO GENERATOR FILES
+    # =====================================================
+
     - /bin/rm -f $DEPLOYPATH/generate_category_pages.py
     - /bin/rm -f $DEPLOYPATH/generate_sitemap.py
     - /bin/rm -f $DEPLOYPATH/refresh_seo_pages.bat

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-26T12:34:28.705Z",
+  "updated_at": "2026-09-28T14:02:34.571Z",
   "products": {
     "1": {
       "type": "laptop",
@@ -39,6 +39,7 @@
         "type": "integrated",
         "model": "Radeon 610M",
         "vram_gb": 2,
+        "vram_mb": 2048,
         "vram_type": "DDR5",
         "tgp": ""
       },
@@ -2045,6 +2046,88 @@
       "features": {
         "keyboard_backlight": false,
         "fingerprint": true,
+        "webcam": true
+      },
+      "software": {
+        "os": "بدون سیستم عامل"
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      }
+    },
+    "59": {
+      "type": "laptop",
+      "basic": {
+        "brand": "لنوو",
+        "model": "Ideapad Slim 3"
+      },
+      "processor": {
+        "brand": "Intel",
+        "model": "Core i5 -13420H",
+        "family": "Intel",
+        "generation": "13",
+        "cores": 8,
+        "threads": 12,
+        "base_clock": "2.1GHz",
+        "boost_clock": "up to 4.6 GHz",
+        "cache": "12",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": 16,
+        "type": "DDR4",
+        "speed_mhz": null,
+        "slots": 1,
+        "max_capacity_gb": 24,
+        "upgradeable": true
+      },
+      "storage": {
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCIe® 4.0 SSD",
+        "slots": 1,
+        "additional_slot": false
+      },
+      "graphics": {
+        "type": "integrated",
+        "model": "Intel® UHD Graphics",
+        "vram_gb": 0.5,
+        "vram_mb": 512,
+        "vram_type": "GDDR5",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "TN",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 250,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": false
+      },
+      "connectivity": {
+        "wifi": "Wi-Fi 5(802.11ac) (Dual band)",
+        "bluetooth": "Bluetooth® 5.1",
+        "ethernet": "ندارد"
+      },
+      "ports": {
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "ندارد"
+      },
+      "physical": {
+        "battery_wh": 42,
+        "weight_kg": 1.7
+      },
+      "features": {
+        "keyboard_backlight": true,
+        "fingerprint": false,
         "webcam": true
       },
       "software": {
