@@ -65,3 +65,5 @@ deployment:
     - /bin/rm -f $DEPLOYPATH/generate_category_pages.py
     - /bin/rm -f $DEPLOYPATH/generate_sitemap.py
     - /bin/rm -f $DEPLOYPATH/refresh_seo_pages.bat
+    - /bin/rm -f $DEPLOYPATH/upload-product-specs.py
+    - /bin/rm -f $DEPLOYPATH/upload-product-specs.bat
