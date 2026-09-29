@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-28T14:02:34.571Z",
+  "updated_at": "2026-09-29T07:24:34.857Z",
   "products": {
     "1": {
       "type": "laptop",
@@ -82,6 +82,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "ایسوس M1605YA | یونیکس شاپ",
+        "description": "ایسوس M1605YA؛ پردازنده AMD Ryzen 7 - 7730U، رم ۱۶ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۶ اینچ، رزولوشن 1080×1920، پنل IPS، نرخ نوسازی ۶۰ هرتز. مشاهده مشخصات، قیمت و وضع",
+        "product_description": "ایسوس M1605YA یکی از محصولات یونیکس شاپ است. این مدل با پردازنده AMD Ryzen 7 - 7730U، رم ۱۶ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۶ اینچ، رزولوشن 1080×1920، پنل IPS، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "2": {
@@ -121,6 +126,7 @@
         "type": "integrated",
         "model": "Intel® UHD Graphics",
         "vram_gb": 0,
+        "vram_mb": 0,
         "vram_type": "GDDR5",
         "tgp": ""
       },
@@ -163,6 +169,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "ایسوس A1502VA | یونیکس شاپ",
+        "description": "ایسوس A1502VA؛ پردازنده Intel Core i5 -13420H، رم ۱۶ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز. مشاهده مشخصات، قیمت و",
+        "product_description": "ایسوس A1502VA یکی از محصولات یونیکس شاپ است. این مدل با پردازنده Intel Core i5 -13420H، رم ۱۶ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "3": {
@@ -202,6 +213,7 @@
         "type": "integrated",
         "model": "Intel® UHD Graphics",
         "vram_gb": 0,
+        "vram_mb": 0,
         "vram_type": "GDDR5",
         "tgp": ""
       },
@@ -244,6 +256,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "ایسوس X1504V | یونیکس شاپ",
+        "description": "ایسوس X1504V؛ پردازنده Intel Core™ i3-1315U، رم ۱۲ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز. مشاهده مشخصات، قیمت و وض",
+        "product_description": "ایسوس X1504V یکی از محصولات یونیکس شاپ است. این مدل با پردازنده Intel Core™ i3-1315U، رم ۱۲ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "4": {
@@ -283,6 +300,7 @@
         "type": "integrated",
         "model": "Intel UHD Graphics",
         "vram_gb": 0,
+        "vram_mb": 0,
         "vram_type": "GDDR5",
         "tgp": ""
       },
@@ -325,6 +343,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "ایسر Aspire Lite | یونیکس شاپ",
+        "description": "ایسر Aspire Lite؛ پردازنده Intel Core™ i3 - 1305U، رم ۸ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۶ اینچ، رزولوشن 1200×1920، پنل IPS، نرخ نوسازی ۶۰ هرتز. مشاهده مشخصات، قیمت",
+        "product_description": "ایسر Aspire Lite یکی از محصولات یونیکس شاپ است. این مدل با پردازنده Intel Core™ i3 - 1305U، رم ۸ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۶ اینچ، رزولوشن 1200×1920، پنل IPS، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "5": {
@@ -364,6 +387,7 @@
         "type": "integrated",
         "model": "AMD Radeon Graphics",
         "vram_gb": 0,
+        "vram_mb": 0,
         "vram_type": "GDDR5",
         "tgp": ""
       },
@@ -406,6 +430,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "اچ پی G10 255 | یونیکس شاپ",
+        "description": "اچ پی G10 255؛ پردازنده AMD Ryzen 5-7530U، رم ۱۶ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز. مشاهده مشخصات، قیمت و وضعی",
+        "product_description": "اچ پی G10 255 یکی از محصولات یونیکس شاپ است. این مدل با پردازنده AMD Ryzen 5-7530U، رم ۱۶ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "6": {
@@ -445,6 +474,7 @@
         "type": "integrated",
         "model": "Intel® UHD Graphics",
         "vram_gb": 0,
+        "vram_mb": 0,
         "vram_type": "GDDR5",
         "tgp": ""
       },
@@ -487,6 +517,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "لنوو Ideapad Slim 3 | یونیکس شاپ",
+        "description": "لنوو Ideapad Slim 3؛ پردازنده Intel Core i5 -13420H، رم ۸ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز. مشاهده مشخصات، قی",
+        "product_description": "لنوو Ideapad Slim 3 یکی از محصولات یونیکس شاپ است. این مدل با پردازنده Intel Core i5 -13420H، رم ۸ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "7": {
@@ -526,6 +561,7 @@
         "type": "integrated",
         "model": "AMD Radeon™ 610M",
         "vram_gb": 2,
+        "vram_mb": 2048,
         "vram_type": "GDDR6",
         "tgp": ""
       },
@@ -568,6 +604,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "لنوو Ideapad Slim 3 | یونیکس شاپ",
+        "description": "لنوو Ideapad Slim 3؛ پردازنده AMD Ryzen 3 7320U، رم ۸ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل IPS، نرخ نوسازی ۶۰ هرتز. مشاهده مشخصات، قیمت",
+        "product_description": "لنوو Ideapad Slim 3 یکی از محصولات یونیکس شاپ است. این مدل با پردازنده AMD Ryzen 3 7320U، رم ۸ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل IPS، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "8": {
@@ -607,6 +648,7 @@
         "type": "integrated",
         "model": "AMD Radeon™ Graphics",
         "vram_gb": 2,
+        "vram_mb": 2048,
         "vram_type": "GDDR6",
         "tgp": ""
       },
@@ -649,6 +691,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "لنوو Ideapad Slim 3 | یونیکس شاپ",
+        "description": "لنوو Ideapad Slim 3؛ پردازنده AMD Ryzen™ 5 5625U، رم ۸ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز. مشاهده مشخصات، قیمت",
+        "product_description": "لنوو Ideapad Slim 3 یکی از محصولات یونیکس شاپ است. این مدل با پردازنده AMD Ryzen™ 5 5625U، رم ۸ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "9": {
@@ -688,6 +735,7 @@
         "type": "integrated",
         "model": "Integrated Intel® Iris® Xe Graphics",
         "vram_gb": 0,
+        "vram_mb": 0,
         "vram_type": "GDDR5",
         "tgp": ""
       },
@@ -730,6 +778,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "لنوو Ideapad 1 | یونیکس شاپ",
+        "description": "لنوو Ideapad 1؛ پردازنده Intel Core™ i5-1335U، رم ۱۶ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز. مشاهده مشخصات، قیمت و",
+        "product_description": "لنوو Ideapad 1 یکی از محصولات یونیکس شاپ است. این مدل با پردازنده Intel Core™ i5-1335U، رم ۱۶ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "10": {
@@ -769,6 +822,7 @@
         "type": "integrated",
         "model": "Integrated AMD Radeon™ 610M Graphics",
         "vram_gb": 0,
+        "vram_mb": 0,
         "vram_type": "GDDR6",
         "tgp": ""
       },
@@ -811,6 +865,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "لنوو Ideapad Slim 3 | یونیکس شاپ",
+        "description": "لنوو Ideapad Slim 3؛ پردازنده AMD Athlon™ Silver 7120U، رم ۸ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز. مشاهده مشخصات،",
+        "product_description": "لنوو Ideapad Slim 3 یکی از محصولات یونیکس شاپ است. این مدل با پردازنده AMD Athlon™ Silver 7120U، رم ۸ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "11": {
@@ -850,6 +909,7 @@
         "type": "integrated",
         "model": "Intel® UHD Graphics",
         "vram_gb": 0,
+        "vram_mb": 0,
         "vram_type": "GDDR5",
         "tgp": ""
       },
@@ -892,6 +952,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "لنوو Ideapad 1 | یونیکس شاپ",
+        "description": "لنوو Ideapad 1؛ پردازنده Intel Celeron® N4500، رم ۸ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز. مشاهده مشخصات، قیمت و و",
+        "product_description": "لنوو Ideapad 1 یکی از محصولات یونیکس شاپ است. این مدل با پردازنده Intel Celeron® N4500، رم ۸ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "12": {
@@ -931,6 +996,7 @@
         "type": "integrated",
         "model": "AMD Radeon™ 610M",
         "vram_gb": 2,
+        "vram_mb": 2048,
         "vram_type": "GDDR6",
         "tgp": ""
       },
@@ -973,6 +1039,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "لنوو Ideapad Slim 3 | یونیکس شاپ",
+        "description": "لنوو Ideapad Slim 3؛ پردازنده AMD Ryzen™ 5 7520U، رم ۸ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل IPS، نرخ نوسازی ۶۰ هرتز. مشاهده مشخصات، قیمت",
+        "product_description": "لنوو Ideapad Slim 3 یکی از محصولات یونیکس شاپ است. این مدل با پردازنده AMD Ryzen™ 5 7520U، رم ۸ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل IPS، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "13": {
@@ -1012,6 +1083,7 @@
         "type": "integrated",
         "model": "AMD Radeon™ 610M",
         "vram_gb": 2,
+        "vram_mb": 2048,
         "vram_type": "GDDR6",
         "tgp": ""
       },
@@ -1054,6 +1126,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "لنوو Ideapad Slim 3 | یونیکس شاپ",
+        "description": "لنوو Ideapad Slim 3؛ پردازنده AMD Ryzen™ 5 7520U، رم ۱۶ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز. مشاهده مشخصات، قیمت",
+        "product_description": "لنوو Ideapad Slim 3 یکی از محصولات یونیکس شاپ است. این مدل با پردازنده AMD Ryzen™ 5 7520U، رم ۱۶ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "14": {
@@ -1093,6 +1170,7 @@
         "type": "integrated",
         "model": "VEGA",
         "vram_gb": 0,
+        "vram_mb": 0,
         "vram_type": "GDDR5",
         "tgp": ""
       },
@@ -1135,6 +1213,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "اچ پی FC0171NIA | یونیکس شاپ",
+        "description": "اچ پی FC0171NIA؛ پردازنده AMD Athlon™ Silver 7120U، رم ۸ گیگابایت، حافظه ۲۵۶ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 180×1920، پنل TN، نرخ نوسازی ۶۰ هرتز. مشاهده مشخصات، قیمت",
+        "product_description": "اچ پی FC0171NIA یکی از محصولات یونیکس شاپ است. این مدل با پردازنده AMD Athlon™ Silver 7120U، رم ۸ گیگابایت، حافظه ۲۵۶ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 180×1920، پنل TN، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "15": {
@@ -1174,6 +1257,7 @@
         "type": "integrated",
         "model": "Intel Iris",
         "vram_gb": 0,
+        "vram_mb": 0,
         "vram_type": "GDDR4",
         "tgp": ""
       },
@@ -1216,6 +1300,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "اچ پی 0050 | یونیکس شاپ",
+        "description": "اچ پی 0050؛ پردازنده Intel Core i5 - 135G7، رم ۱۶ گیگابایت، حافظه ۲۵۶ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل IPS، نرخ نوسازی ۶۰ هرتز. مشاهده مشخصات، قیمت و وض",
+        "product_description": "اچ پی 0050 یکی از محصولات یونیکس شاپ است. این مدل با پردازنده Intel Core i5 - 135G7، رم ۱۶ گیگابایت، حافظه ۲۵۶ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل IPS، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "16": {
@@ -1255,6 +1344,7 @@
         "type": "integrated",
         "model": "VEGA",
         "vram_gb": 0,
+        "vram_mb": 0,
         "vram_type": "GDDR5",
         "tgp": ""
       },
@@ -1297,6 +1387,359 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "اچ پی FC0029 | یونیکس شاپ",
+        "description": "اچ پی FC0029؛ پردازنده AMD Ryzen 3 7320U، رم ۸ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز. مشاهده مشخصات، قیمت و وضعیت",
+        "product_description": "اچ پی FC0029 یکی از محصولات یونیکس شاپ است. این مدل با پردازنده AMD Ryzen 3 7320U، رم ۸ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
+      }
+    },
+    "33": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": false
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": false
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": 0,
+        "vram_mb": 0,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": false
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": false
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      },
+      "seo": {
+        "title": "کیف دستی Tumi 1020 | یونیکس شاپ",
+        "description": "کیف دستی Tumi 1020؛ مشخصات فنی و اطلاعات محصول. مشاهده مشخصات، قیمت و وضعیت موجودی در یونیکس شاپ.",
+        "product_description": "کیف دستی Tumi 1020 یکی از محصولات یونیکس شاپ است. مشخصات فنی این محصول در صفحه ثبت شده است. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
+      }
+    },
+    "34": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": false
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": false
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": 0,
+        "vram_mb": 0,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": false
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": false
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      },
+      "seo": {
+        "title": "کیف دستی 1080 Bentley | یونیکس شاپ",
+        "description": "کیف دستی 1080 Bentley؛ مشخصات فنی و اطلاعات محصول. مشاهده مشخصات، قیمت و وضعیت موجودی در یونیکس شاپ.",
+        "product_description": "کیف دستی 1080 Bentley یکی از محصولات یونیکس شاپ است. مشخصات فنی این محصول در صفحه ثبت شده است. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
+      }
+    },
+    "35": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": false
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": false
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": 0,
+        "vram_mb": 0,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": false
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": false
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      },
+      "seo": {
+        "title": "کیف دستی Bentley 1083 | یونیکس شاپ",
+        "description": "کیف دستی Bentley 1083؛ مشخصات فنی و اطلاعات محصول. مشاهده مشخصات، قیمت و وضعیت موجودی در یونیکس شاپ.",
+        "product_description": "کیف دستی Bentley 1083 یکی از محصولات یونیکس شاپ است. مشخصات فنی این محصول در صفحه ثبت شده است. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
+      }
+    },
+    "36": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": false
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": false
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": 0,
+        "vram_mb": 0,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": false
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": false
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      },
+      "seo": {
+        "title": "کیف کد 2 لنوو | یونیکس شاپ",
+        "description": "کیف کد 2 لنوو؛ مشخصات فنی و اطلاعات محصول. مشاهده مشخصات، قیمت و وضعیت موجودی در یونیکس شاپ.",
+        "product_description": "کیف کد 2 لنوو یکی از محصولات یونیکس شاپ است. مشخصات فنی این محصول در صفحه ثبت شده است. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "37": {
@@ -1336,6 +1779,7 @@
         "type": "hybrid",
         "model": "NVIDIA® GeForce RTX™ 3050",
         "vram_gb": 6,
+        "vram_mb": 6144,
         "vram_type": "GDDR6",
         "tgp": ""
       },
@@ -1378,6 +1822,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "اچ پی Victus | یونیکس شاپ",
+        "description": "اچ پی Victus؛ پردازنده AMD Ryzen™ 5 8645HS، رم ۱۶ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل IPS، نرخ نوسازی ۱۴۴ هرتز. مشاهده مشخصات، قیمت و و",
+        "product_description": "اچ پی Victus یکی از محصولات یونیکس شاپ است. این مدل با پردازنده AMD Ryzen™ 5 8645HS، رم ۱۶ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل IPS، نرخ نوسازی ۱۴۴ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "38": {
@@ -1417,6 +1866,7 @@
         "type": "integrated",
         "model": "AMD Radeon™ Graphics",
         "vram_gb": 2,
+        "vram_mb": 2048,
         "vram_type": "GDDR5",
         "tgp": ""
       },
@@ -1459,6 +1909,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "ایسوس L1504EA | یونیکس شاپ",
+        "description": "ایسوس L1504EA؛ پردازنده AMD Ryzen™ 3 7320U، رم ۸ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز. مشاهده مشخصات، قیمت و وضعی",
+        "product_description": "ایسوس L1504EA یکی از محصولات یونیکس شاپ است. این مدل با پردازنده AMD Ryzen™ 3 7320U، رم ۸ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "39": {
@@ -1498,6 +1953,7 @@
         "type": "integrated",
         "model": "AMD Radeon™ 610M",
         "vram_gb": 2,
+        "vram_mb": 2048,
         "vram_type": "GDDR5",
         "tgp": ""
       },
@@ -1540,6 +1996,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "لنوو Ideapad Slim 3 | یونیکس شاپ",
+        "description": "لنوو Ideapad Slim 3؛ پردازنده AMD Ryzen 3 30، رم ۸ گیگابایت، حافظه ۲۵۶ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل IPS، نرخ نوسازی ۶۰ هرتز. مشاهده مشخصات، قیمت و و",
+        "product_description": "لنوو Ideapad Slim 3 یکی از محصولات یونیکس شاپ است. این مدل با پردازنده AMD Ryzen 3 30، رم ۸ گیگابایت، حافظه ۲۵۶ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل IPS، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "40": {
@@ -1579,6 +2040,7 @@
         "type": "integrated",
         "model": "Intel® UHD Graphics",
         "vram_gb": 0,
+        "vram_mb": 0,
         "vram_type": "GDDR4",
         "tgp": ""
       },
@@ -1621,6 +2083,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "لنوو Idea pad 1 | یونیکس شاپ",
+        "description": "لنوو Idea pad 1؛ پردازنده Intel Celeron® N4500، رم ۸ گیگابایت، حافظه ۲۵۶ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز. مشاهده مشخصات، قیمت و",
+        "product_description": "لنوو Idea pad 1 یکی از محصولات یونیکس شاپ است. این مدل با پردازنده Intel Celeron® N4500، رم ۸ گیگابایت، حافظه ۲۵۶ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "41": {
@@ -1659,6 +2126,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "Monitor Innovers 24\"/FHD/IPS/100Hz | یونیکس شاپ",
+        "description": "Monitor Innovers 24\"/FHD/IPS/100Hz؛ مشخصات فنی و اطلاعات محصول. مشاهده مشخصات، قیمت و وضعیت موجودی در یونیکس شاپ.",
+        "product_description": "Monitor Innovers 24\"/FHD/IPS/100Hz در یونیکس شاپ با مشخصات فنی ثبت‌شده ارائه می‌شود. جزئیات فنی محصول در صفحه درج شده است. مشخصات کامل، قیمت و وضعیت موجودی را مشاهده کنید."
       }
     },
     "43": {
@@ -1697,6 +2169,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "Twisted Minds tm24fhd100ips | یونیکس شاپ",
+        "description": "Twisted Minds tm24fhd100ips؛ اندازه ۲۴ اینچ، رزولوشن 1080×1920، پنل IPS، نرخ نوسازی ۱۰۰ هرتز، روشنایی ۳۰۰ نیت، زمان پاسخ ۱ میلی‌ثانیه. مشاهده مشخصات، قیمت و وضعیت موجودی در یونیکس",
+        "product_description": "Twisted Minds tm24fhd100ips در یونیکس شاپ با مشخصات فنی ثبت‌شده ارائه می‌شود. این مانیتور دارای اندازه ۲۴ اینچ، رزولوشن 1080×1920، پنل IPS، نرخ نوسازی ۱۰۰ هرتز، روشنایی ۳۰۰ نیت، زمان پاسخ ۱ میلی‌ثانیه است. مشخصات کامل، قیمت و وضعیت موجودی را مشاهده کنید."
       }
     },
     "44": {
@@ -1736,6 +2213,7 @@
         "type": "integrated",
         "model": "AMD Radeon™ 610M",
         "vram_gb": 2,
+        "vram_mb": 2048,
         "vram_type": "GDDR5",
         "tgp": ""
       },
@@ -1778,6 +2256,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "لنوو Ideapad Slim 3 | یونیکس شاپ",
+        "description": "لنوو Ideapad Slim 3؛ پردازنده AMD Ryzen 3 30، رم ۸ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل IPS، نرخ نوسازی ۶۰ هرتز. مشاهده مشخصات، قیمت و و",
+        "product_description": "لنوو Ideapad Slim 3 یکی از محصولات یونیکس شاپ است. این مدل با پردازنده AMD Ryzen 3 30، رم ۸ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل IPS، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "45": {
@@ -1817,6 +2300,7 @@
         "type": "integrated",
         "model": "AMD Radeon™ 610M",
         "vram_gb": 2,
+        "vram_mb": 2048,
         "vram_type": "GDDR5",
         "tgp": ""
       },
@@ -1859,6 +2343,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "لنوو ideapad Slim 3 | یونیکس شاپ",
+        "description": "لنوو ideapad Slim 3؛ پردازنده AMD Ryzen 5 40، رم ۱۶ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل IPS، نرخ نوسازی ۶۰ هرتز. مشاهده مشخصات، قیمت و",
+        "product_description": "لنوو ideapad Slim 3 یکی از محصولات یونیکس شاپ است. این مدل با پردازنده AMD Ryzen 5 40، رم ۱۶ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل IPS، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "46": {
@@ -1897,6 +2386,620 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "AOC 27b30h/89 | یونیکس شاپ",
+        "description": "AOC 27b30h/89؛ اندازه ۲۷ اینچ، پنل IPS، نرخ نوسازی ۱۲۰ هرتز، روشنایی ۳۰۰ نیت، زمان پاسخ ۱ میلی‌ثانیه، HDR HDR 10. مشاهده مشخصات، قیمت و وضعیت موجودی در یونیکس شاپ.",
+        "product_description": "AOC 27b30h/89 در یونیکس شاپ با مشخصات فنی ثبت‌شده ارائه می‌شود. این مانیتور دارای اندازه ۲۷ اینچ، پنل IPS، نرخ نوسازی ۱۲۰ هرتز، روشنایی ۳۰۰ نیت، زمان پاسخ ۱ میلی‌ثانیه، HDR HDR 10 است. مشخصات کامل، قیمت و وضعیت موجودی را مشاهده کنید."
+      }
+    },
+    "47": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": false
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": false
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": 0,
+        "vram_mb": 0,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": false
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": false
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      },
+      "seo": {
+        "title": "کیف لپ تاپ دوشی Blue Bag B0156 | یونیکس شاپ",
+        "description": "کیف لپ تاپ دوشی Blue Bag B0156؛ مشخصات فنی و اطلاعات محصول. مشاهده مشخصات، قیمت و وضعیت موجودی در یونیکس شاپ.",
+        "product_description": "کیف لپ تاپ دوشی Blue Bag B0156 یکی از محصولات یونیکس شاپ است. مشخصات فنی این محصول در صفحه ثبت شده است. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
+      }
+    },
+    "48": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": false
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": false
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": 0,
+        "vram_mb": 0,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": false
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": false
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      },
+      "seo": {
+        "title": "کیف لپ تاپ سه کاره Benetton B01020 | یونیکس شاپ",
+        "description": "کیف لپ تاپ سه کاره Benetton B01020؛ مشخصات فنی و اطلاعات محصول. مشاهده مشخصات، قیمت و وضعیت موجودی در یونیکس شاپ.",
+        "product_description": "کیف لپ تاپ سه کاره Benetton B01020 یکی از محصولات یونیکس شاپ است. مشخصات فنی این محصول در صفحه ثبت شده است. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
+      }
+    },
+    "49": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": false
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": false
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": 0,
+        "vram_mb": 0,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": false
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": false
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      },
+      "seo": {
+        "title": "کیف لپ تاپ دوشی Benetton B0226 | یونیکس شاپ",
+        "description": "کیف لپ تاپ دوشی Benetton B0226؛ مشخصات فنی و اطلاعات محصول. مشاهده مشخصات، قیمت و وضعیت موجودی در یونیکس شاپ.",
+        "product_description": "کیف لپ تاپ دوشی Benetton B0226 یکی از محصولات یونیکس شاپ است. مشخصات فنی این محصول در صفحه ثبت شده است. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
+      }
+    },
+    "50": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": false
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": false
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": 0,
+        "vram_mb": 0,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": false
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": false
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      },
+      "seo": {
+        "title": "کیف لپ تاپ سه کاره Benetton کد B0900 | یونیکس شاپ",
+        "description": "کیف لپ تاپ سه کاره Benetton کد B0900؛ مشخصات فنی و اطلاعات محصول. مشاهده مشخصات، قیمت و وضعیت موجودی در یونیکس شاپ.",
+        "product_description": "کیف لپ تاپ سه کاره Benetton کد B0900 یکی از محصولات یونیکس شاپ است. مشخصات فنی این محصول در صفحه ثبت شده است. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
+      }
+    },
+    "51": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": false
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": false
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": 0,
+        "vram_mb": 0,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": false
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": false
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      },
+      "seo": {
+        "title": "کیف لپ تاپ دوشی CAT MC-660 | یونیکس شاپ",
+        "description": "کیف لپ تاپ دوشی CAT MC-660؛ مشخصات فنی و اطلاعات محصول. مشاهده مشخصات، قیمت و وضعیت موجودی در یونیکس شاپ.",
+        "product_description": "کیف لپ تاپ دوشی CAT MC-660 یکی از محصولات یونیکس شاپ است. مشخصات فنی این محصول در صفحه ثبت شده است. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
+      }
+    },
+    "52": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": false
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": false
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": 0,
+        "vram_mb": 0,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": false
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": false
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      },
+      "seo": {
+        "title": "کیف لپ تاپ سه کاره Benetton MC-625 | یونیکس شاپ",
+        "description": "کیف لپ تاپ سه کاره Benetton MC-625؛ مشخصات فنی و اطلاعات محصول. مشاهده مشخصات، قیمت و وضعیت موجودی در یونیکس شاپ.",
+        "product_description": "کیف لپ تاپ سه کاره Benetton MC-625 یکی از محصولات یونیکس شاپ است. مشخصات فنی این محصول در صفحه ثبت شده است. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
+      }
+    },
+    "53": {
+      "type": "laptop",
+      "basic": {
+        "brand": "",
+        "model": ""
+      },
+      "processor": {
+        "brand": "",
+        "model": "",
+        "family": "",
+        "generation": "",
+        "cores": null,
+        "threads": null,
+        "base_clock": "",
+        "boost_clock": "",
+        "cache": "",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": null,
+        "type": "",
+        "speed_mhz": null,
+        "slots": null,
+        "max_capacity_gb": null,
+        "upgradeable": false
+      },
+      "storage": {
+        "capacity_gb": null,
+        "type": "",
+        "interface": "",
+        "slots": null,
+        "additional_slot": false
+      },
+      "graphics": {
+        "type": "",
+        "model": "",
+        "vram_gb": 0,
+        "vram_mb": 0,
+        "vram_type": "",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": null,
+        "resolution": "",
+        "panel": "",
+        "refresh_rate_hz": null,
+        "brightness_nits": null,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": false
+      },
+      "connectivity": {
+        "wifi": "",
+        "bluetooth": "",
+        "ethernet": ""
+      },
+      "ports": {
+        "usb_a": "",
+        "usb_c": "",
+        "thunderbolt": "",
+        "hdmi": "",
+        "displayport": "",
+        "audio": "",
+        "card_reader": ""
+      },
+      "physical": {
+        "battery_wh": null,
+        "weight_kg": null
+      },
+      "features": {
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": false
+      },
+      "software": {
+        "os": ""
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      },
+      "seo": {
+        "title": "کیف لپ تاپ دوشی Benetton کد 226 | یونیکس شاپ",
+        "description": "کیف لپ تاپ دوشی Benetton کد 226؛ مشخصات فنی و اطلاعات محصول. مشاهده مشخصات، قیمت و وضعیت موجودی در یونیکس شاپ.",
+        "product_description": "کیف لپ تاپ دوشی Benetton کد 226 یکی از محصولات یونیکس شاپ است. مشخصات فنی این محصول در صفحه ثبت شده است. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "54": {
@@ -1935,6 +3038,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "LG 24U411 | یونیکس شاپ",
+        "description": "LG 24U411؛ اندازه ۲۳.۸ اینچ، رزولوشن 1080×1920، پنل IPS، نرخ نوسازی ۱۲۰ هرتز، روشنایی ۲۵۰ نیت، زمان پاسخ ۵ میلی‌ثانیه، HDR HDR 10. مشاهده مشخصات، قیمت و وضعیت موجودی در یونیکس شاپ.",
+        "product_description": "LG 24U411 در یونیکس شاپ با مشخصات فنی ثبت‌شده ارائه می‌شود. این مانیتور دارای اندازه ۲۳.۸ اینچ، رزولوشن 1080×1920، پنل IPS، نرخ نوسازی ۱۲۰ هرتز، روشنایی ۲۵۰ نیت، زمان پاسخ ۵ میلی‌ثانیه، HDR HDR 10 است. مشخصات کامل، قیمت و وضعیت موجودی را مشاهده کنید."
       }
     },
     "55": {
@@ -1973,6 +3081,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "LG 24U421 | یونیکس شاپ",
+        "description": "LG 24U421؛ اندازه ۲۳.۸ اینچ، رزولوشن 1080×1920، پنل VA، نرخ نوسازی ۱۰۰ هرتز، روشنایی ۲۵۰ نیت، زمان پاسخ ۵ میلی‌ثانیه، HDR HDR 10. مشاهده مشخصات، قیمت و وضعیت موجودی در یونیکس شاپ.",
+        "product_description": "LG 24U421 در یونیکس شاپ با مشخصات فنی ثبت‌شده ارائه می‌شود. این مانیتور دارای اندازه ۲۳.۸ اینچ، رزولوشن 1080×1920، پنل VA، نرخ نوسازی ۱۰۰ هرتز، روشنایی ۲۵۰ نیت، زمان پاسخ ۵ میلی‌ثانیه، HDR HDR 10 است. مشخصات کامل، قیمت و وضعیت موجودی را مشاهده کنید."
       }
     },
     "56": {
@@ -2012,6 +3125,7 @@
         "type": "integrated",
         "model": "AMD Radeon™ 610M",
         "vram_gb": 2,
+        "vram_mb": 2048,
         "vram_type": "GDDR6",
         "tgp": ""
       },
@@ -2054,6 +3168,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "HP FC0165NIA R3 7320U/8(D5)/512/IPS | یونیکس شاپ",
+        "description": "HP FC0165NIA R3 7320U/8(D5)/512/IPS؛ پردازنده AMD Ryzen 3 7320U، رم ۸ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل IPS، نرخ نوسازی ۶۰ هرتز. مشاه",
+        "product_description": "HP FC0165NIA R3 7320U/8(D5)/512/IPS یکی از محصولات یونیکس شاپ است. این مدل با پردازنده AMD Ryzen 3 7320U، رم ۸ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل IPS، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     },
     "59": {
@@ -2136,6 +3255,11 @@
       "source": {
         "url": "",
         "notes": ""
+      },
+      "seo": {
+        "title": "لنوو Ideapad Slim 3 | یونیکس شاپ",
+        "description": "لنوو Ideapad Slim 3؛ پردازنده Intel Core i5 -13420H، رم ۱۶ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز. مشاهده مشخصات، ق",
+        "product_description": "لنوو Ideapad Slim 3 یکی از محصولات یونیکس شاپ است. این مدل با پردازنده Intel Core i5 -13420H، رم ۱۶ گیگابایت، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ، رزولوشن 1080×1920، پنل TN، نرخ نوسازی ۶۰ هرتز ارائه می‌شود. برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید."
       }
     }
   }

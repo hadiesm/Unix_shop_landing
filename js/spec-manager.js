@@ -47,6 +47,132 @@ function getProductType(product) {
     return "other";
 }
 
+function textValue(value) {
+    return String(value ?? "").trim();
+}
+
+function hasValue(value) {
+    return value !== null && value !== undefined && textValue(value) !== "";
+}
+
+function faNumber(value) {
+    return toPersianDigits(String(value));
+}
+
+function formatResolution(value) {
+    return textValue(value).replace(/\s*[xX*×]\s*/g, "×");
+}
+
+function pushPart(parts, label, value, suffix = "") {
+    if (hasValue(value)) parts.push(`${label} ${textValue(value)}${suffix}`);
+}
+
+function generateSeoContent(product, specs) {
+    const type = getProductType(product);
+    const fallbackName = textValue(product.name) || textValue(product.code) || "محصول";
+    let brand = "", model = "", titleName = fallbackName;
+    let meta = "", description = "";
+
+    if (type === "laptop") {
+        brand = textValue(specs.basic?.brand);
+        model = textValue(specs.basic?.model);
+        titleName = [brand, model].filter(Boolean).join(" ") || fallbackName;
+
+        const highlights = [];
+        const cpu = [specs.processor?.brand, specs.processor?.model].filter(Boolean).join(" ");
+        pushPart(highlights, "پردازنده", cpu);
+        if (hasValue(specs.memory?.capacity_gb)) pushPart(highlights, "رم", `${faNumber(specs.memory.capacity_gb)} گیگابایت`);
+        if (hasValue(specs.storage?.capacity_gb)) pushPart(highlights, "حافظه", `${faNumber(specs.storage.capacity_gb)} گیگابایت ${textValue(specs.storage.type)}`.trim());
+        if (hasValue(specs.display?.size_inch)) pushPart(highlights, "نمایشگر", `${faNumber(specs.display.size_inch)} اینچ`);
+        if (hasValue(specs.display?.resolution)) pushPart(highlights, "رزولوشن", formatResolution(specs.display.resolution));
+        if (hasValue(specs.display?.panel)) pushPart(highlights, "پنل", specs.display.panel);
+        if (hasValue(specs.display?.refresh_rate_hz)) pushPart(highlights, "نرخ نوسازی", `${faNumber(specs.display.refresh_rate_hz)} هرتز`);
+        if (hasValue(specs.graphics?.model)) pushPart(highlights, "گرافیک", specs.graphics.model);
+        if (hasValue(specs.physical?.weight_kg)) pushPart(highlights, "وزن", `${faNumber(specs.physical.weight_kg)} کیلوگرم`);
+
+        const keySentence = highlights.slice(0, 7).join("، ");
+        meta = `${titleName}؛ ${keySentence || "مشخصات فنی و اطلاعات محصول"}. مشاهده مشخصات، قیمت و وضعیت موجودی در یونیکس شاپ.`;
+        description = `${titleName} یکی از محصولات یونیکس شاپ است. ${keySentence ? `این مدل با ${keySentence} ارائه می‌شود. ` : "مشخصات فنی این محصول در صفحه ثبت شده است. "}برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید.`;
+    } else if (type === "monitor") {
+        brand = textValue(specs.basic?.brand);
+        model = textValue(specs.basic?.model);
+        titleName = [brand, model].filter(Boolean).join(" ") || fallbackName;
+
+        const highlights = [];
+        if (hasValue(specs.basic?.size_inch)) pushPart(highlights, "اندازه", `${faNumber(specs.basic.size_inch)} اینچ`);
+        if (hasValue(specs.basic?.resolution)) pushPart(highlights, "رزولوشن", formatResolution(specs.basic.resolution));
+        if (hasValue(specs.image?.panel)) pushPart(highlights, "پنل", specs.image.panel);
+        if (hasValue(specs.image?.refresh_rate_hz)) pushPart(highlights, "نرخ نوسازی", `${faNumber(specs.image.refresh_rate_hz)} هرتز`);
+        if (hasValue(specs.image?.brightness_nits)) pushPart(highlights, "روشنایی", `${faNumber(specs.image.brightness_nits)} نیت`);
+        if (hasValue(specs.image?.response_time_ms)) pushPart(highlights, "زمان پاسخ", `${faNumber(specs.image.response_time_ms)} میلی‌ثانیه`);
+        if (hasValue(specs.image?.adaptive_sync)) pushPart(highlights, "Adaptive Sync", specs.image.adaptive_sync);
+        if (hasValue(specs.image?.hdr)) pushPart(highlights, "HDR", specs.image.hdr);
+
+        const keySentence = highlights.slice(0, 7).join("، ");
+        meta = `${titleName}؛ ${keySentence || "مشخصات فنی و اطلاعات محصول"}. مشاهده مشخصات، قیمت و وضعیت موجودی در یونیکس شاپ.`;
+        description = `${titleName} در یونیکس شاپ با مشخصات فنی ثبت‌شده ارائه می‌شود. ${keySentence ? `این مانیتور دارای ${keySentence} است. ` : "جزئیات فنی محصول در صفحه درج شده است. "}مشخصات کامل، قیمت و وضعیت موجودی را مشاهده کنید.`;
+    } else {
+        titleName = fallbackName;
+        const category = getCategoryPath(product.category_id).split(" / ").filter(Boolean).pop() || "محصول";
+        meta = `${titleName}؛ مشاهده مشخصات، قیمت و وضعیت موجودی ${category} در یونیکس شاپ.`;
+        description = `${titleName}؛ مشاهده اطلاعات و مشخصات محصول، قیمت و وضعیت موجودی در یونیکس شاپ.`;
+    }
+
+    const seoTitle = `${titleName} | یونیکس شاپ`;
+    return {
+        title: seoTitle.slice(0, 70),
+        description: meta.slice(0, 180),
+        productDescription: description.slice(0, 900)
+    };
+}
+
+function fillSeoForm(product, specs) {
+    const existing = specs.seo && typeof specs.seo === "object" ? specs.seo : {};
+
+    // Generate from the values currently visible in the editor.
+    // This is important because the editor is the source of truth after
+    // loading older/partial JSON records.
+    const type = getProductType(product);
+    const liveSpecs = type === "laptop"
+        ? collectLaptopSpecs()
+        : type === "monitor"
+            ? collectMonitorSpecs()
+            : specs;
+
+    const generated = generateSeoContent(product, liveSpecs);
+
+    setValue("seo_title", hasValue(existing.title) ? existing.title : generated.title);
+    setValue("seo_description", hasValue(existing.description) ? existing.description : generated.description);
+    setValue("product_description", hasValue(existing.product_description) ? existing.product_description : generated.productDescription);
+    updateSeoCounters();
+}
+
+function regenerateSeo() {
+    const product = products.find(p => Number(p.id) === Number(selectedProductId));
+    if (!product) return;
+    const type = getProductType(product);
+    const specs = type === "laptop" ? collectLaptopSpecs() : collectMonitorSpecs();
+    const generated = generateSeoContent(product, specs);
+    setValue("seo_title", generated.title);
+    setValue("seo_description", generated.description);
+    setValue("product_description", generated.productDescription);
+    updateSeoCounters();
+    showStatus("توضیحات SEO بر اساس مشخصات فعلی تولید شد. برای ذخیره، دکمه «ذخیره مشخصات» را بزنید.", "info");
+}
+
+function updateSeoCounters() {
+    const pairs = [
+        ["seo_title", "seoTitleCount"],
+        ["seo_description", "seoDescriptionCount"],
+        ["product_description", "productDescriptionCount"]
+    ];
+    pairs.forEach(([field, counter]) => {
+        const input = document.querySelector(`[name="${field}"]`);
+        const target = $(counter);
+        if (input && target) target.textContent = faNumber(input.value.length);
+    });
+}
+
 function blankLaptop() {
     return {
         type: "laptop",
@@ -257,6 +383,7 @@ function selectProduct(id) {
     if (type === "laptop") fillLaptopForm(specs);
     if (type === "monitor") fillMonitorForm(specs);
     fillCommonForm(specs);
+    fillSeoForm(product, specs);
 
     renderProductList();
 }
@@ -379,9 +506,17 @@ async function saveCurrentProduct() {
         return;
     }
 
-    specsData.products[String(product.id)] = type === "laptop"
+    const collected = type === "laptop"
         ? collectLaptopSpecs()
         : collectMonitorSpecs();
+
+    collected.seo = {
+        title: inputValue("seo_title"),
+        description: inputValue("seo_description"),
+        product_description: inputValue("product_description")
+    };
+
+    specsData.products[String(product.id)] = collected;
 
     const result = await writeSpecsFile();
     renderProductList();
@@ -476,6 +611,11 @@ $("specForm").addEventListener("submit", event => {
 });
 
 $("clearProductSpecs").addEventListener("click", clearCurrentProduct);
+$("regenerateSeo").addEventListener("click", regenerateSeo);
+["seo_title", "seo_description", "product_description"].forEach(name => {
+    const element = document.querySelector(`[name="${name}"]`);
+    if (element) element.addEventListener("input", updateSeoCounters);
+});
 $("downloadJson").addEventListener("click", downloadSpecs);
 $("importJson").addEventListener("change", event => {
     const file = event.target.files?.[0];

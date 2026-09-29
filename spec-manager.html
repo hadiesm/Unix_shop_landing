@@ -239,6 +239,30 @@
                                 </section>
                             </div>
 
+                            <section class="spec-group seo-group">
+                                <div class="seo-group-heading">
+                                    <div>
+                                        <h3>توضیحات و سئوی محصول</h3>
+                                        <p>با انتخاب محصول، این بخش بلافاصله از مشخصات واقعی فرم پر می‌شود. بعد از تغییر مشخصات نیز روی «تولید مجدد» بزنید.</p>
+                                    </div>
+                                    <button id="regenerateSeo" type="button" class="secondary-button seo-regenerate-button">↻ تولید مجدد</button>
+                                </div>
+                                <div class="field-grid">
+                                    <label class="full-width-field">عنوان SEO
+                                        <input name="seo_title" maxlength="70" placeholder="عنوان مناسب برای نتایج جستجو">
+                                        <small class="field-hint"><span id="seoTitleCount">۰</span> / ۷۰</small>
+                                    </label>
+                                    <label class="full-width-field">توضیحات متا
+                                        <textarea name="seo_description" rows="4" maxlength="180" placeholder="توضیح کوتاه و دقیق برای نمایش در نتایج گوگل"></textarea>
+                                        <small class="field-hint"><span id="seoDescriptionCount">۰</span> / ۱۸۰</small>
+                                    </label>
+                                    <label class="full-width-field">توضیحات محصول
+                                        <textarea name="product_description" rows="7" maxlength="900" placeholder="توضیحات کامل و طبیعی محصول بر اساس مشخصات فنی"></textarea>
+                                        <small class="field-hint"><span id="productDescriptionCount">۰</span> / ۹۰۰</small>
+                                    </label>
+                                </div>
+                            </section>
+
                             <section class="spec-group common-group">
                                 <h3>منبع اطلاعات</h3>
                                 <div class="field-grid">
@@ -253,6 +277,6 @@
         </section>
     </main>
 
-    <script src="js/spec-manager.js?v=1.0.9"></script>
+    <script src="js/spec-manager.js?v=1.1.0"></script>
 </body>
 </html>
