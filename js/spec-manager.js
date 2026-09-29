@@ -67,62 +67,470 @@ function pushPart(parts, label, value, suffix = "") {
     if (hasValue(value)) parts.push(`${label} ${textValue(value)}${suffix}`);
 }
 
-function generateSeoContent(product, specs) {
-    const type = getProductType(product);
-    const fallbackName = textValue(product.name) || textValue(product.code) || "محصول";
-    let brand = "", model = "", titleName = fallbackName;
-    let meta = "", description = "";
+function normalizeText(value) {
+    return String(value ?? "")
+        .replace(/\s+/g, " ")
+        .trim();
+}
 
-    if (type === "laptop") {
-        brand = textValue(specs.basic?.brand);
-        model = textValue(specs.basic?.model);
-        titleName = [brand, model].filter(Boolean).join(" ") || fallbackName;
+function smartTruncate(text, maxLength) {
+    const value = normalizeText(text);
 
-        const highlights = [];
-        const cpu = [specs.processor?.brand, specs.processor?.model].filter(Boolean).join(" ");
-        pushPart(highlights, "پردازنده", cpu);
-        if (hasValue(specs.memory?.capacity_gb)) pushPart(highlights, "رم", `${faNumber(specs.memory.capacity_gb)} گیگابایت`);
-        if (hasValue(specs.storage?.capacity_gb)) pushPart(highlights, "حافظه", `${faNumber(specs.storage.capacity_gb)} گیگابایت ${textValue(specs.storage.type)}`.trim());
-        if (hasValue(specs.display?.size_inch)) pushPart(highlights, "نمایشگر", `${faNumber(specs.display.size_inch)} اینچ`);
-        if (hasValue(specs.display?.resolution)) pushPart(highlights, "رزولوشن", formatResolution(specs.display.resolution));
-        if (hasValue(specs.display?.panel)) pushPart(highlights, "پنل", specs.display.panel);
-        if (hasValue(specs.display?.refresh_rate_hz)) pushPart(highlights, "نرخ نوسازی", `${faNumber(specs.display.refresh_rate_hz)} هرتز`);
-        if (hasValue(specs.graphics?.model)) pushPart(highlights, "گرافیک", specs.graphics.model);
-        if (hasValue(specs.physical?.weight_kg)) pushPart(highlights, "وزن", `${faNumber(specs.physical.weight_kg)} کیلوگرم`);
-
-        const keySentence = highlights.slice(0, 7).join("، ");
-        meta = `${titleName}؛ ${keySentence || "مشخصات فنی و اطلاعات محصول"}. مشاهده مشخصات، قیمت و وضعیت موجودی در یونیکس شاپ.`;
-        description = `${titleName} یکی از محصولات یونیکس شاپ است. ${keySentence ? `این مدل با ${keySentence} ارائه می‌شود. ` : "مشخصات فنی این محصول در صفحه ثبت شده است. "}برای بررسی جزئیات، قیمت و وضعیت موجودی این محصول، مشخصات فنی آن را مشاهده کنید.`;
-    } else if (type === "monitor") {
-        brand = textValue(specs.basic?.brand);
-        model = textValue(specs.basic?.model);
-        titleName = [brand, model].filter(Boolean).join(" ") || fallbackName;
-
-        const highlights = [];
-        if (hasValue(specs.basic?.size_inch)) pushPart(highlights, "اندازه", `${faNumber(specs.basic.size_inch)} اینچ`);
-        if (hasValue(specs.basic?.resolution)) pushPart(highlights, "رزولوشن", formatResolution(specs.basic.resolution));
-        if (hasValue(specs.image?.panel)) pushPart(highlights, "پنل", specs.image.panel);
-        if (hasValue(specs.image?.refresh_rate_hz)) pushPart(highlights, "نرخ نوسازی", `${faNumber(specs.image.refresh_rate_hz)} هرتز`);
-        if (hasValue(specs.image?.brightness_nits)) pushPart(highlights, "روشنایی", `${faNumber(specs.image.brightness_nits)} نیت`);
-        if (hasValue(specs.image?.response_time_ms)) pushPart(highlights, "زمان پاسخ", `${faNumber(specs.image.response_time_ms)} میلی‌ثانیه`);
-        if (hasValue(specs.image?.adaptive_sync)) pushPart(highlights, "Adaptive Sync", specs.image.adaptive_sync);
-        if (hasValue(specs.image?.hdr)) pushPart(highlights, "HDR", specs.image.hdr);
-
-        const keySentence = highlights.slice(0, 7).join("، ");
-        meta = `${titleName}؛ ${keySentence || "مشخصات فنی و اطلاعات محصول"}. مشاهده مشخصات، قیمت و وضعیت موجودی در یونیکس شاپ.`;
-        description = `${titleName} در یونیکس شاپ با مشخصات فنی ثبت‌شده ارائه می‌شود. ${keySentence ? `این مانیتور دارای ${keySentence} است. ` : "جزئیات فنی محصول در صفحه درج شده است. "}مشخصات کامل، قیمت و وضعیت موجودی را مشاهده کنید.`;
-    } else {
-        titleName = fallbackName;
-        const category = getCategoryPath(product.category_id).split(" / ").filter(Boolean).pop() || "محصول";
-        meta = `${titleName}؛ مشاهده مشخصات، قیمت و وضعیت موجودی ${category} در یونیکس شاپ.`;
-        description = `${titleName}؛ مشاهده اطلاعات و مشخصات محصول، قیمت و وضعیت موجودی در یونیکس شاپ.`;
+    if (value.length <= maxLength) {
+        return value;
     }
 
-    const seoTitle = `${titleName} | یونیکس شاپ`;
+    const clipped = value.slice(0, maxLength);
+
+    // Prefer ending at punctuation.
+    const punctuationPositions = [
+        clipped.lastIndexOf("؛"),
+        clipped.lastIndexOf("،"),
+        clipped.lastIndexOf("."),
+        clipped.lastIndexOf("؟"),
+        clipped.lastIndexOf("!")
+    ];
+
+    const bestPunctuation = Math.max(...punctuationPositions);
+
+    if (bestPunctuation >= Math.floor(maxLength * 0.65)) {
+        return clipped
+            .slice(0, bestPunctuation + 1)
+            .trim();
+    }
+
+    // Otherwise end at a complete word.
+    const lastSpace = clipped.lastIndexOf(" ");
+
+    if (lastSpace >= Math.floor(maxLength * 0.70)) {
+        return clipped
+            .slice(0, lastSpace)
+            .trim()
+            .replace(/[،؛,:]+$/, "");
+    }
+
+    return clipped.trim();
+}
+
+function joinNatural(parts) {
+    return parts
+        .map(normalizeText)
+        .filter(Boolean)
+        .join("، ");
+}
+
+function formatResolutionSmart(value) {
+    const resolution = normalizeText(value)
+        .replace(/\s*[xX*×]\s*/g, "×");
+
+    return resolution;
+}
+
+function formatCpu(specs) {
+    return joinNatural([
+        specs.processor?.brand,
+        specs.processor?.model
+    ]);
+}
+
+function formatLaptopRam(specs) {
+    const capacity = specs.memory?.capacity_gb;
+
+    if (!hasValue(capacity)) {
+        return "";
+    }
+
+    const type = normalizeText(specs.memory?.type);
+
+    return `${faNumber(capacity)} گیگابایت${type ? ` ${type}` : ""}`;
+}
+
+function formatLaptopStorage(specs) {
+    const capacity = specs.storage?.capacity_gb;
+    const type = normalizeText(specs.storage?.type);
+
+    if (!hasValue(capacity)) {
+        return "";
+    }
+
+    let capacityText = `${faNumber(capacity)} گیگابایت`;
+
+    if (type) {
+        capacityText += ` ${type}`;
+    }
+
+    return capacityText;
+}
+
+function formatLaptopDisplay(specs) {
+    const display = specs.display || {};
+
+    const parts = [];
+
+    if (hasValue(display.size_inch)) {
+        parts.push(`${faNumber(display.size_inch)} اینچ`);
+    }
+
+    if (hasValue(display.panel)) {
+        parts.push(display.panel);
+    }
+
+    if (hasValue(display.resolution)) {
+        parts.push(`رزولوشن ${formatResolutionSmart(display.resolution)}`);
+    }
+
+    if (hasValue(display.refresh_rate_hz)) {
+        parts.push(`${faNumber(display.refresh_rate_hz)} هرتز`);
+    }
+
+    return parts.join(" ");
+}
+
+function formatMonitorDisplay(specs) {
+    const basic = specs.basic || {};
+    const image = specs.image || {};
+
+    const parts = [];
+
+    if (hasValue(basic.size_inch)) {
+        parts.push(`${faNumber(basic.size_inch)} اینچ`);
+    }
+
+    if (hasValue(image.panel)) {
+        parts.push(`پنل ${image.panel}`);
+    }
+
+    if (hasValue(basic.resolution)) {
+        parts.push(`رزولوشن ${formatResolutionSmart(basic.resolution)}`);
+    }
+
+    if (hasValue(image.refresh_rate_hz)) {
+        parts.push(`${faNumber(image.refresh_rate_hz)} هرتز`);
+    }
+
+    return parts.join("، ");
+}
+
+function getLaptopTitle(product, specs) {
+    const brand = normalizeText(specs.basic?.brand);
+    const model = normalizeText(specs.basic?.model);
+
+    return (
+        [brand, model]
+            .filter(Boolean)
+            .join(" ")
+        ||
+        normalizeText(product.name)
+        ||
+        normalizeText(product.code)
+        ||
+        "محصول"
+    );
+}
+
+function getMonitorTitle(product, specs) {
+    const brand = normalizeText(specs.basic?.brand);
+    const model = normalizeText(specs.basic?.model);
+
+    return (
+        [brand, model]
+            .filter(Boolean)
+            .join(" ")
+        ||
+        normalizeText(product.name)
+        ||
+        normalizeText(product.code)
+        ||
+        "محصول"
+    );
+}
+
+function generateLaptopSeoContent(product, specs) {
+    const titleName = getLaptopTitle(product, specs);
+
+    const cpu = formatCpu(specs);
+    const ram = formatLaptopRam(specs);
+    const storage = formatLaptopStorage(specs);
+    const display = formatLaptopDisplay(specs);
+    const gpu = normalizeText(specs.graphics?.model);
+    const weight = hasValue(specs.physical?.weight_kg)
+        ? `${faNumber(specs.physical.weight_kg)} کیلوگرم`
+        : "";
+
+    const metaParts = [];
+
+    if (cpu) {
+        metaParts.push(`پردازنده ${cpu}`);
+    }
+
+    if (ram) {
+        metaParts.push(`رم ${ram}`);
+    }
+
+    if (storage) {
+        metaParts.push(`حافظه ${storage}`);
+    }
+
+    if (display) {
+        metaParts.push(`نمایشگر ${display}`);
+    }
+
+    if (gpu) {
+        metaParts.push(`گرافیک ${gpu}`);
+    }
+
+    const metaCore = metaParts.slice(0, 4).join("، ");
+
+    let meta;
+
+    if (metaCore) {
+        meta = `لپ‌تاپ ${titleName} با ${metaCore}. مشاهده مشخصات محصول در یونیکس شاپ.`;
+    } else {
+        meta = `لپ‌تاپ ${titleName}؛ مشاهده مشخصات فنی و اطلاعات محصول در یونیکس شاپ.`;
+    }
+
+    const descriptionParts = [];
+
+    if (cpu) {
+        descriptionParts.push(
+            `لپ‌تاپ ${titleName} با پردازنده ${cpu}`
+        );
+    } else {
+        descriptionParts.push(
+            `لپ‌تاپ ${titleName}`
+        );
+    }
+
+    const mainFeatures = [];
+
+    if (ram) {
+        mainFeatures.push(`رم ${ram}`);
+    }
+
+    if (storage) {
+        mainFeatures.push(`حافظه ${storage}`);
+    }
+
+    if (gpu) {
+        mainFeatures.push(`گرافیک ${gpu}`);
+    }
+
+    if (display) {
+        mainFeatures.push(`نمایشگر ${display}`);
+    }
+
+    if (mainFeatures.length) {
+        descriptionParts.push(
+            `استفاده از ${joinNatural(mainFeatures)}، مشخصات اصلی این مدل را تشکیل می‌دهد`
+        );
+    }
+
+    if (hasValue(specs.display?.touch) && specs.display.touch === true) {
+        descriptionParts.push(
+            "نمایشگر آن لمسی است"
+        );
+    }
+
+    if (hasValue(specs.memory?.upgradeable) && specs.memory.upgradeable === true) {
+        descriptionParts.push(
+            "رم دستگاه قابلیت ارتقا دارد"
+        );
+    }
+
+    if (hasValue(specs.storage?.additional_slot) && specs.storage.additional_slot === true) {
+        descriptionParts.push(
+            "امکان استفاده از اسلات ذخیره‌سازی اضافه نیز وجود دارد"
+        );
+    }
+
+    if (weight) {
+        descriptionParts.push(
+            `وزن دستگاه ${weight} است`
+        );
+    }
+
+    const description = `${descriptionParts.join(" و ")}. برای بررسی جزئیات بیشتر، مشخصات فنی ثبت‌شده محصول را در یونیکس شاپ مشاهده کنید.`;
+
     return {
-        title: seoTitle.slice(0, 70),
-        description: meta.slice(0, 180),
-        productDescription: description.slice(0, 900)
+        title: smartTruncate(
+            `${titleName} | یونیکس شاپ`,
+            70
+        ),
+
+        description: smartTruncate(
+            meta,
+            180
+        ),
+
+        productDescription: smartTruncate(
+            description,
+            900
+        )
+    };
+}
+
+function generateMonitorSeoContent(product, specs) {
+    const titleName = getMonitorTitle(product, specs);
+
+    const display = formatMonitorDisplay(specs);
+
+    const brightness = hasValue(specs.image?.brightness_nits)
+        ? `${faNumber(specs.image.brightness_nits)} نیت`
+        : "";
+
+    const response = hasValue(specs.image?.response_time_ms)
+        ? `${faNumber(specs.image.response_time_ms)} میلی‌ثانیه`
+        : "";
+
+    const sync = normalizeText(specs.image?.adaptive_sync);
+    const hdr = normalizeText(specs.image?.hdr);
+
+    const metaParts = [];
+
+    if (display) {
+        metaParts.push(display);
+    }
+
+    if (brightness) {
+        metaParts.push(`روشنایی ${brightness}`);
+    }
+
+    if (response) {
+        metaParts.push(`زمان پاسخ ${response}`);
+    }
+
+    if (sync) {
+        metaParts.push(`Adaptive Sync ${sync}`);
+    }
+
+    if (hdr) {
+        metaParts.push(`HDR ${hdr}`);
+    }
+
+    const metaCore = metaParts.slice(0, 4).join("، ");
+
+    let meta;
+
+    if (metaCore) {
+        meta = `مانیتور ${titleName} با ${metaCore}. مشاهده مشخصات محصول در یونیکس شاپ.`;
+    } else {
+        meta = `مانیتور ${titleName}؛ مشاهده مشخصات فنی و اطلاعات محصول در یونیکس شاپ.`;
+    }
+
+    const descriptionParts = [];
+
+    if (display) {
+        descriptionParts.push(
+            `مانیتور ${titleName} با ${display}`
+        );
+    } else {
+        descriptionParts.push(
+            `مانیتور ${titleName}`
+        );
+    }
+
+    const extraFeatures = [];
+
+    if (brightness) {
+        extraFeatures.push(
+            `روشنایی ${brightness}`
+        );
+    }
+
+    if (response) {
+        extraFeatures.push(
+            `زمان پاسخ ${response}`
+        );
+    }
+
+    if (sync) {
+        extraFeatures.push(
+            `Adaptive Sync ${sync}`
+        );
+    }
+
+    if (hdr) {
+        extraFeatures.push(
+            `HDR ${hdr}`
+        );
+    }
+
+    if (extraFeatures.length) {
+        descriptionParts.push(
+            `از دیگر مشخصات آن می‌توان به ${joinNatural(extraFeatures)} اشاره کرد`
+        );
+    }
+
+    const description = `${descriptionParts.join(" و ")}. برای مشاهده جزئیات فنی و اطلاعات بیشتر، صفحه محصول در یونیکس شاپ را بررسی کنید.`;
+
+    return {
+        title: smartTruncate(
+            `${titleName} | یونیکس شاپ`,
+            70
+        ),
+
+        description: smartTruncate(
+            meta,
+            180
+        ),
+
+        productDescription: smartTruncate(
+            description,
+            900
+        )
+    };
+}
+
+function generateSeoContent(product, specs) {
+    const type = getProductType(product);
+
+    if (type === "laptop") {
+        return generateLaptopSeoContent(
+            product,
+            specs
+        );
+    }
+
+    if (type === "monitor") {
+        return generateMonitorSeoContent(
+            product,
+            specs
+        );
+    }
+
+    const fallbackName =
+        normalizeText(product.name) ||
+        normalizeText(product.code) ||
+        "محصول";
+
+    const category =
+        getCategoryPath(product.category_id)
+            .split(" / ")
+            .filter(Boolean)
+            .pop() ||
+        "محصول";
+
+    const meta =
+        `${category} ${fallbackName}؛ مشاهده مشخصات فنی و اطلاعات محصول در یونیکس شاپ.`;
+
+    const description =
+        `${fallbackName} از محصولات یونیکس شاپ است. مشخصات فنی و اطلاعات ثبت‌شده این محصول را در صفحه آن مشاهده کنید.`;
+
+    return {
+        title: smartTruncate(
+            `${fallbackName} | یونیکس شاپ`,
+            70
+        ),
+
+        description: smartTruncate(
+            meta,
+            180
+        ),
+
+        productDescription: smartTruncate(
+            description,
+            900
+        )
     };
 }
 
