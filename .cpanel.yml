@@ -1,124 +1,106 @@
 ---
-
 deployment:
   tasks:
 
-  # =====================================================
-  # Paths
-  # =====================================================
+    # =====================================================
+    # Paths
+    # =====================================================
 
-  - export DEPLOYPATH=/home3/fpwucrzv/public_html/
-  - export DEPLOYTMP=/tmp/unix-shop-deploy
+    - export DEPLOYPATH=/home3/fpwucrzv/public_html/
+    - export DEPLOYTMP=/tmp/unix-shop-deploy
 
-  # =====================================================
-  # Generate automatic asset versions
-  #
-  # CSS version depends ONLY on style.css
-  # JS version depends ONLY on main.js
-  #
-  # The Git working copy is never modified.
-  # =====================================================
+    # =====================================================
+    # Automatic asset version
+    #
+    # Changes automatically when CSS or JS changes.
+    # Git working files are NOT modified.
+    # =====================================================
 
-  - export CSS_VERSION=$(/usr/bin/sha1sum css/style.css | /usr/bin/cut -c1-12)
-  - export JS_VERSION=$(/usr/bin/sha1sum js/main.js | /usr/bin/cut -c1-12)
+    - export ASSET_VERSION=$(/usr/bin/sha1sum css/style.css js/main.js | /usr/bin/sha1sum | /usr/bin/cut -c1-12)
 
-  # =====================================================
-  # Prepare temporary deployment directory
-  # =====================================================
+    # =====================================================
+    # Prepare temporary deployment directory
+    # =====================================================
 
-  - /bin/rm -rf "$DEPLOYTMP"
-  - /bin/mkdir -p "$DEPLOYTMP"
-  - /bin/mkdir -p "$DEPLOYTMP/data"
+    - /bin/rm -rf $DEPLOYTMP
+    - /bin/mkdir -p $DEPLOYTMP
+    - /bin/mkdir -p $DEPLOYTMP/data
 
-  # =====================================================
-  # Copy main HTML pages
-  # =====================================================
+    # =====================================================
+    # Main HTML pages
+    # =====================================================
 
-  - /bin/cp index.html "$DEPLOYTMP/"
-  - /bin/cp products.html "$DEPLOYTMP/"
-  - /bin/cp product.html "$DEPLOYTMP/"
-  - /bin/cp about.html "$DEPLOYTMP/"
-  - /bin/cp contact.html "$DEPLOYTMP/"
-  - /bin/cp compare.html "$DEPLOYTMP/"
+    - /bin/cp index.html $DEPLOYTMP/
+    - /bin/cp products.html $DEPLOYTMP/
+    - /bin/cp product.html $DEPLOYTMP/
+    - /bin/cp about.html $DEPLOYTMP/
+    - /bin/cp contact.html $DEPLOYTMP/
+    - /bin/cp compare.html $DEPLOYTMP/
 
-  # =====================================================
-  # Copy SEO files
-  # =====================================================
+    # =====================================================
+    # SEO files
+    # =====================================================
 
-  - /bin/cp robots.txt "$DEPLOYTMP/"
-  - /bin/cp sitemap.xml "$DEPLOYTMP/"
+    - /bin/cp robots.txt $DEPLOYTMP/
+    - /bin/cp sitemap.xml $DEPLOYTMP/
 
-  # =====================================================
-  # Copy website assets
-  # =====================================================
+    # =====================================================
+    # Website assets
+    # =====================================================
 
-  - /bin/cp -R css "$DEPLOYTMP/"
-  - /bin/cp -R js "$DEPLOYTMP/"
-  - /bin/cp -R images "$DEPLOYTMP/"
+    - /bin/cp -R css $DEPLOYTMP/
+    - /bin/cp -R js $DEPLOYTMP/
+    - /bin/cp -R images $DEPLOYTMP/
 
-  # =====================================================
-  # Static data maintained in Git
-  #
-  # availability.json and categories.json are generated
-  # by the accounting app and uploaded separately.
-  # They must never be overwritten by Git deployment.
-  # =====================================================
+    # =====================================================
+    # Product specifications
+    # =====================================================
 
-  - /bin/cp data/product-specs.json "$DEPLOYTMP/data/"
+    - /bin/cp data/product-specs.json $DEPLOYTMP/data/
 
-  # =====================================================
-  # Generated SEO category pages
-  # =====================================================
+    # =====================================================
+    # Generated SEO category pages
+    # =====================================================
 
-  - /bin/cp -R category "$DEPLOYTMP/"
+    - /bin/cp -R category $DEPLOYTMP/
 
-  # =====================================================
-  # Update CSS/JS cache versions
-  #
-  # Only the temporary deployment copy is modified.
-  # Git working files remain untouched.
-  #
-  # Handles:
-  #   css/style.css?v=...
-  #   js/main.js?v=...
-  #
-  # Applies to:
-  #   Main HTML pages
-  #   Generated category pages
-  # =====================================================
+    # =====================================================
+    # Update CSS/JS versions
+    #
+    # Only the temporary deployment copy is modified.
+    # Git files remain completely unchanged.
+    # =====================================================
 
-  - /usr/bin/find "$DEPLOYTMP" -type f -name "*.html" -exec /bin/sed -i -E 's|(css/style\.css\?v=)[^"'"'"'& ]+|\1'"$CSS_VERSION"'"|g; s|(js/main\.js\?v=)[^"'"'"'& ]+|\1'"$JS_VERSION"'"'|g' {} +
+    - /usr/bin/find $DEPLOYTMP -type f -name "*.html" -exec /bin/sed -i -E "s|(css/style\.css\?v=)[^\"'& ]+|\1$ASSET_VERSION|g; s|(js/main\.js\?v=)[^\"'& ]+|\1$ASSET_VERSION|g" {} +
 
-  # =====================================================
-  # Deploy website
-  # =====================================================
+    # =====================================================
+    # Deploy
+    # =====================================================
 
-  - /bin/cp -R "$DEPLOYTMP/." "$DEPLOYPATH/"
+    - /bin/cp -R $DEPLOYTMP/. $DEPLOYPATH/
 
-  # =====================================================
-  # NEVER DEPLOY SPEC MANAGER
-  # =====================================================
+    # =====================================================
+    # NEVER DEPLOY SPEC MANAGER
+    # =====================================================
 
-  - /bin/rm -f "$DEPLOYPATH/spec-manager.html"
-  - /bin/rm -f "$DEPLOYPATH/js/spec-manager.js"
-  - /bin/rm -f "$DEPLOYPATH/css/spec-manager.css"
+    - /bin/rm -f $DEPLOYPATH/spec-manager.html
+    - /bin/rm -f $DEPLOYPATH/js/spec-manager.js
+    - /bin/rm -f $DEPLOYPATH/css/spec-manager.css
+    - /bin/rm -f $DEPLOYPATH/spec-manager-local.py
+    - /bin/rm -f $DEPLOYPATH/open-spec-manager.bat
 
-  # Local Spec Manager server/helper
-  - /bin/rm -f "$DEPLOYPATH/spec-manager-local.py"
-  - /bin/rm -f "$DEPLOYPATH/open-spec-manager.bat"
+    # =====================================================
+    # NEVER DEPLOY DEVELOPMENT / SEO GENERATOR FILES
+    # =====================================================
 
-  # =====================================================
-  # NEVER DEPLOY DEVELOPMENT / SEO GENERATOR FILES
-  # =====================================================
+    - /bin/rm -f $DEPLOYPATH/generate_category_pages.py
+    - /bin/rm -f $DEPLOYPATH/generate_sitemap.py
+    - /bin/rm -f $DEPLOYPATH/refresh_seo_pages.bat
+    - /bin/rm -f $DEPLOYPATH/upload-product-specs.py
+    - /bin/rm -f $DEPLOYPATH/upload-product-specs.bat
 
-  - /bin/rm -f "$DEPLOYPATH/generate_category_pages.py"
-  - /bin/rm -f "$DEPLOYPATH/generate_sitemap.py"
-  - /bin/rm -f "$DEPLOYPATH/refresh_seo_pages.bat"
-  - /bin/rm -f "$DEPLOYPATH/upload-product-specs.py"
-  - /bin/rm -f "$DEPLOYPATH/upload-product-specs.bat"
+    # =====================================================
+    # Cleanup
+    # =====================================================
 
-  # =====================================================
-  # Clean temporary deployment directory
-  # =====================================================
-
-  - /bin/rm -rf "$DEPLOYTMP"
+    - /bin/rm -rf $DEPLOYTMP
