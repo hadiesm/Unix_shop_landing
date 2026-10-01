@@ -4896,3 +4896,45 @@ body.about-page .about-location {
         padding-top: 24px;
     }
 }
+
+/* =====================================================
+   HOME SEARCH — LIGHT THEME TEXT FIX
+===================================================== */
+
+html[data-theme="light"] .home-search,
+html[data-theme="light"] .home-search-box,
+html[data-theme="light"] .home-search-results {
+    color: #1f2937;
+}
+
+html[data-theme="light"] .home-search-label,
+html[data-theme="light"] .home-search-input,
+html[data-theme="light"] .home-search-input::placeholder,
+html[data-theme="light"] .home-search-result-name,
+html[data-theme="light"] .home-search-result-meta,
+html[data-theme="light"] .home-search-result-price,
+html[data-theme="light"] .home-search-hint,
+html[data-theme="light"] .home-search-hint span {
+    color: #1f2937;
+}
+
+html[data-theme="light"] .home-search-input::placeholder {
+    color: #6b7280;
+}
+
+html[data-theme="light"] .home-search-result {
+    color: #1f2937;
+}
+
+html[data-theme="light"] .home-search-result-meta {
+    color: #6b7280;
+}
+
+html[data-theme="light"] .home-search-result-price {
+    color: #2563eb;
+}
+
+html[data-theme="light"] .home-search-empty,
+html[data-theme="light"] .home-search-empty strong {
+    color: #1f2937;
+}
