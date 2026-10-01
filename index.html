@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=1.1.0">
+<link rel="stylesheet" href="css/style.css?v=1.1.1">
 <link rel="icon" href="images/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="images/Favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/Favicon/favicon-16x16.png">
@@ -84,6 +84,63 @@
 
     </div>
 </header>
+
+<!-- =====================================================
+     HOMEPAGE PRODUCT SEARCH
+====================================================== -->
+<section class="home-search-strip" aria-label="جستجوی سریع محصولات">
+    <div class="home-search-strip-inner">
+        <!-- Quick product search -->
+        <div class="home-search" id="homeProductSearch">
+            <div class="home-search-label">
+                <span class="home-search-label-icon" aria-hidden="true">⌕</span>
+                جستجوی سریع محصول
+            </div>
+
+            <div class="home-search-box">
+                <span class="home-search-icon" aria-hidden="true">⌕</span>
+                <input
+                    id="homeSearchInput"
+                    class="home-search-input"
+                    type="search"
+                    autocomplete="off"
+                    spellcheck="false"
+                    placeholder="نام محصول، برند یا کد کالا را جستجو کنید..."
+                    aria-label="جستجوی محصولات"
+                    aria-autocomplete="list"
+                    aria-controls="homeSearchResults"
+                    aria-expanded="false"
+                >
+                <button
+                    id="homeSearchClear"
+                    class="home-search-clear"
+                    type="button"
+                    aria-label="پاک کردن جستجو"
+                    hidden
+                >
+                    ×
+                </button>
+                <span class="home-search-shortcut" aria-hidden="true">/</span>
+            </div>
+
+            <div
+                id="homeSearchResults"
+                class="home-search-results"
+                role="listbox"
+                aria-label="نتایج جستجوی محصول"
+                hidden
+            ></div>
+
+            <div class="home-search-hint">
+                <span>مثلاً:</span>
+                <button type="button" data-home-search-example="Lenovo">لنوو</button>
+                <button type="button" data-home-search-example="HP">HP</button>
+                <button type="button" data-home-search-example="مانیتور">مانیتور</button>
+            </div>
+        </div>
+
+    </div>
+</section>
 
 
 <!-- =====================================================
@@ -685,7 +742,7 @@
 <!-- =====================================================
      JAVASCRIPT
 ====================================================== -->
-<script src="js/main.js?v=1.0.11"></script>
+<script src="js/main.js?v=1.1.0"></script>
 
 <script>(function(){const r=document.documentElement,t=document.querySelector('.theme-toggle');function a(x,p){r.setAttribute('data-theme',x);if(p)try{localStorage.setItem('unix-shop-theme',x)}catch(e){}if(t){let d=x==='dark';t.setAttribute('aria-pressed',d?'true':'false');t.setAttribute('aria-label',d?'فعال کردن حالت روشن':'فعال کردن حالت تاریک');t.title=d?'حالت روشن':'حالت تاریک'}}a(r.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),false);if(t)t.onclick=()=>a(r.getAttribute('data-theme')==='dark'?'light':'dark',true)})();</script></body>
 </html>

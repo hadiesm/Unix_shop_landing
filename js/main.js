@@ -872,3 +872,337 @@ await loadFeaturedProducts();
 }
 
 initializeFeaturedProducts();
+
+
+/* =====================================================
+   HOMEPAGE QUICK PRODUCT SEARCH
+   Fast local search using the existing availability feed.
+===================================================== */
+
+(function initializeHomeProductSearch() {
+
+    const input = document.getElementById("homeSearchInput");
+    const results = document.getElementById("homeSearchResults");
+    const clearButton = document.getElementById("homeSearchClear");
+    const searchBox = document.getElementById("homeProductSearch");
+
+    if (!input || !results || !searchBox) {
+        return;
+    }
+
+    let products = [];
+    let categories = [];
+    let activeIndex = -1;
+    let searchTimer = null;
+
+    const persianDigits = "۰۱۲۳۴۵۶۷۸۹";
+    const arabicDigits = "٠١٢٣٤٥٦٧٨٩";
+
+    function normalizeHomeSearch(value) {
+        return String(value ?? "")
+            .toLowerCase()
+            .trim()
+            .replace(/[يى]/g, "ی")
+            .replace(/ك/g, "ک")
+            .replace(/ۀ/g, "ه")
+            .replace(/ؤ/g, "و")
+            .replace(/إ|أ/g, "ا")
+            .replace(/[\u200c\u200f\u200e]/g, " ")
+            .replace(/[۰-۹]/g, digit => String(persianDigits.indexOf(digit)))
+            .replace(/[٠-٩]/g, digit => String(arabicDigits.indexOf(digit)))
+            .replace(/[\-_\/|,.،؛;:+()\[\]{}]/g, " ")
+            .replace(/\s+/g, " ");
+    }
+
+    function escapeHomeHtml(value) {
+        return String(value ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    function getCategoryName(categoryId) {
+        const category = categories.find(
+            item => Number(item.id) === Number(categoryId)
+        );
+        return category ? String(category.name || "") : "";
+    }
+
+    function formatSearchPrice(value) {
+        const number = Number(value || 0);
+        if (!number) return "قیمت نامشخص";
+        return `${number.toLocaleString("fa-IR")} ریال`;
+    }
+
+    function getSearchImageBase(product) {
+        const code = String(product?.code || "").trim();
+        return code
+            ? `images/products/${encodeURIComponent(code)}`
+            : "";
+    }
+
+    function createSearchResult(product, index) {
+        const name = String(product.name || "محصول بدون نام");
+        const code = String(product.code || "").trim();
+        const category = getCategoryName(product.category_id);
+        const imageBase = getSearchImageBase(product);
+        const activeClass = index === activeIndex ? " is-active" : "";
+
+        return `
+            <button
+                type="button"
+                class="home-search-result${activeClass}"
+                role="option"
+                aria-selected="${index === activeIndex ? "true" : "false"}"
+                data-home-search-index="${index}"
+            >
+                <span class="home-search-result-image">
+                    ${imageBase ? `
+                        <img
+                            src="${imageBase}.webp"
+                            alt=""
+                            loading="lazy"
+                            decoding="async"
+                            data-search-image-base="${imageBase}"
+                            data-search-image-step="webp"
+                            onerror="switchHomeSearchImage(this)"
+                        >
+                    ` : ""}
+                </span>
+
+                <span class="home-search-result-info">
+                    <span class="home-search-result-name">${escapeHomeHtml(name)}</span>
+                    <span class="home-search-result-meta">
+                        ${category ? `<span>${escapeHomeHtml(category)}</span>` : ""}
+                        ${code ? `<span>•</span><span>${escapeHomeHtml(code)}</span>` : ""}
+                    </span>
+                </span>
+
+                <span class="home-search-result-price">${formatSearchPrice(product.sale_price)}</span>
+                <span class="home-search-result-arrow" aria-hidden="true">←</span>
+            </button>
+        `;
+    }
+
+    function openProduct(product) {
+        const code = String(product?.code || "").trim();
+        if (!code) return;
+        window.location.href = `product.html?code=${encodeURIComponent(code)}`;
+    }
+
+    function renderHomeSearch(query) {
+        const normalized = normalizeHomeSearch(query);
+        activeIndex = -1;
+
+        if (!normalized) {
+            results.hidden = true;
+            results.innerHTML = "";
+            input.setAttribute("aria-expanded", "false");
+            return;
+        }
+
+        const terms = normalized.split(" ").filter(Boolean);
+
+        const matches = products
+            .map(product => {
+                const name = normalizeHomeSearch(product.name);
+                const code = normalizeHomeSearch(product.code);
+                const specs = normalizeHomeSearch(product.technical_specs);
+                const notes = normalizeHomeSearch(product.notes);
+                const category = normalizeHomeSearch(getCategoryName(product.category_id));
+
+                const haystack = `${name} ${code} ${specs} ${notes} ${category}`;
+                const allTermsMatch = terms.every(term => haystack.includes(term));
+
+                if (!allTermsMatch) return null;
+
+                let score = 0;
+                if (name === normalized) score += 100;
+                if (name.startsWith(normalized)) score += 45;
+                if (code === normalized) score += 80;
+                if (code.startsWith(normalized)) score += 35;
+                if (category.includes(normalized)) score += 12;
+                if (Number(product.qty) > 0) score += 5;
+
+                return { product, score };
+            })
+            .filter(Boolean)
+            .sort((a, b) => b.score - a.score || String(a.product.name || "").localeCompare(String(b.product.name || ""), "fa"))
+            .slice(0, 6)
+            .map(item => item.product);
+
+        if (!matches.length) {
+            results.innerHTML = `
+                <div class="home-search-empty">
+                    <strong>محصولی پیدا نشد</strong>
+                    عبارت دیگری مثل «لنوو»، «مانیتور» یا کد کالا را امتحان کنید.
+                </div>
+            `;
+            results.hidden = false;
+            input.setAttribute("aria-expanded", "true");
+            return;
+        }
+
+        results.innerHTML = matches
+            .map((product, index) => createSearchResult(product, index))
+            .join("");
+
+        results.hidden = false;
+        input.setAttribute("aria-expanded", "true");
+
+        results.querySelectorAll("[data-home-search-index]").forEach(button => {
+            button.addEventListener("mouseenter", () => {
+                activeIndex = Number(button.dataset.homeSearchIndex);
+                updateActiveSearchResult();
+            });
+
+            button.addEventListener("click", () => {
+                const product = matches[Number(button.dataset.homeSearchIndex)];
+                openProduct(product);
+            });
+        });
+    }
+
+    function updateActiveSearchResult() {
+        results.querySelectorAll("[data-home-search-index]").forEach(button => {
+            const isActive = Number(button.dataset.homeSearchIndex) === activeIndex;
+            button.classList.toggle("is-active", isActive);
+            button.setAttribute("aria-selected", isActive ? "true" : "false");
+        });
+    }
+
+    async function loadHomeSearchData() {
+        try {
+            const [productsResponse, categoriesResponse] = await Promise.all([
+                fetch("data/availability.json", { cache: "no-store" }),
+                fetch("data/categories.json", { cache: "no-store" })
+            ]);
+
+            if (!productsResponse.ok) {
+                throw new Error(`availability.json: HTTP ${productsResponse.status}`);
+            }
+
+            products = await productsResponse.json();
+            categories = categoriesResponse.ok
+                ? await categoriesResponse.json()
+                : [];
+
+            if (!Array.isArray(products)) {
+                products = [];
+            }
+
+            if (!Array.isArray(categories)) {
+                categories = [];
+            }
+
+            products = products.filter(product => Number(product.is_active) === 1);
+        } catch (error) {
+            console.error("Homepage search data error:", error);
+            products = [];
+            categories = [];
+        }
+    }
+
+    input.addEventListener("input", () => {
+        clearButton.hidden = !input.value;
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(() => renderHomeSearch(input.value), 35);
+    });
+
+    input.addEventListener("keydown", event => {
+        const visibleResults = !results.hidden;
+        const resultButtons = results.querySelectorAll("[data-home-search-index]");
+
+        if (event.key === "ArrowDown" && visibleResults && resultButtons.length) {
+            event.preventDefault();
+            activeIndex = Math.min(activeIndex + 1, resultButtons.length - 1);
+            updateActiveSearchResult();
+            resultButtons[activeIndex]?.scrollIntoView({ block: "nearest" });
+            return;
+        }
+
+        if (event.key === "ArrowUp" && visibleResults && resultButtons.length) {
+            event.preventDefault();
+            activeIndex = Math.max(activeIndex - 1, 0);
+            updateActiveSearchResult();
+            resultButtons[activeIndex]?.scrollIntoView({ block: "nearest" });
+            return;
+        }
+
+        if (event.key === "Enter" && visibleResults && activeIndex >= 0 && resultButtons[activeIndex]) {
+            event.preventDefault();
+            resultButtons[activeIndex].click();
+            return;
+        }
+
+        if (event.key === "Escape") {
+            results.hidden = true;
+            input.setAttribute("aria-expanded", "false");
+        }
+    });
+
+    clearButton.addEventListener("click", () => {
+        input.value = "";
+        clearButton.hidden = true;
+        renderHomeSearch("");
+        input.focus();
+    });
+
+    searchBox.querySelectorAll("[data-home-search-example]").forEach(button => {
+        button.addEventListener("click", () => {
+            input.value = button.dataset.homeSearchExample || "";
+            clearButton.hidden = false;
+            renderHomeSearch(input.value);
+            input.focus();
+        });
+    });
+
+    document.addEventListener("keydown", event => {
+        const tag = document.activeElement?.tagName;
+        const isTyping = tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || document.activeElement?.isContentEditable;
+
+        if (event.key === "/" && !isTyping) {
+            event.preventDefault();
+            input.focus();
+        }
+    });
+
+    document.addEventListener("click", event => {
+        if (!searchBox.contains(event.target)) {
+            results.hidden = true;
+            input.setAttribute("aria-expanded", "false");
+        }
+    });
+
+    loadHomeSearchData();
+
+})();
+
+function switchHomeSearchImage(image) {
+    const base = image.dataset.searchImageBase;
+    const step = image.dataset.searchImageStep;
+
+    if (!base) return;
+
+    if (step === "webp") {
+        image.dataset.searchImageStep = "jpg";
+        image.src = `${base}.jpg`;
+        return;
+    }
+
+    if (step === "jpg") {
+        image.dataset.searchImageStep = "jpeg";
+        image.src = `${base}.jpeg`;
+        return;
+    }
+
+    if (step === "jpeg") {
+        image.dataset.searchImageStep = "png";
+        image.src = `${base}.png`;
+        return;
+    }
+
+    image.style.display = "none";
+}
