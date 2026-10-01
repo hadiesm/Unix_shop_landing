@@ -727,17 +727,35 @@ img {
     font-size: 12px;
 }
 
+/* =========================================================
+   HOME SEARCH RESULTS
+   6 visible results + scroll for additional results
+========================================================= */
+
 .home-search-results {
-    position: absolute;
-    top: calc(100% + 9px);
-    right: 0;
-    left: 0;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.11);
-    border-radius: 17px;
-    background: rgba(7, 17, 31, 0.96);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
-    backdrop-filter: blur(22px);
+    max-height: 420px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    scrollbar-width: thin;
+
+    overscroll-behavior: contain;
+
+    position: relative;
+    z-index: 1000;
+}
+
+/* WebKit browsers - Chrome / Edge / Opera */
+.home-search-results::-webkit-scrollbar {
+    width: 7px;
+}
+
+.home-search-results::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+.home-search-results::-webkit-scrollbar-thumb {
+    border-radius: 10px;
 }
 
 .home-search-result {

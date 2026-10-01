@@ -1030,7 +1030,6 @@ initializeFeaturedProducts();
             })
             .filter(Boolean)
             .sort((a, b) => b.score - a.score || String(a.product.name || "").localeCompare(String(b.product.name || ""), "fa"))
-            .slice(0, 6)
             .map(item => item.product);
 
         if (!matches.length) {
@@ -1097,7 +1096,11 @@ initializeFeaturedProducts();
                 categories = [];
             }
 
-            products = products.filter(product => Number(product.is_active) === 1);
+            products = products.filter(
+                product =>
+                    Number(product.is_active) === 1 &&
+                    Number(product.qty) > 0
+            );
         } catch (error) {
             console.error("Homepage search data error:", error);
             products = [];
