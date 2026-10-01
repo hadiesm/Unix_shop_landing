@@ -1,22 +1,50 @@
 # BEGIN cPanel-generated php ini directives, do not edit
+
 # Manual editing of this file may result in unexpected behavior.
+
 # To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
+
 # For more information, read our documentation (https://go.cpanel.net/EA4ModifyINI)
+
 <IfModule php8_module>
    php_value error_log "/home3/fpwucrzv/logs/php.error.log"
    php_flag log_errors On
 </IfModule>
+
 <IfModule lsapi_module>
    php_value error_log "/home3/fpwucrzv/logs/php.error.log"
    php_flag log_errors On
 </IfModule>
-# END cPanel-generated php ini directives, do not edit
+# END cPanel-generated php ini directives
 
 # =====================================================
+
 # UNIX SHOP
-# Redirect root domain to index.html
+
 # =====================================================
 
 RewriteEngine On
 
-RewriteRule ^$ index.html [R=301,L]
+# =====================================================
+
+# DO NOT CACHE HTML PAGES
+
+# =====================================================
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(html?)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
+</IfModule>
+
+# =====================================================
+
+# ROOT DOMAIN → INDEX.HTML
+
+# Internal rewrite only (NO 301 redirect)
+
+# =====================================================
+
+RewriteRule ^$ index.html [L]
