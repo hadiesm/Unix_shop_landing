@@ -5881,3 +5881,134 @@ html[data-theme="light"] .home-search-empty strong {
         max-width: 100%;
     }
 }
+
+/* =========================================================
+   THEME TOGGLE — KEEP EVERYTHING INSIDE HEADER
+   ========================================================= */
+
+.header-actions {
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    min-width: 0;
+    flex-shrink: 1;
+}
+
+.theme-toggle {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 76px;
+    min-width: 76px;
+    max-width: 76px;
+    height: 34px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    flex: 0 0 76px;
+    overflow: hidden;
+}
+
+.theme-toggle-icon {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    min-width: 15px;
+    height: 18px;
+    flex: 0 0 15px;
+    line-height: 1;
+    font-size: 15px;
+}
+
+.theme-toggle-track {
+    display: inline-flex !important;
+    width: 34px;
+    min-width: 34px;
+    flex: 0 0 34px;
+    height: 18px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.theme-toggle-thumb {
+    width: 12px;
+    height: 12px;
+    top: 3px;
+    right: 3px;
+}
+
+html[data-theme="dark"] .theme-toggle-thumb {
+    transform: translateX(-16px);
+}
+
+/* =========================================================
+   MOBILE — PREVENT HEADER OVERFLOW
+   ========================================================= */
+
+@media (max-width: 768px) {
+    .header-actions {
+        gap: 5px;
+        max-width: 90px;
+    }
+
+    .theme-toggle {
+        width: 72px;
+        min-width: 72px;
+        max-width: 72px;
+        flex-basis: 72px;
+        gap: 3px;
+    }
+
+    .theme-toggle-icon {
+        width: 14px;
+        min-width: 14px;
+        flex-basis: 14px;
+        font-size: 14px;
+    }
+
+    .theme-toggle-track {
+        width: 32px;
+        min-width: 32px;
+        flex-basis: 32px;
+    }
+
+    html[data-theme="dark"] .theme-toggle-thumb {
+        transform: translateX(-15px);
+    }
+}
+
+/* Extra-small portrait phones */
+@media (max-width: 380px) {
+    .header-actions {
+        gap: 3px;
+        max-width: 84px;
+    }
+
+    .theme-toggle {
+        width: 68px;
+        min-width: 68px;
+        max-width: 68px;
+        flex-basis: 68px;
+        gap: 2px;
+    }
+
+    .theme-toggle-icon {
+        width: 13px;
+        min-width: 13px;
+        flex-basis: 13px;
+        font-size: 13px;
+    }
+
+    .theme-toggle-track {
+        width: 30px;
+        min-width: 30px;
+        flex-basis: 30px;
+    }
+
+    html[data-theme="dark"] .theme-toggle-thumb {
+        transform: translateX(-14px);
+    }
+}
