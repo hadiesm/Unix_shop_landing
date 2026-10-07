@@ -59,6 +59,12 @@ deployment:
     - /bin/cp data/product-specs.json $DEPLOYTMP/data/
 
     # =====================================================
+    # Customer Awareness
+    # =====================================================
+
+    - /bin/cp data/customer-awareness.json $DEPLOYTMP/data/
+
+    # =====================================================
     # Generated SEO category pages
     # =====================================================
 
