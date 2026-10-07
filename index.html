@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="css/style.css?v=1.4.0" rel="stylesheet"/>
+<link href="css/style.css?v=1.5.0" rel="stylesheet"/>
 <link href="images/favicon.ico" rel="icon" sizes="any"/>
 <link href="images/Favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="images/Favicon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
@@ -54,6 +54,7 @@
 <nav aria-label="منوی اصلی" class="main-nav">
 <a class="nav-link active" href="#home">خانه</a>
 <a class="nav-link" href="#products">محصولات</a>
+<a class="nav-link nav-awareness-link" href="#awareness">راهنمای خرید</a>
 <a class="nav-link" href="products.html?finder=1">پیشنهاد هوشمند</a>
 <a class="nav-link nav-feature-link" href="compare.html">مقایسه</a>
 <a class="nav-link" href="#about">درباره ما</a>
@@ -198,6 +199,34 @@
 </div>
 </div>
 </section>
+<!-- =================================================
+         CUSTOMER AWARENESS
+    ================================================== -->
+<section class="customer-awareness-section" id="awareness" aria-labelledby="awarenessTitle">
+<div class="section-container">
+<div class="customer-awareness-shell reveal">
+<div class="customer-awareness-heading">
+<div>
+<span class="section-eyebrow">آگاهی قبل از خرید</span>
+<h2 class="section-title" id="awarenessTitle">قبل از خرید، <span>آگاه باشید.</span></h2>
+<p class="customer-awareness-lead">نکته‌ها و هشدارهای مهم بازار لپ‌تاپ و محصولات دیجیتال؛ برای اینکه مشخصات واقعی را از عبارت‌های تبلیغاتی تشخیص دهید.</p>
+</div>
+<div class="customer-awareness-badge">
+<span class="customer-awareness-badge-icon">✓</span>
+<div><strong>راهنمای مشتری</strong><small>اطلاعاتی که ارزش دانستن دارد</small></div>
+</div>
+</div>
+<div class="customer-awareness-grid" id="customerAwarenessGrid" aria-live="polite">
+<div class="customer-awareness-loading">در حال بارگذاری راهنمای خرید...</div>
+</div>
+<div class="customer-awareness-footer">
+<span>پوسترهای جدید به‌مرور به این بخش اضافه می‌شوند.</span>
+<span class="customer-awareness-footer-mark">یونیکس شاپ • انتخاب آگاهانه</span>
+</div>
+</div>
+</div>
+</section>
+
 <!-- =================================================
          CATEGORIES
     ================================================== -->
@@ -451,6 +480,6 @@
 <!-- =====================================================
      JAVASCRIPT
 ====================================================== -->
-<script src="js/main.js?v=1.3.0"></script>
+<script src="js/main.js?v=1.4.0"></script>
 <script>(function(){const r=document.documentElement,t=document.querySelector('.theme-toggle');function a(x,p){r.setAttribute('data-theme',x);if(p)try{localStorage.setItem('unix-shop-theme',x)}catch(e){}if(t){let d=x==='dark';t.setAttribute('aria-pressed',d?'true':'false');t.setAttribute('aria-label',d?'فعال کردن حالت روشن':'فعال کردن حالت تاریک');t.title=d?'حالت روشن':'حالت تاریک'}}a(r.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),false);if(t)t.onclick=()=>a(r.getAttribute('data-theme')==='dark'?'light':'dark',true)})();</script></body>
 </html>

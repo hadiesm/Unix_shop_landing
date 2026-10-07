@@ -6012,3 +6012,388 @@ html[data-theme="dark"] .theme-toggle-thumb {
         transform: translateX(-14px);
     }
 }
+
+/* =====================================================
+   CUSTOMER AWARENESS — DOMINANT HOMEPAGE SECTION
+===================================================== */
+.customer-awareness-section {
+    position: relative;
+    overflow: hidden;
+    padding: 92px 0;
+    background:
+        radial-gradient(circle at 8% 18%, rgba(239, 68, 68, 0.16), transparent 26%),
+        radial-gradient(circle at 92% 80%, rgba(37, 99, 235, 0.14), transparent 30%),
+        linear-gradient(180deg, #f8fafc 0%, #eef4fb 100%);
+    color: #0f172a;
+}
+
+.customer-awareness-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: linear-gradient(rgba(15, 23, 42, 0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
+    background-size: 34px 34px;
+    mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+}
+
+.customer-awareness-shell {
+    position: relative;
+    z-index: 1;
+    padding: 38px;
+    border: 1px solid rgba(148, 163, 184, 0.32);
+    border-radius: 32px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 28px 80px rgba(15, 23, 42, 0.14);
+    backdrop-filter: blur(14px);
+}
+
+.customer-awareness-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 34px;
+}
+
+.customer-awareness-lead {
+    max-width: 760px;
+    margin-top: 14px;
+    color: #64748b;
+    font-size: 15px;
+    line-height: 2;
+}
+
+.customer-awareness-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 0 0 auto;
+    padding: 12px 16px;
+    border: 1px solid #fecaca;
+    border-radius: 16px;
+    background: #fff7f7;
+    color: #7f1d1d;
+}
+
+.customer-awareness-badge-icon {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border-radius: 12px;
+    background: #dc2626;
+    color: #fff;
+    font-weight: 900;
+}
+
+.customer-awareness-badge strong,
+.customer-awareness-badge small { display: block; }
+.customer-awareness-badge strong { font-size: 13px; }
+.customer-awareness-badge small { margin-top: 2px; color: #991b1b; font-size: 10px; }
+
+.customer-awareness-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.customer-awareness-card {
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(250px, .65fr);
+    min-height: 430px;
+    border: 1px solid #dbe4ef;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.09);
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+
+.customer-awareness-card.is-featured {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 1.55fr) minmax(320px, .45fr);
+    min-height: 570px;
+    border-color: #bfdbfe;
+    box-shadow: 0 24px 65px rgba(37, 99, 235, 0.15), 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.customer-awareness-card:hover {
+    transform: translateY(-5px);
+    border-color: #93c5fd;
+    box-shadow: 0 24px 55px rgba(15, 23, 42, 0.14);
+}
+
+.customer-awareness-poster-button {
+    position: relative;
+    display: block;
+    min-width: 0;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: #e8eef6;
+    cursor: zoom-in;
+    overflow: hidden;
+}
+
+.customer-awareness-poster-frame {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 430px;
+    padding: 18px;
+    background: linear-gradient(145deg, #dbeafe, #f8fafc);
+}
+
+.customer-awareness-card.is-featured .customer-awareness-poster-frame {
+    min-height: 570px;
+}
+
+.customer-awareness-poster-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 394px;
+    object-fit: contain;
+    border-radius: 14px;
+    box-shadow: 0 14px 35px rgba(15, 23, 42, 0.18);
+    background: #fff;
+    transition: transform .45s ease;
+}
+
+.customer-awareness-card:hover .customer-awareness-poster-frame img { transform: scale(1.015); }
+
+.customer-awareness-zoom {
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 13px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, .84);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, .2);
+}
+
+.customer-awareness-zoom b { font-size: 15px; }
+
+.customer-awareness-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 34px;
+    background: linear-gradient(180deg, #fff, #f8fbff);
+}
+
+.customer-awareness-tag {
+    display: inline-flex;
+    align-self: flex-start;
+    margin-bottom: 13px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #eff6ff;
+    color: #2563eb;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.customer-awareness-card-content h3 {
+    color: #0f172a;
+    font-size: clamp(22px, 2.4vw, 34px);
+    line-height: 1.45;
+    font-weight: 900;
+}
+
+.customer-awareness-card-content p {
+    margin-top: 14px;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 2;
+}
+
+.customer-awareness-open {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    margin-top: 24px;
+    padding: 13px 15px;
+    border: 1px solid #dbe4ef;
+    border-radius: 13px;
+    background: #f8fafc;
+    color: #0f172a;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.customer-awareness-open:hover { background: #eff6ff; border-color: #93c5fd; color: #1d4ed8; }
+.customer-awareness-open span { font-size: 18px; transition: transform .25s ease; }
+.customer-awareness-open:hover span { transform: translateX(-4px); }
+
+.customer-awareness-loading,
+.customer-awareness-empty {
+    grid-column: 1 / -1;
+    padding: 50px;
+    text-align: center;
+    border: 1px dashed #cbd5e1;
+    border-radius: 20px;
+    color: #64748b;
+    background: rgba(255,255,255,.6);
+}
+
+.customer-awareness-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 22px;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.customer-awareness-footer-mark { color: #2563eb; font-weight: 800; }
+
+.customer-awareness-modal[hidden] { display: none; }
+.customer-awareness-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: grid;
+    place-items: center;
+    padding: 22px;
+}
+
+.customer-awareness-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(2, 6, 23, .88);
+    backdrop-filter: blur(8px);
+}
+
+.customer-awareness-modal-dialog {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: min(1180px, 96vw);
+    height: min(94vh, 1000px);
+    padding: 16px;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 22px;
+    background: #0f172a;
+    box-shadow: 0 35px 100px rgba(0,0,0,.5);
+}
+
+.customer-awareness-modal-title {
+    padding: 4px 52px 13px 12px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.customer-awareness-modal-close {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 2;
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 50%;
+    background: rgba(255,255,255,.08);
+    color: #fff;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.customer-awareness-modal-image-wrap {
+    min-height: 0;
+    flex: 1;
+    display: grid;
+    place-items: center;
+    overflow: auto;
+    border-radius: 14px;
+    background: #020617;
+}
+
+.customer-awareness-modal-image {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+body.customer-awareness-modal-open { overflow: hidden; }
+
+html[data-theme="dark"] .customer-awareness-section {
+    background:
+        radial-gradient(circle at 8% 18%, rgba(239,68,68,.14), transparent 27%),
+        radial-gradient(circle at 92% 80%, rgba(59,130,246,.14), transparent 30%),
+        linear-gradient(180deg, #080f1c 0%, #0d1727 100%);
+    color: #f8fafc;
+}
+
+html[data-theme="dark"] .customer-awareness-shell {
+    border-color: #263247;
+    background: rgba(15,23,42,.78);
+    box-shadow: 0 28px 80px rgba(0,0,0,.3);
+}
+
+html[data-theme="dark"] .customer-awareness-lead,
+html[data-theme="dark"] .customer-awareness-footer { color: #94a3b8; }
+html[data-theme="dark"] .customer-awareness-badge { background: rgba(127,29,29,.25); border-color: #7f1d1d; color: #fecaca; }
+html[data-theme="dark"] .customer-awareness-badge small { color: #fca5a5; }
+html[data-theme="dark"] .customer-awareness-card { border-color: #263247; background: #111827; box-shadow: 0 18px 45px rgba(0,0,0,.24); }
+html[data-theme="dark"] .customer-awareness-card:hover { border-color: #3b82f6; }
+html[data-theme="dark"] .customer-awareness-poster-frame { background: linear-gradient(145deg,#172033,#0f172a); }
+html[data-theme="dark"] .customer-awareness-card-content { background: linear-gradient(180deg,#111827,#0f172a); }
+html[data-theme="dark"] .customer-awareness-card-content h3 { color: #f1f5f9; }
+html[data-theme="dark"] .customer-awareness-card-content p { color: #94a3b8; }
+html[data-theme="dark"] .customer-awareness-tag { background: #172554; color: #93c5fd; }
+html[data-theme="dark"] .customer-awareness-open { border-color: #334155; background: #172033; color: #e2e8f0; }
+html[data-theme="dark"] .customer-awareness-open:hover { background: #172554; border-color: #3b82f6; color: #93c5fd; }
+html[data-theme="dark"] .customer-awareness-footer-mark { color: #60a5fa; }
+html[data-theme="dark"] .customer-awareness-loading,
+html[data-theme="dark"] .customer-awareness-empty { border-color: #334155; color: #94a3b8; background: rgba(17,24,39,.55); }
+
+@media (max-width: 900px) {
+    .customer-awareness-section { padding: 70px 0; }
+    .customer-awareness-shell { padding: 24px; border-radius: 26px; }
+    .customer-awareness-heading { align-items: flex-start; flex-direction: column; }
+    .customer-awareness-badge { width: 100%; }
+    .customer-awareness-card,
+    .customer-awareness-card.is-featured { grid-template-columns: 1fr; min-height: 0; }
+    .customer-awareness-poster-frame,
+    .customer-awareness-card.is-featured .customer-awareness-poster-frame { min-height: auto; }
+    .customer-awareness-poster-frame img { height: auto; min-height: 0; max-height: none; }
+    .customer-awareness-card-content { padding: 24px; }
+}
+
+@media (max-width: 600px) {
+    .customer-awareness-section { padding: 52px 0; }
+    .customer-awareness-shell { padding: 16px; border-radius: 22px; }
+    .customer-awareness-heading { margin-bottom: 22px; }
+    .customer-awareness-lead { font-size: 12px; line-height: 1.9; }
+    .customer-awareness-grid { grid-template-columns: 1fr; }
+    .customer-awareness-card.is-featured { grid-column: auto; }
+    .customer-awareness-poster-frame { padding: 10px; }
+    .customer-awareness-poster-frame img { border-radius: 10px; }
+    .customer-awareness-zoom { left: 20px; bottom: 20px; font-size: 10px; }
+    .customer-awareness-card-content { padding: 20px; }
+    .customer-awareness-card-content h3 { font-size: 21px; }
+    .customer-awareness-footer { flex-direction: column; align-items: flex-start; }
+    .customer-awareness-modal { padding: 8px; }
+    .customer-awareness-modal-dialog { width: 100%; height: 96vh; padding: 9px; border-radius: 16px; }
+}

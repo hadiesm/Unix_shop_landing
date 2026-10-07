@@ -1209,3 +1209,148 @@ function switchHomeSearchImage(image) {
 
     image.style.display = "none";
 }
+
+/* =====================================================
+   CUSTOMER AWARENESS POSTERS
+   Posters are managed from data/customer-awareness.json.
+   Add a new image + JSON item to expand this section.
+===================================================== */
+(function initCustomerAwareness() {
+    const grid = document.getElementById("customerAwarenessGrid");
+    if (!grid) return;
+
+    const dataUrl = "data/customer-awareness.json?v=1.0.0";
+
+    function escapeHtml(value) {
+        return String(value ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    function renderPosters(items) {
+        if (!Array.isArray(items) || !items.length) {
+            grid.innerHTML = `
+                <div class="customer-awareness-empty">
+                    راهنمای جدید به‌زودی اضافه می‌شود.
+                </div>
+            `;
+            return;
+        }
+
+        grid.innerHTML = items.map((item, index) => `
+            <article class="customer-awareness-card ${index === 0 ? "is-featured" : ""} reveal">
+                <button
+                    class="customer-awareness-poster-button"
+                    type="button"
+                    data-awareness-image="${escapeHtml(item.image)}"
+                    data-awareness-title="${escapeHtml(item.title)}"
+                    aria-label="مشاهده بزرگ پوستر: ${escapeHtml(item.title)}"
+                >
+                    <span class="customer-awareness-poster-frame">
+                        <img
+                            src="${escapeHtml(item.image)}"
+                            alt="${escapeHtml(item.alt || item.title)}"
+                            loading="${index === 0 ? "eager" : "lazy"}"
+                            decoding="async"
+                        >
+                        <span class="customer-awareness-zoom">مشاهده بزرگ <b>↗</b></span>
+                    </span>
+                </button>
+                <div class="customer-awareness-card-content">
+                    <span class="customer-awareness-tag">${escapeHtml(item.tag || "راهنمای خرید")}</span>
+                    <h3>${escapeHtml(item.title)}</h3>
+                    <p>${escapeHtml(item.description || "")}</p>
+                    <button
+                        class="customer-awareness-open"
+                        type="button"
+                        data-awareness-image="${escapeHtml(item.image)}"
+                        data-awareness-title="${escapeHtml(item.title)}"
+                    >
+                        خواندن پوستر
+                        <span>←</span>
+                    </button>
+                </div>
+            </article>
+        `).join("");
+
+        grid.querySelectorAll(".reveal").forEach((element, index) => {
+            requestAnimationFrame(() => {
+                setTimeout(() => element.classList.add("revealed"), index * 70);
+            });
+        });
+
+        grid.querySelectorAll("[data-awareness-image]").forEach(button => {
+            button.addEventListener("click", () => {
+                openPoster(button.dataset.awarenessImage, button.dataset.awarenessTitle);
+            });
+        });
+    }
+
+    let modal;
+
+    function createModal() {
+        if (modal) return modal;
+
+        modal = document.createElement("div");
+        modal.className = "customer-awareness-modal";
+        modal.hidden = true;
+        modal.innerHTML = `
+            <div class="customer-awareness-modal-backdrop" data-awareness-close></div>
+            <div class="customer-awareness-modal-dialog" role="dialog" aria-modal="true" aria-label="نمایش بزرگ پوستر">
+                <button class="customer-awareness-modal-close" type="button" data-awareness-close aria-label="بستن">×</button>
+                <div class="customer-awareness-modal-title"></div>
+                <div class="customer-awareness-modal-image-wrap">
+                    <img class="customer-awareness-modal-image" alt="">
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+
+        modal.querySelectorAll("[data-awareness-close]").forEach(button => {
+            button.addEventListener("click", closeModal);
+        });
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape" && modal && !modal.hidden) closeModal();
+        });
+
+        return modal;
+    }
+
+    function openPoster(image, title) {
+        const dialog = createModal();
+        const imageElement = dialog.querySelector(".customer-awareness-modal-image");
+        const titleElement = dialog.querySelector(".customer-awareness-modal-title");
+        imageElement.src = image;
+        imageElement.alt = title || "پوستر راهنمای خرید";
+        titleElement.textContent = title || "راهنمای خرید";
+        dialog.hidden = false;
+        document.body.classList.add("customer-awareness-modal-open");
+        dialog.querySelector(".customer-awareness-modal-close")?.focus();
+    }
+
+    function closeModal() {
+        if (!modal) return;
+        modal.hidden = true;
+        document.body.classList.remove("customer-awareness-modal-open");
+    }
+
+    fetch(dataUrl, { cache: "no-store" })
+        .then(response => {
+            if (!response.ok) throw new Error(`customer-awareness.json: HTTP ${response.status}`);
+            return response.json();
+        })
+        .then(renderPosters)
+        .catch(error => {
+            console.error("Customer awareness error:", error);
+            grid.innerHTML = `
+                <div class="customer-awareness-empty">
+                    راهنمای خرید در حال آماده‌سازی است.
+                </div>
+            `;
+        });
+})();
+
