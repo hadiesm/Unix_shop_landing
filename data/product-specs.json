@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-29T08:05:14.606Z",
+  "updated_at": "2026-10-12T11:03:25.743Z",
   "products": {
     "1": {
       "type": "laptop",
@@ -3260,6 +3260,93 @@
         "title": "لنوو Ideapad Slim 3 | یونیکس شاپ",
         "description": "لپ‌تاپ لنوو Ideapad Slim 3 با پردازنده Intel، Core i5 -13420H، رم ۱۶ گیگابایت DDR4، حافظه ۵۱۲ گیگابایت NVMe SSD، نمایشگر ۱۵.۶ اینچ TN رزولوشن 1080×1920 ۶۰ هرتز.",
         "product_description": "لپ‌تاپ لنوو Ideapad Slim 3 با پردازنده Intel، Core i5 -13420H و استفاده از رم ۱۶ گیگابایت DDR4، حافظه ۵۱۲ گیگابایت NVMe SSD، گرافیک Intel® UHD Graphics، نمایشگر ۱۵.۶ اینچ TN رزولوشن 1080×1920 ۶۰ هرتز، مشخصات اصلی این مدل را تشکیل می‌دهد و رم دستگاه قابلیت ارتقا دارد و وزن دستگاه ۱.۷ کیلوگرم است. برای بررسی جزئیات بیشتر، مشخصات فنی ثبت‌شده محصول را در یونیکس شاپ مشاهده کنید."
+      }
+    },
+    "64": {
+      "type": "laptop",
+      "basic": {
+        "brand": "ایسر",
+        "model": "Aspire Lite AL15-52H"
+      },
+      "processor": {
+        "brand": "Intel",
+        "model": "Core 5 210H",
+        "family": "intel",
+        "generation": "13",
+        "cores": 8,
+        "threads": 12,
+        "base_clock": "2.1GHz",
+        "boost_clock": "up to 4.8 GHz",
+        "cache": "12",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": 16,
+        "type": "LPDDR5",
+        "speed_mhz": 4800,
+        "slots": 1,
+        "max_capacity_gb": 16,
+        "upgradeable": false
+      },
+      "storage": {
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCIe NVMe M.۲ Gen۴",
+        "slots": 1,
+        "additional_slot": false
+      },
+      "graphics": {
+        "type": "integrated",
+        "model": "Intel® UHD Graphics",
+        "vram_gb": 0.5,
+        "vram_mb": 512,
+        "vram_type": "GDDR5",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "IPS",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 250,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": false
+      },
+      "connectivity": {
+        "wifi": "Wi-Fi 6E(802.11ax)",
+        "bluetooth": "Bluetooth® 5.3 Wireless Card",
+        "ethernet": "دارد"
+      },
+      "ports": {
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "ندارد"
+      },
+      "physical": {
+        "battery_wh": 55.2,
+        "weight_kg": 1.7
+      },
+      "features": {
+        "keyboard_backlight": true,
+        "fingerprint": false,
+        "webcam": true
+      },
+      "software": {
+        "os": "Windows 11 Home"
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      },
+      "seo": {
+        "title": "Acer Aspire Lite Core 5 210H/16(D5)/512/Ips/Backlight | یونیکس شاپ",
+        "description": "لپ‌تاپ Acer Aspire Lite Core 5 210H/16(D5)/512/Ips/Backlight؛ مشاهده مشخصات فنی و اطلاعات محصول در یونیکس شاپ.",
+        "product_description": "لپ‌تاپ Acer Aspire Lite Core 5 210H/16(D5)/512/Ips/Backlight. برای بررسی جزئیات بیشتر، مشخصات فنی ثبت‌شده محصول را در یونیکس شاپ مشاهده کنید."
       }
     }
   }
