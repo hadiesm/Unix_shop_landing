@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="css/style.css?v=1.5.0" rel="stylesheet"/>
+<link href="css/style.css?v=1.7.0" rel="stylesheet"/>
 <link href="images/favicon.ico" rel="icon" sizes="any"/>
 <link href="images/Favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="images/Favicon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
@@ -290,6 +290,18 @@
 </div>
 </div>
 </section>
+
+<!-- Price and availability notice: placed between the hero and the catalog -->
+<section class="price-status-section" aria-label="وضعیت قیمت و موجودی محصولات">
+    <div class="section-container">
+        <div class="price-status-strip" role="note">
+            <span class="price-status-mark" aria-hidden="true">✓</span>
+            <p class="price-status-message"><strong>قیمت‌ها و موجودی‌های سایت به‌روز هستند.</strong><span>برای خرید تماس بگیرید.</span></p>
+            <a href="contact.html" class="price-status-cta">تماس برای خرید <span aria-hidden="true">←</span></a>
+        </div>
+    </div>
+</section>
+
 <!-- =================================================
          FEATURED PRODUCTS
     ================================================== -->
@@ -480,6 +492,6 @@
 <!-- =====================================================
      JAVASCRIPT
 ====================================================== -->
-<script src="js/main.js?v=1.4.0"></script>
+<script src="js/main.js?v=1.6.0"></script>
 <script>(function(){const r=document.documentElement,t=document.querySelector('.theme-toggle');function a(x,p){r.setAttribute('data-theme',x);if(p)try{localStorage.setItem('unix-shop-theme',x)}catch(e){}if(t){let d=x==='dark';t.setAttribute('aria-pressed',d?'true':'false');t.setAttribute('aria-label',d?'فعال کردن حالت روشن':'فعال کردن حالت تاریک');t.title=d?'حالت روشن':'حالت تاریک'}}a(r.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),false);if(t)t.onclick=()=>a(r.getAttribute('data-theme')==='dark'?'light':'dark',true)})();</script></body>
 </html>

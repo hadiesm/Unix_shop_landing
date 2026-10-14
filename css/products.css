@@ -2700,3 +2700,33 @@ SEO PRODUCT PAGE LINK
     }
 
 }
+
+/* Price confirmation and direct contact on product cards */
+.product-card-price-note {
+    margin-top: 12px;
+    color: var(--text-muted, #64748b);
+    font-size: 10px;
+    line-height: 1.8;
+}
+.product-card-contact-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 39px;
+    margin-top: 8px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: var(--accent, #2563eb);
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 800;
+    transition: filter .2s ease, transform .2s ease;
+}
+.product-card-contact-link:hover { filter: brightness(1.07); transform: translateY(-1px); }
+.product-card-contact-link:focus-visible,
+.catalog-price-notice-link:focus-visible,
+.product-contact-primary:focus-visible,
+.product-contact-phone:focus-visible { outline: 3px solid rgba(59,130,246,.55); outline-offset: 3px; }

@@ -465,6 +465,8 @@ function createFeaturedProductCard(product) {
 
                 </div>
 
+                <a href="contact.html" class="product-card-contact-link" aria-label="تماس برای خرید ${escapeFeaturedHtml(product.name || "محصول")}">تماس برای خرید <span aria-hidden="true">←</span></a>
+
             </div>
 
         </article>

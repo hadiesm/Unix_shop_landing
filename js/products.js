@@ -1192,6 +1192,8 @@ function createProductCard(product) {
 
                 </div>
 
+                <a class="product-card-contact-link" href="contact.html" aria-label="تماس برای خرید ${productName}">تماس برای خرید <span aria-hidden="true">←</span></a>
+
             </div>
 
         </article>

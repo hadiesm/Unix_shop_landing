@@ -355,7 +355,7 @@ def build_page(category: dict, products: list[dict], categories_by_id: dict[int,
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css?v=1.0.9">
+<link rel="stylesheet" href="/css/style.css?v=1.7.0">
 <link rel="stylesheet" href="/css/category-page.css?v=1.0.0">
 <link rel="icon" href="/images/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/Favicon/favicon-32x32.png">
@@ -457,7 +457,7 @@ function categoryImageFallback(img) {{
 }}
 refreshCategoryLiveData();
 </script>
-<script src="/js/main.js?v=1.0.11" defer></script>
+<script src="/js/main.js?v=1.6.0" defer></script>
 </body>
 </html>
 '''
