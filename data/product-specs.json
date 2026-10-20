@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-12T11:03:25.743Z",
+  "updated_at": "2026-10-20T07:22:14.836Z",
   "products": {
     "1": {
       "type": "laptop",
@@ -3347,6 +3347,441 @@
         "title": "Acer Aspire Lite Core 5 210H/16(D5)/512/Ips/Backlight | یونیکس شاپ",
         "description": "لپ‌تاپ Acer Aspire Lite Core 5 210H/16(D5)/512/Ips/Backlight؛ مشاهده مشخصات فنی و اطلاعات محصول در یونیکس شاپ.",
         "product_description": "لپ‌تاپ Acer Aspire Lite Core 5 210H/16(D5)/512/Ips/Backlight. برای بررسی جزئیات بیشتر، مشخصات فنی ثبت‌شده محصول را در یونیکس شاپ مشاهده کنید."
+      }
+    },
+    "65": {
+      "type": "laptop",
+      "basic": {
+        "brand": "اچ پی",
+        "model": "HP 850 G6"
+      },
+      "processor": {
+        "brand": "Intel",
+        "model": "Core i5 - 8265U",
+        "family": "Intel",
+        "generation": "8",
+        "cores": 4,
+        "threads": 8,
+        "base_clock": "1.60GHz",
+        "boost_clock": "up to 3.90 GHz",
+        "cache": "6",
+        "tdp": "15W"
+      },
+      "memory": {
+        "capacity_gb": 8,
+        "type": "DDR4",
+        "speed_mhz": 2400,
+        "slots": 2,
+        "max_capacity_gb": 32,
+        "upgradeable": true
+      },
+      "storage": {
+        "capacity_gb": 256,
+        "type": "NVMe SSD",
+        "interface": "PCIe NVMe 3.0",
+        "slots": 1,
+        "additional_slot": false
+      },
+      "graphics": {
+        "type": "integrated",
+        "model": "Intel® UHD Graphics",
+        "vram_gb": 0.125,
+        "vram_mb": 128,
+        "vram_type": "GDDR4",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "IPS",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 250,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": false
+      },
+      "connectivity": {
+        "wifi": "Intel® Dual Band Wireless-AC 9560 802.11a/b/g/n/ac (2x2) Wi-Fi®",
+        "bluetooth": "Bluetooth® 5 Combo",
+        "ethernet": "دارد"
+      },
+      "ports": {
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "دارد"
+      },
+      "physical": {
+        "battery_wh": 56,
+        "weight_kg": 1.78
+      },
+      "features": {
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
+      },
+      "software": {
+        "os": "بدون سیستم عامل"
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      },
+      "seo": {
+        "title": "HP 850 G6 i5/8265U/8(D4)/256 | Stock | یونیکس شاپ",
+        "description": "لپ‌تاپ HP 850 G6 i5/8265U/8(D4)/256 | Stock؛ مشاهده مشخصات فنی و اطلاعات محصول در یونیکس شاپ.",
+        "product_description": "لپ‌تاپ HP 850 G6 i5/8265U/8(D4)/256 | Stock. برای بررسی جزئیات بیشتر، مشخصات فنی ثبت‌شده محصول را در یونیکس شاپ مشاهده کنید."
+      }
+    },
+    "66": {
+      "type": "laptop",
+      "basic": {
+        "brand": "اچ پی",
+        "model": "FC0171NIA"
+      },
+      "processor": {
+        "brand": "AMD",
+        "model": "Athlon 7120U",
+        "family": "AMD",
+        "generation": "13",
+        "cores": 2,
+        "threads": 2,
+        "base_clock": "2.1GHz",
+        "boost_clock": "up to 3.5 GHz",
+        "cache": "2",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": 8,
+        "type": "LPDDR5",
+        "speed_mhz": 3200,
+        "slots": 1,
+        "max_capacity_gb": 8,
+        "upgradeable": false
+      },
+      "storage": {
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCIe NVMe M.۲ Gen۴",
+        "slots": 1,
+        "additional_slot": false
+      },
+      "graphics": {
+        "type": "integrated",
+        "model": "Radeon 610M",
+        "vram_gb": 0.5,
+        "vram_mb": 512,
+        "vram_type": "GDDR5",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "TN",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 250,
+        "response_time_ms": null,
+        "color_gamut": "45%",
+        "touch": false
+      },
+      "connectivity": {
+        "wifi": "Realtek Wi-Fi 6 (2x2)",
+        "bluetooth": "Bluetooth® 5.4 wireless card",
+        "ethernet": "ندارد"
+      },
+      "ports": {
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "ندارد"
+      },
+      "physical": {
+        "battery_wh": 41,
+        "weight_kg": 1.59
+      },
+      "features": {
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
+      },
+      "software": {
+        "os": "بدون سیستم عامل"
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      },
+      "seo": {
+        "title": "HP FC0171NIA Athlon 7120U/8(D5)/512 | یونیکس شاپ",
+        "description": "لپ‌تاپ HP FC0171NIA Athlon 7120U/8(D5)/512؛ مشاهده مشخصات فنی و اطلاعات محصول در یونیکس شاپ.",
+        "product_description": "لپ‌تاپ HP FC0171NIA Athlon 7120U/8(D5)/512. برای بررسی جزئیات بیشتر، مشخصات فنی ثبت‌شده محصول را در یونیکس شاپ مشاهده کنید."
+      }
+    },
+    "67": {
+      "type": "laptop",
+      "basic": {
+        "brand": "لنوو",
+        "model": "Ideapad Slim 3"
+      },
+      "processor": {
+        "brand": "Intel",
+        "model": "Core i3 - 1305U",
+        "family": "Intel",
+        "generation": "13",
+        "cores": 5,
+        "threads": 6,
+        "base_clock": "1.60GHz",
+        "boost_clock": "up to 4.6 GHz",
+        "cache": "10",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": 8,
+        "type": "LPDDR5",
+        "speed_mhz": 4800,
+        "slots": 1,
+        "max_capacity_gb": 8,
+        "upgradeable": false
+      },
+      "storage": {
+        "capacity_gb": 256,
+        "type": "NVMe SSD",
+        "interface": "PCIe® 4.0 SSD",
+        "slots": 1,
+        "additional_slot": false
+      },
+      "graphics": {
+        "type": "integrated",
+        "model": "Intel® UHD Graphics",
+        "vram_gb": 0.5,
+        "vram_mb": 512,
+        "vram_type": "GDDR5",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "TN",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 250,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": false
+      },
+      "connectivity": {
+        "wifi": "Wi-Fi 6E(802.11ax)",
+        "bluetooth": "Bluetooth® 5.3 Wireless Card",
+        "ethernet": "ندارد"
+      },
+      "ports": {
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "ندارد"
+      },
+      "physical": {
+        "battery_wh": 47,
+        "weight_kg": 1.78
+      },
+      "features": {
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
+      },
+      "software": {
+        "os": "بدون سیستم عامل"
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      },
+      "seo": {
+        "title": "Lenovo ips3 i3 1305U/8(D5)256 | یونیکس شاپ",
+        "description": "لپ‌تاپ Lenovo ips3 i3 1305U/8(D5)256؛ مشاهده مشخصات فنی و اطلاعات محصول در یونیکس شاپ.",
+        "product_description": "لپ‌تاپ Lenovo ips3 i3 1305U/8(D5)256. برای بررسی جزئیات بیشتر، مشخصات فنی ثبت‌شده محصول را در یونیکس شاپ مشاهده کنید."
+      }
+    },
+    "68": {
+      "type": "laptop",
+      "basic": {
+        "brand": "لنوو",
+        "model": "V15"
+      },
+      "processor": {
+        "brand": "AMD",
+        "model": "Athlon 7120U",
+        "family": "AMD",
+        "generation": "13",
+        "cores": 2,
+        "threads": 2,
+        "base_clock": "2.1GHz",
+        "boost_clock": "up to 3.90 GHz",
+        "cache": "6",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": 8,
+        "type": "LPDDR5",
+        "speed_mhz": 4800,
+        "slots": 1,
+        "max_capacity_gb": 8,
+        "upgradeable": false
+      },
+      "storage": {
+        "capacity_gb": 512,
+        "type": "NVMe SSD",
+        "interface": "PCIe NVMe M.۲ Gen۴",
+        "slots": 1,
+        "additional_slot": false
+      },
+      "graphics": {
+        "type": "integrated",
+        "model": "Radeon 610M",
+        "vram_gb": 2,
+        "vram_mb": 2048,
+        "vram_type": "GDDR5",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "VA",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 250,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": false
+      },
+      "connectivity": {
+        "wifi": "Wi-Fi 6E(802.11ax)",
+        "bluetooth": "Bluetooth® 5.3 Wireless Card",
+        "ethernet": "دارد"
+      },
+      "ports": {
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "دارد"
+      },
+      "physical": {
+        "battery_wh": 47,
+        "weight_kg": 1.78
+      },
+      "features": {
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
+      },
+      "software": {
+        "os": "بدون سیستم عامل"
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      },
+      "seo": {
+        "title": "Lenovo V15 Athlon 7120U/8(D5)/512 | یونیکس شاپ",
+        "description": "لپ‌تاپ Lenovo V15 Athlon 7120U/8(D5)/512؛ مشاهده مشخصات فنی و اطلاعات محصول در یونیکس شاپ.",
+        "product_description": "لپ‌تاپ Lenovo V15 Athlon 7120U/8(D5)/512. برای بررسی جزئیات بیشتر، مشخصات فنی ثبت‌شده محصول را در یونیکس شاپ مشاهده کنید."
+      }
+    },
+    "69": {
+      "type": "laptop",
+      "basic": {
+        "brand": "لنوو",
+        "model": "V15"
+      },
+      "processor": {
+        "brand": "Intel",
+        "model": "Celeron N4500",
+        "family": "Intel",
+        "generation": "13",
+        "cores": 2,
+        "threads": 2,
+        "base_clock": "1.1GHz",
+        "boost_clock": "up to 2.8 GHz",
+        "cache": "4",
+        "tdp": ""
+      },
+      "memory": {
+        "capacity_gb": 8,
+        "type": "DDR4",
+        "speed_mhz": 2933,
+        "slots": 1,
+        "max_capacity_gb": 8,
+        "upgradeable": false
+      },
+      "storage": {
+        "capacity_gb": 256,
+        "type": "NVMe SSD",
+        "interface": "PCIe NVMe 3.0",
+        "slots": 1,
+        "additional_slot": false
+      },
+      "graphics": {
+        "type": "integrated",
+        "model": "Intel® UHD Graphics",
+        "vram_gb": 0.5,
+        "vram_mb": 512,
+        "vram_type": "GDDR4",
+        "tgp": ""
+      },
+      "display": {
+        "size_inch": 15.6,
+        "resolution": "1080*1920",
+        "panel": "TN",
+        "refresh_rate_hz": 60,
+        "brightness_nits": 250,
+        "response_time_ms": null,
+        "color_gamut": "",
+        "touch": false
+      },
+      "connectivity": {
+        "wifi": "Wi-Fi® 6, 802.11ax 2x2 Wi-Fi®",
+        "bluetooth": "Bluetooth® 5.2",
+        "ethernet": "دارد"
+      },
+      "ports": {
+        "usb_a": "2",
+        "usb_c": "1",
+        "thunderbolt": "ندارد",
+        "hdmi": "دارد",
+        "displayport": "ندارد",
+        "audio": "جک 3.5",
+        "card_reader": "دارد"
+      },
+      "physical": {
+        "battery_wh": 45,
+        "weight_kg": 1.78
+      },
+      "features": {
+        "keyboard_backlight": false,
+        "fingerprint": false,
+        "webcam": true
+      },
+      "software": {
+        "os": "بدون سیستم عامل"
+      },
+      "source": {
+        "url": "",
+        "notes": ""
+      },
+      "seo": {
+        "title": "Lenovo V15 N4500/8(D4)8256 | یونیکس شاپ",
+        "description": "لپ‌تاپ Lenovo V15 N4500/8(D4)8256؛ مشاهده مشخصات فنی و اطلاعات محصول در یونیکس شاپ.",
+        "product_description": "لپ‌تاپ Lenovo V15 N4500/8(D4)8256. برای بررسی جزئیات بیشتر، مشخصات فنی ثبت‌شده محصول را در یونیکس شاپ مشاهده کنید."
       }
     }
   }
