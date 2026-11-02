@@ -73,6 +73,10 @@ secrets.json
 config.local.*
 settings.local.*
 
+# Website images are uploaded separately with upload-images.py, not Git.
+/images/
+.image-upload-state.json
+
 # Upload / temporary folders
 uploads/
 tmp/
